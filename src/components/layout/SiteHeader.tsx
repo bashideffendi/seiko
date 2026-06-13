@@ -26,7 +26,7 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 border-b border-[var(--border)] bg-[var(--bg)]">
       <div className="mx-auto flex h-[68px] max-w-[1180px] items-center justify-between gap-4 px-5 sm:px-8 lg:px-10">
-        <Wordmark compact />
+        <Wordmark />
 
         <nav className="hidden items-center gap-1 md:flex">
           {NAV.map((item) => (
