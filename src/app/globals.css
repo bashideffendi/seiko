@@ -1,0 +1,145 @@
+@import "tailwindcss";
+
+:root {
+  /* === Brand accent — burgundy (Tiny Hour Tales) === */
+  --burgundy-50:  #FBF4F3;
+  --burgundy-100: #F3E1DD;
+  --burgundy-200: #E1BAB3;
+  --burgundy-300: #C6857C;
+  --burgundy-400: #A55850;
+  --burgundy-500: #7E342D;
+  --burgundy-600: #5E1B1B;
+  --burgundy-700: #4D0E1C;
+  --burgundy-800: #3A0C16;
+  --burgundy-900: #2A0810;
+
+  /* === Gold — refined for light backgrounds === */
+  --gold-100: #F1E7D2;
+  --gold-200: #E4D0A8;
+  --gold-300: #D6BB84;
+  --gold-400: #BE9A5C;
+  --gold-500: #A8854B;
+  --gold-600: #8C6C39;
+  --gold-700: #73582C;
+
+  /* === Neutral — clean off-white editorial === */
+  --bg:         #F6F5F1;
+  --bg-subtle:  #EFEDE6;
+  --surface:    #FFFFFF;
+  --surface-2:  #FAF9F5;
+  --border:     #E5E2DA;
+  --border-strong: #D2CEC2;
+  --ink:        #1C1814;
+  --ink-muted:  #645B50;
+  --ink-soft:   #938A7C;
+
+  /* === Semantic === */
+  --success: #2F6B4A;  --success-bg: #E7F0E5;
+  --warning: #8A5E0C;  --warning-bg: #F6EDD7;
+  --danger:  #93211F;  --danger-bg:  #F6DED9;
+  --info:    #295A86;  --info-bg:    #E0E9F0;
+
+  --radius-sm: 4px;
+  --radius: 8px;
+  --radius-lg: 14px;
+
+  --font-serif: var(--font-fraunces), "Spectral", Georgia, "Times New Roman", serif;
+  --font-sans:  var(--font-geist), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono:  var(--font-geist-mono), ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-bg-subtle: var(--bg-subtle);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+  --color-ink-soft: var(--ink-soft);
+  --color-burgundy: var(--burgundy-700);
+  --color-burgundy-600: var(--burgundy-600);
+  --color-burgundy-500: var(--burgundy-500);
+  --color-gold: var(--gold-500);
+  --color-gold-600: var(--gold-600);
+  --color-gold-700: var(--gold-700);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-danger: var(--danger);
+  --color-info: var(--info);
+  --font-sans: var(--font-sans);
+  --font-serif: var(--font-serif);
+  --font-mono: var(--font-mono);
+}
+
+html, body { height: 100%; }
+
+body {
+  background-color: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  letter-spacing: -0.006em;
+}
+
+/* === Typography === */
+.font-serif { font-family: var(--font-serif); }
+.font-mono  { font-family: var(--font-mono); }
+.tabular { font-variant-numeric: tabular-nums; }
+h1, h2, h3 { letter-spacing: -0.018em; }
+
+/* Small-caps label — restrained gold */
+.label {
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 0.66rem;
+  font-weight: 500;
+  font-family: var(--font-mono);
+  color: var(--gold-600);
+}
+
+/* Thin gold hairline */
+.rule-gold { height: 1px; border: 0; background: linear-gradient(to right, transparent, var(--gold-400), transparent); }
+
+/* Hairline divider with centered label */
+.flourish {
+  display: flex; align-items: center; gap: 0.85rem; color: var(--gold-600);
+}
+.flourish::before, .flourish::after {
+  content: ""; flex: 1; height: 1px;
+  background: linear-gradient(to right, transparent, var(--border-strong), transparent);
+}
+
+/* Subtle corner ticks (kept very light for the clean look) */
+.crop { position: relative; }
+.crop::before, .crop::after {
+  content: ""; position: absolute; width: 11px; height: 11px;
+  border-color: var(--gold-400); border-style: solid; opacity: 0.45; pointer-events: none;
+}
+.crop::before { top: 0; left: 0; border-width: 1px 0 0 1px; }
+.crop::after  { bottom: 0; right: 0; border-width: 0 1px 1px 0; }
+
+/* Vertical lockup divider */
+.lockdiv { width: 1px; align-self: stretch; background: var(--border-strong); }
+
+/* Focus ring */
+*:focus-visible {
+  outline: 2px solid var(--gold-500); outline-offset: 2px; border-radius: var(--radius-sm);
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+input[type="number"] { -moz-appearance: textfield; appearance: textfield; }
+
+::-webkit-scrollbar { width: 11px; height: 11px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 10px; border: 3px solid var(--bg); }
+::-webkit-scrollbar-thumb:hover { background: var(--ink-soft); }
+
+::selection { background: var(--gold-200); color: var(--burgundy-900); }
+
+@keyframes rise { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+.rise { opacity: 0; animation: rise 0.7s cubic-bezier(0.16, 0.84, 0.34, 1) forwards; }
+@media (prefers-reduced-motion: reduce) { .rise { animation: none; opacity: 1; } }
