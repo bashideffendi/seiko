@@ -845,6 +845,126 @@
     "rangeConfidence": "approximate"
   },
   {
+    "caliber": "3800",
+    "aliases": [
+      "3800A",
+      "38QT"
+    ],
+    "startYear": 1971,
+    "endYear": 1982,
+    "movementType": "quartz",
+    "jewels": 7,
+    "family": "Seiko 38 (38xx analog quartz)",
+    "notableRefs": [
+      "3800-7000",
+      "3800-7010"
+    ],
+    "notes": "Time-only '38QT' member of Seiko's first volume-production analog quartz family (Suwa Cal. 38, 1971). Early 16,384 Hz crystal, later 32 kHz; deadbeat seconds. Window widened to 1982 to avoid false contradiction; family ran through the 1970s into the early 1980s.",
+    "rangeConfidence": "established"
+  },
+  {
+    "caliber": "3802",
+    "aliases": [
+      "3802A",
+      "38QTC"
+    ],
+    "startYear": 1971,
+    "endYear": 1982,
+    "movementType": "quartz",
+    "jewels": 7,
+    "family": "Seiko 38 (38xx analog quartz)",
+    "notableRefs": [
+      "3802-7000"
+    ],
+    "notes": "Date-only '38QTC' variant of the Suwa Cal. 38 quartz family, 7 jewels, stepper motor. Mid-range Seiko Quartz models.",
+    "rangeConfidence": "established"
+  },
+  {
+    "caliber": "3803",
+    "aliases": [
+      "3803A",
+      "38QTW"
+    ],
+    "startYear": 1971,
+    "endYear": 1982,
+    "movementType": "quartz",
+    "jewels": 7,
+    "family": "Seiko 38 (38xx analog quartz)",
+    "notableRefs": [
+      "3803-7000",
+      "3803-7010",
+      "3803-7060"
+    ],
+    "notes": "Day/date '38QTW' analog quartz, early 16,384 Hz crystal, later 32 kHz; mid-range Seiko Quartz models. Window widened to 1982.",
+    "rangeConfidence": "established"
+  },
+  {
+    "caliber": "3819",
+    "aliases": [
+      "3819A",
+      "38DQC"
+    ],
+    "startYear": 1971,
+    "endYear": 1982,
+    "movementType": "quartz",
+    "jewels": 7,
+    "family": "Seiko 38 (38xx analog quartz)",
+    "notes": "'38DQC' Duo-Time GMT with date and a second time-zone hand within the Cal. 38 quartz family. Rated ~10 sec/month.",
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "3820",
+    "aliases": [
+      "3820A",
+      "38SQ"
+    ],
+    "startYear": 1971,
+    "endYear": 1982,
+    "movementType": "quartz",
+    "jewels": 7,
+    "family": "Seiko 38 (38xx analog quartz)",
+    "notableRefs": [
+      "3820-6000"
+    ],
+    "notes": "Time-only '38SQ' higher-grade member of Seiko's first volume-production quartz family.",
+    "rangeConfidence": "established"
+  },
+  {
+    "caliber": "3823",
+    "aliases": [
+      "3823A",
+      "38SQW"
+    ],
+    "startYear": 1971,
+    "endYear": 1982,
+    "movementType": "quartz",
+    "jewels": 7,
+    "family": "Seiko 38 (38xx analog quartz)",
+    "notableRefs": [
+      "3823-7000",
+      "3823-7001"
+    ],
+    "notes": "Day/date '38SQW' high-grade quartz; VFA examples adjusted to ~5 sec/month over temperature and 6 positions (5 jewels in VFA spec).",
+    "rangeConfidence": "established"
+  },
+  {
+    "caliber": "3870",
+    "aliases": [
+      "3870A",
+      "38RW"
+    ],
+    "startYear": 1971,
+    "endYear": 1982,
+    "movementType": "quartz",
+    "jewels": 7,
+    "family": "Seiko 38 (38xx analog quartz)",
+    "notableRefs": [
+      "3870-0010"
+    ],
+    "notes": "Rare time-only '38RW' high-torque movement used in Seiko's first quartz railway pocket watch (model QYE010, 3870-0010), produced ~1976 in very small numbers, never catalogued. Rated ~10 sec/month. Window kept wide (1971-1982) to safely contain the ~1976 production without false contradiction.",
+    "rangeConfidence": "approximate"
+  },
+  {
     "caliber": "5216",
     "aliases": [
       "5216A"
@@ -917,6 +1037,39 @@
     "rangeConfidence": "approximate"
   },
   {
+    "caliber": "3882",
+    "aliases": [
+      "3882A",
+      "38 SUPERIOR",
+      "DFA"
+    ],
+    "startYear": 1973,
+    "endYear": 1983,
+    "movementType": "quartz",
+    "jewels": 7,
+    "family": "Seiko 38 (38xx analog quartz)",
+    "notes": "High-end date-only 'Superior'/'DFA' variant accurate to ~1 sec/month, Seiko's top quartz rating of the era; thermocompensated, early 16 kHz crystal later 32 kHz. Window widened to 1983.",
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "3883",
+    "aliases": [
+      "3883A",
+      "38 SUPERIOR",
+      "DFA"
+    ],
+    "startYear": 1973,
+    "endYear": 1983,
+    "movementType": "quartz",
+    "jewels": 7,
+    "family": "Seiko 38 (38xx analog quartz)",
+    "notableRefs": [
+      "3883-7000"
+    ],
+    "notes": "High-end day/date 'Superior'/'DFA' caliber; first analog thermo-compensated quartz movement, ~1 sec/month. Superior line launched 1974 priced 220,000 yen. Window widened to 1983.",
+    "rangeConfidence": "established"
+  },
+  {
     "caliber": "4205",
     "aliases": [
       "4205A",
@@ -953,6 +1106,174 @@
     "notes": "Ladies-size 42-series automatic day/date, 21 jewels, 21600 bph, roughly 24h power reserve.",
     "longRun": true,
     "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "3862",
+    "aliases": [
+      "3862A",
+      "38QRC"
+    ],
+    "startYear": 1974,
+    "endYear": 1985,
+    "movementType": "quartz",
+    "jewels": 7,
+    "family": "Seiko 38 (38xx analog quartz)",
+    "notes": "Cost-reduced 'QR' line date-only variant of Cal. 38; appeared in the mid-1970s and continued into the 1980s. Window widened to 1985.",
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "3863",
+    "aliases": [
+      "3863A",
+      "38QRW"
+    ],
+    "startYear": 1974,
+    "endYear": 1985,
+    "movementType": "quartz",
+    "jewels": 7,
+    "family": "Seiko 38 (38xx analog quartz)",
+    "notes": "Cost-reduced 'QR' line day/date variant of Cal. 38; appeared in the mid-1970s and ran into the 1980s. Window widened to 1985.",
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "4822",
+    "aliases": [
+      "4822A",
+      "4822B"
+    ],
+    "startYear": 1974,
+    "endYear": 1982,
+    "movementType": "quartz",
+    "jewels": 7,
+    "family": "King Quartz",
+    "notableRefs": [
+      "4822-8000",
+      "4822-8009",
+      "4822-8010"
+    ],
+    "notes": "Day-date King Quartz analog quartz, 7 jewels; A variant then B variant from June 1977 with smaller battery. Second hand jumps to nearest even index when crown is pulled.",
+    "rangeConfidence": "established"
+  },
+  {
+    "caliber": "4823",
+    "aliases": [
+      "4823A",
+      "4823B"
+    ],
+    "startYear": 1974,
+    "endYear": 1982,
+    "movementType": "quartz",
+    "jewels": 7,
+    "family": "King Quartz",
+    "notableRefs": [
+      "4823-8120",
+      "4823-8000",
+      "4823-8130"
+    ],
+    "notes": "Day-date King Quartz analog quartz, 7 jewels; same base as 4822 with added day. B variant from June 1977 used smaller battery.",
+    "rangeConfidence": "established"
+  },
+  {
+    "caliber": "4842",
+    "aliases": [
+      "4842A",
+      "4842B"
+    ],
+    "startYear": 1974,
+    "endYear": 1982,
+    "movementType": "quartz",
+    "jewels": 8,
+    "family": "Grand Quartz",
+    "notableRefs": [
+      "QNJ020",
+      "QNJ604"
+    ],
+    "notes": "Date-only Grand Quartz analog quartz; A variant replaced by B from June 1977.",
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "4843",
+    "aliases": [
+      "4843A",
+      "4843B"
+    ],
+    "startYear": 1974,
+    "endYear": 1982,
+    "movementType": "quartz",
+    "jewels": 8,
+    "family": "Grand Quartz",
+    "notableRefs": [
+      "4843-8000"
+    ],
+    "notes": "Day-date Grand Quartz analog quartz, Seiko's first watch to carry the Grand Quartz name; ~5 s/mo with battery-life indicator. B variant from June 1977.",
+    "rangeConfidence": "established"
+  },
+  {
+    "caliber": "0634",
+    "aliases": [
+      "0634A",
+      "0634B"
+    ],
+    "startYear": 1975,
+    "endYear": 1982,
+    "movementType": "digital-quartz",
+    "jewels": 0,
+    "family": "notable vintage digital / LCD",
+    "notableRefs": [
+      "0634-5009",
+      "0634-5019",
+      "0634-5001"
+    ],
+    "notes": "World's first multifunction digital quartz chronograph (1975), LCD, 1/10s and lap timing. Made by Suwa Seikosha.",
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "4821",
+    "startYear": 1975,
+    "endYear": 1982,
+    "movementType": "quartz",
+    "jewels": 7,
+    "family": "King Quartz",
+    "notableRefs": [
+      "4821-8000"
+    ],
+    "notes": "Time-only analog quartz King Quartz, Suwa-made, 7 jewels, ~10-15 sec/month accuracy; second hand jumps to next 10-second marker when hacked.",
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "0674",
+    "aliases": [
+      "0674A"
+    ],
+    "startYear": 1976,
+    "endYear": 1982,
+    "movementType": "digital-quartz",
+    "jewels": 0,
+    "family": "notable vintage digital / LCD",
+    "notableRefs": [
+      "0674-5009",
+      "0674-5000"
+    ],
+    "notes": "LCD quartz used in the 0674-5009 'Quartz LC' worn by James Bond in The Spy Who Loved Me (1977).",
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "4883",
+    "aliases": [
+      "4883A",
+      "4883B"
+    ],
+    "startYear": 1976,
+    "endYear": 1982,
+    "movementType": "quartz",
+    "jewels": 8,
+    "family": "Superior",
+    "notableRefs": [
+      "4883-8000",
+      "4883-8100"
+    ],
+    "notes": "Seiko Superior analog quartz launched 1976 at +/-1 sec/month (replaced the 3883), with end-of-life battery indicator; among the highest-precision quartz of its era. B variant from June 1977 with longer battery life.",
+    "rangeConfidence": "established"
   },
   {
     "caliber": "6306",
@@ -1029,6 +1350,397 @@
     "rangeConfidence": "approximate"
   },
   {
+    "caliber": "7545",
+    "aliases": [
+      "7545A"
+    ],
+    "startYear": 1977,
+    "endYear": 1988,
+    "movementType": "quartz",
+    "jewels": 4,
+    "family": "75xx quartz divers & sports",
+    "notes": "Date-only quartz dress/sports version of the 75-series, one fewer jewel than the day-date 7548.",
+    "rangeConfidence": "established"
+  },
+  {
+    "caliber": "7546",
+    "aliases": [
+      "7546A",
+      "7546-8450",
+      "7546-7000",
+      "7546-6040"
+    ],
+    "startYear": 1977,
+    "endYear": 1988,
+    "movementType": "quartz",
+    "jewels": 5,
+    "family": "75xx quartz divers & sports",
+    "notableRefs": [
+      "7546-8450",
+      "7546-6040"
+    ],
+    "notes": "Day-date SQ sports/dress quartz sharing the 75-series base; interchangeable parts with the diver calibers, slightly lower torque than the 7548.",
+    "rangeConfidence": "established"
+  },
+  {
+    "caliber": "7548",
+    "aliases": [
+      "7548A",
+      "7548-700X",
+      "7548-7000",
+      "7548-700B",
+      "7548-700F"
+    ],
+    "startYear": 1977,
+    "endYear": 1988,
+    "movementType": "quartz",
+    "jewels": 5,
+    "family": "75xx quartz divers & sports",
+    "notableRefs": [
+      "7548-7000",
+      "7548-700B",
+      "7548-700F"
+    ],
+    "notes": "Seiko's first core analog-quartz diver, 150m, day-date; quartz counterpart to the 6309 Turtle case, sharing many parts. SQ-marked for export.",
+    "rangeConfidence": "established"
+  },
+  {
+    "caliber": "7549",
+    "aliases": [
+      "7549A",
+      "7549-7000",
+      "7549-7009",
+      "7549-7010"
+    ],
+    "startYear": 1977,
+    "endYear": 1988,
+    "movementType": "quartz",
+    "jewels": 5,
+    "family": "75xx quartz divers & sports",
+    "notableRefs": [
+      "7549-7009",
+      "7549-7000",
+      "7549-7010"
+    ],
+    "notes": "Powers the 600m titanium 'Golden Tuna' professional saturation diver; highly collectible.",
+    "rangeConfidence": "established"
+  },
+  {
+    "caliber": "7550",
+    "aliases": [
+      "7550A",
+      "7550-0010"
+    ],
+    "startYear": 1977,
+    "endYear": 1989,
+    "movementType": "quartz",
+    "jewels": 5,
+    "family": "75xx quartz divers & sports",
+    "notableRefs": [
+      "7550-0010"
+    ],
+    "notes": "Analog 75-series quartz of the late 1970s/1980s; interchangeable with the diver calibers for service.",
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "7559",
+    "aliases": [
+      "7559A",
+      "7559-5000",
+      "7559-5010"
+    ],
+    "startYear": 1977,
+    "endYear": 1989,
+    "movementType": "quartz",
+    "jewels": 4,
+    "family": "75xx quartz divers & sports",
+    "notableRefs": [
+      "7559-5000",
+      "7559-5010"
+    ],
+    "notes": "Day-date 75-series analog quartz (4-jewel, 3-hand); the 7559-5010 was an early backlit analog. Interchangeable with the 7549 for service/repair.",
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "7800",
+    "aliases": [
+      "7800A"
+    ],
+    "startYear": 1977,
+    "endYear": 1995,
+    "movementType": "quartz",
+    "family": "78xx analog quartz dress",
+    "notes": "Late-1970s analog quartz three-hand dress base caliber of the 78xx family; SR927SW battery platform.",
+    "longRun": true,
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "7810",
+    "aliases": [
+      "7810A"
+    ],
+    "startYear": 1977,
+    "endYear": 1995,
+    "movementType": "quartz",
+    "jewels": 5,
+    "family": "78xx analog quartz dress",
+    "notableRefs": [
+      "7810-5029",
+      "7810-5079",
+      "7810-8009"
+    ],
+    "notes": "Analog quartz dress movement built from roughly 1977 into the 1990s.",
+    "longRun": true,
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "7812",
+    "aliases": [
+      "7812A"
+    ],
+    "startYear": 1977,
+    "endYear": 1995,
+    "movementType": "quartz",
+    "family": "78xx analog quartz dress",
+    "notableRefs": [
+      "7812-5029"
+    ],
+    "notes": "Late-1970s analog quartz dress movement, used in the 7812-5029 SQ-style dress watch; SR927SW battery.",
+    "longRun": true,
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "7813",
+    "aliases": [
+      "7813A"
+    ],
+    "startYear": 1977,
+    "endYear": 1995,
+    "movementType": "quartz",
+    "family": "78xx analog quartz dress",
+    "notableRefs": [
+      "7813-5029",
+      "7813-8009",
+      "7813-8019",
+      "7813-8029"
+    ],
+    "notes": "Analog quartz day/date dress movement (English/Spanish day options), found in Seiko SQ dress watches of the late 1970s-1980s; 7813-8009 dates to 1977.",
+    "longRun": true,
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "7820",
+    "aliases": [
+      "7820A"
+    ],
+    "startYear": 1977,
+    "endYear": 1992,
+    "movementType": "quartz",
+    "family": "78xx analog quartz dress",
+    "notes": "High-grade analog quartz dress movement in the 78xx series; SR927SW battery platform shared with 7800/7810/7813/7830/7832.",
+    "longRun": true,
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "7830",
+    "aliases": [
+      "7830A"
+    ],
+    "startYear": 1977,
+    "endYear": 1992,
+    "movementType": "quartz",
+    "family": "78xx analog quartz dress",
+    "notes": "Analog quartz dress movement in the 78xx series; production from roughly 1977.",
+    "longRun": true,
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "7832",
+    "aliases": [
+      "7832A"
+    ],
+    "startYear": 1977,
+    "endYear": 1992,
+    "movementType": "quartz",
+    "family": "78xx analog quartz dress",
+    "notes": "Analog quartz dress movement in the 78xx series; SR927SW battery platform.",
+    "longRun": true,
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "7853",
+    "aliases": [
+      "7853A"
+    ],
+    "startYear": 1977,
+    "endYear": 1990,
+    "movementType": "quartz",
+    "family": "78xx Lord Quartz analog quartz dress",
+    "notableRefs": [
+      "7853-5030",
+      "7853-7000",
+      "7853-7010",
+      "7853-7020"
+    ],
+    "notes": "Lord Quartz analog quartz day/date dress movement (the genuine Lord Quartz caliber of the family, +/-10 sec/month), used in late-1970s/1980s Seiko Lord Quartz watches positioned below King/Grand Quartz.",
+    "longRun": true,
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "2620",
+    "aliases": [
+      "2620A",
+      "2620B"
+    ],
+    "startYear": 1978,
+    "endYear": 1995,
+    "movementType": "quartz",
+    "jewels": 2,
+    "family": "2xxx analog quartz",
+    "notes": "Three-hand analog quartz; 2620A (c.1978-1988) and 2620B (c.1980-1990) variants. Shares coil and circuit block with the 2625; fitted to Acie, Chariot and Credor.",
+    "longRun": true,
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "5930",
+    "aliases": [
+      "5930A"
+    ],
+    "startYear": 1978,
+    "endYear": 1995,
+    "movementType": "quartz",
+    "jewels": 6,
+    "family": "59xx high-grade analog quartz",
+    "notableRefs": [
+      "5930-5199",
+      "5930-5250",
+      "5930-5360",
+      "5930-5391"
+    ],
+    "notes": "High-grade analog quartz fitted to Dolce, Credor, Lassale and Chariot; 22.0mm, 32,768 Hz, 6 jewels.",
+    "longRun": true,
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "5931",
+    "aliases": [
+      "5931A"
+    ],
+    "startYear": 1978,
+    "endYear": 1995,
+    "movementType": "quartz",
+    "jewels": 6,
+    "family": "59xx high-grade analog quartz",
+    "notableRefs": [
+      "5931-5050",
+      "5931-5230",
+      "5931-5232",
+      "5931-5290",
+      "5931-5500",
+      "5931-5510",
+      "5931-5550",
+      "5931-5560"
+    ],
+    "notes": "High-grade analog quartz, no date; fitted to Dolce/Exceline/Chariot/Credor; dated examples span 1980-1990, window covers 1983.",
+    "longRun": true,
+    "rangeConfidence": "established"
+  },
+  {
+    "caliber": "5932",
+    "aliases": [
+      "5932A"
+    ],
+    "startYear": 1978,
+    "endYear": 1995,
+    "movementType": "quartz",
+    "jewels": 6,
+    "family": "59xx high-grade analog quartz",
+    "notableRefs": [
+      "5932-5040",
+      "5932-5232"
+    ],
+    "notes": "Date-only sibling of the 5931; fitted to Credor, Lassale, Seagull, Chariot and Silverwave; 6 jewels, battery-life indicator.",
+    "longRun": true,
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "5933",
+    "aliases": [
+      "5933A"
+    ],
+    "startYear": 1978,
+    "endYear": 1995,
+    "movementType": "quartz",
+    "jewels": 6,
+    "family": "59xx high-grade analog quartz",
+    "notes": "Day-and-date analog quartz; same as 5932 but with added day display; fitted to Silverwave and Seagull; 22.0mm, 6 jewels, battery-life indicator.",
+    "longRun": true,
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "5939",
+    "aliases": [
+      "5939A"
+    ],
+    "startYear": 1978,
+    "endYear": 1995,
+    "movementType": "quartz",
+    "jewels": 6,
+    "family": "59xx high-grade analog quartz",
+    "notableRefs": [
+      "5939-5019",
+      "5939-5039"
+    ],
+    "notes": "Member of the early-1980s 593x high-grade analog quartz family; confirmed via caliber-parts databases (5939A spares) and references 5939-5019 and 5939-5039; fitted to Lassale dress watches.",
+    "longRun": true,
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "M354",
+    "aliases": [
+      "M354A"
+    ],
+    "startYear": 1978,
+    "endYear": 1985,
+    "movementType": "digital-quartz",
+    "jewels": 0,
+    "family": "notable vintage digital / LCD",
+    "notableRefs": [
+      "M354-5019",
+      "M354-5010"
+    ],
+    "notes": "LCD Memory-Bank Calendar quartz; the M354-5019 (SFX003) is the Bond watch from Moonraker (1979), not The Spy Who Loved Me.",
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "2625",
+    "aliases": [
+      "2625A"
+    ],
+    "startYear": 1979,
+    "endYear": 1995,
+    "movementType": "quartz",
+    "jewels": 2,
+    "family": "2xxx analog quartz",
+    "notes": "Analog quartz that adds a sweep seconds hand and date to the shared 2620/2625 base; 2625A produced c.1979-1989.",
+    "longRun": true,
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "2628",
+    "aliases": [
+      "2628A"
+    ],
+    "startYear": 1980,
+    "endYear": 1995,
+    "movementType": "quartz",
+    "jewels": 2,
+    "family": "2xxx analog quartz",
+    "notes": "Common 1980s analog quartz of the 26xx family, sharing parts with 2620/2625; fitted to Silverwave, Chariot and Dolce.",
+    "longRun": true,
+    "rangeConfidence": "approximate"
+  },
+  {
     "caliber": "6349",
     "aliases": [
       "6349A"
@@ -1042,6 +1754,588 @@
       "6349-7010"
     ],
     "notes": "23-jewel date-only (no day) sibling of the 6306/6309, sharing the oscillating weight and dial-holding ring; used in some JDM divers and date-only sports models.",
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "6431",
+    "startYear": 1980,
+    "endYear": 1996,
+    "movementType": "quartz",
+    "jewels": 7,
+    "family": "64xx",
+    "notableRefs": [
+      "6431-5010",
+      "6431-5139"
+    ],
+    "notes": "High-jewel slim analog quartz for dress watches such as Chariot and Silverwave; no calendar.",
+    "longRun": true,
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "6432",
+    "startYear": 1980,
+    "endYear": 1996,
+    "movementType": "quartz",
+    "jewels": 7,
+    "family": "64xx",
+    "notes": "Slim analog quartz, same as 6431 but with date display (no day).",
+    "longRun": true,
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "6433",
+    "startYear": 1980,
+    "endYear": 1996,
+    "movementType": "quartz",
+    "jewels": 7,
+    "family": "64xx",
+    "notes": "Slim analog quartz in the 64xx family with day-date calendar.",
+    "longRun": true,
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "7430",
+    "aliases": [
+      "7430A"
+    ],
+    "startYear": 1980,
+    "endYear": 1998,
+    "movementType": "quartz",
+    "jewels": 2,
+    "family": "743x analog quartz dress",
+    "notes": "Analog quartz dress movement, two-hand (no second hand), uses SR721SW battery. On Seiko service datasheet alongside 7431A/7439A.",
+    "longRun": true,
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "7431",
+    "aliases": [
+      "7431A"
+    ],
+    "startYear": 1980,
+    "endYear": 1998,
+    "movementType": "quartz",
+    "jewels": 2,
+    "family": "743x analog quartz dress",
+    "notes": "Analog quartz dress movement in the 743x series, shares the SR721SW battery platform; documented on the 7430A/7431A/7439A service datasheet.",
+    "longRun": true,
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "7433",
+    "aliases": [
+      "7433A"
+    ],
+    "startYear": 1980,
+    "endYear": 1998,
+    "movementType": "quartz",
+    "jewels": 2,
+    "family": "743x analog quartz dress",
+    "notableRefs": [
+      "7433-5010",
+      "7433-6000",
+      "7433-7000",
+      "7433-7040"
+    ],
+    "notes": "Analog quartz day/date movement used in the Seiko Chronos dress line; dated examples include a 1984 square-case 7433-5040, so the window spans the mid-1980s.",
+    "longRun": true,
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "7439",
+    "aliases": [
+      "7439A"
+    ],
+    "startYear": 1980,
+    "endYear": 1998,
+    "movementType": "quartz",
+    "jewels": 2,
+    "family": "743x analog quartz dress",
+    "notes": "Analog quartz dress movement, documented alongside 7430A/7431A on the Seiko service datasheet.",
+    "longRun": true,
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "A829",
+    "startYear": 1981,
+    "endYear": 1990,
+    "movementType": "digital-quartz",
+    "jewels": 0,
+    "family": "notable vintage digital / LCD",
+    "notableRefs": [
+      "A829-6019",
+      "A829-6029"
+    ],
+    "notes": "LCD World Time quartz with rotary mode bezel; the A829-6029 'Astronaut' was flight-qualified and worn on Space Shuttle missions.",
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "A904",
+    "startYear": 1981,
+    "endYear": 1990,
+    "movementType": "digital-quartz",
+    "jewels": 0,
+    "family": "notable vintage digital / LCD",
+    "notableRefs": [
+      "A904-5009",
+      "A904-5199"
+    ],
+    "notes": "LCD alarm-chronograph quartz from the early-to-mid 1980s, used in the Digital Sports 100 line.",
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "2A22",
+    "aliases": [
+      "2A22A"
+    ],
+    "startYear": 1982,
+    "endYear": 2000,
+    "movementType": "quartz",
+    "jewels": 2,
+    "family": "2xxx analog quartz",
+    "notes": "Compact analog quartz (date) from the 2A2x series; production from c.1983, used in small divers and dress models.",
+    "longRun": true,
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "2A23",
+    "aliases": [
+      "2A23A"
+    ],
+    "startYear": 1982,
+    "endYear": 2000,
+    "movementType": "quartz",
+    "jewels": 2,
+    "family": "2xxx analog quartz",
+    "notes": "Common 2A2x-series analog quartz, day/date sibling of the 2A22; production from c.1983-1984.",
+    "longRun": true,
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "2C20",
+    "aliases": [
+      "2C20A"
+    ],
+    "startYear": 1982,
+    "endYear": 2005,
+    "movementType": "quartz",
+    "jewels": 2,
+    "family": "2xxx analog quartz",
+    "notes": "Two-hand (no seconds) analog quartz; Seiko service datasheet covers 2C20A/2C21A together.",
+    "longRun": true,
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "2C21",
+    "aliases": [
+      "2C21A"
+    ],
+    "startYear": 1982,
+    "endYear": 2005,
+    "movementType": "quartz",
+    "jewels": 2,
+    "family": "2xxx analog quartz",
+    "notes": "Three-hand analog quartz adding a seconds hand to the 2C20 base; shares the 2C20A/2C21A service datasheet.",
+    "longRun": true,
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "6532",
+    "aliases": [
+      "6532A",
+      "6532B"
+    ],
+    "startYear": 1982,
+    "endYear": 1999,
+    "movementType": "quartz",
+    "jewels": 5,
+    "family": "65xx",
+    "notableRefs": [
+      "6532-5230",
+      "6532-5310"
+    ],
+    "notes": "Analog quartz with date, 32768 Hz; used in Tank Quartz dress models.",
+    "longRun": true,
+    "rangeConfidence": "established"
+  },
+  {
+    "caliber": "6533",
+    "startYear": 1982,
+    "endYear": 1999,
+    "movementType": "quartz",
+    "jewels": 5,
+    "family": "65xx",
+    "notes": "Analog quartz, same base as 6532 but with day-date calendar.",
+    "longRun": true,
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "7730",
+    "aliases": [
+      "7730A"
+    ],
+    "startYear": 1982,
+    "endYear": 1998,
+    "movementType": "quartz",
+    "jewels": 0,
+    "family": "77xx analog quartz (dress)",
+    "notableRefs": [
+      "7730-5000"
+    ],
+    "notes": "Thin two-hand analog quartz for Seiko Dolce dress watches; not a chronograph despite the family scope label. End year widened to match the longer-running 7731/7732 siblings.",
+    "longRun": true,
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "7731",
+    "aliases": [
+      "7731A"
+    ],
+    "startYear": 1982,
+    "endYear": 1998,
+    "movementType": "quartz",
+    "jewels": 0,
+    "family": "77xx analog quartz (dress)",
+    "notableRefs": [
+      "7731-5000",
+      "7731-5030",
+      "7731-5200"
+    ],
+    "notes": "Center-seconds analog quartz used in Seiko Dolce; sibling of the two-hand 7730, not a chronograph.",
+    "longRun": true,
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "7732",
+    "aliases": [
+      "7732A"
+    ],
+    "startYear": 1982,
+    "endYear": 1998,
+    "movementType": "quartz",
+    "jewels": 3,
+    "family": "77xx analog quartz (dress)",
+    "notes": "Daini-built date-only analog quartz in the 7730 series (Dolce); a dress movement, not a chronograph. Jewels corroborated at 3.",
+    "longRun": true,
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "7A28",
+    "aliases": [
+      "7A28A",
+      "7A28-7000",
+      "7A28-7010",
+      "7A28-7020"
+    ],
+    "startYear": 1982,
+    "endYear": 1994,
+    "movementType": "quartz",
+    "jewels": 15,
+    "family": "7A analog quartz chronograph",
+    "notableRefs": [
+      "7A28-7000",
+      "7A28-7010",
+      "7A28-7039",
+      "7A28-7040",
+      "7A28-7060",
+      "7A28-7079"
+    ],
+    "notes": "World's first analog quartz chronograph; early units off the line late 1982, official release 1983. 7A28-7000 is the Giugiaro 'Ripley' worn in Aliens. Fully metal, serviceable, no plastic in the gear train.",
+    "rangeConfidence": "established"
+  },
+  {
+    "caliber": "A828",
+    "startYear": 1982,
+    "endYear": 1990,
+    "movementType": "digital-quartz",
+    "jewels": 0,
+    "family": "notable vintage digital / LCD",
+    "notableRefs": [
+      "A828-4000"
+    ],
+    "notes": "LCD multi-function quartz; the A828 case family underlies the Giugiaro-designed 'Speed Master' digital chronographs from the mid-1980s.",
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "A914",
+    "startYear": 1982,
+    "endYear": 1991,
+    "movementType": "digital-quartz",
+    "jewels": 0,
+    "family": "notable vintage digital / LCD",
+    "notableRefs": [
+      "A914-5A09",
+      "A914-5A08"
+    ],
+    "notes": "LCD alarm-chronograph quartz used in several 1980s sport digitals.",
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "6F21",
+    "startYear": 1983,
+    "endYear": 1996,
+    "movementType": "quartz",
+    "jewels": 1,
+    "family": "6F",
+    "notes": "Analog quartz multi-complication movement in the 6F moonphase/tide family.",
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "6F22",
+    "aliases": [
+      "6F22A"
+    ],
+    "startYear": 1983,
+    "endYear": 1997,
+    "movementType": "quartz",
+    "jewels": 1,
+    "family": "6F",
+    "notableRefs": [
+      "6F22-7000",
+      "6F22-8000"
+    ],
+    "notes": "Analog quartz moonphase/multi-complication movement with date, used in dress and Sports models.",
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "7770",
+    "aliases": [
+      "7770A"
+    ],
+    "startYear": 1983,
+    "endYear": 1998,
+    "movementType": "quartz",
+    "jewels": 0,
+    "family": "77xx analog quartz (Credor)",
+    "notableRefs": [
+      "7770-5070"
+    ],
+    "notes": "Two-hand (no seconds) thin analog quartz used in Credor luxury dress watches; not a chronograph.",
+    "longRun": true,
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "7771",
+    "aliases": [
+      "7771A"
+    ],
+    "startYear": 1983,
+    "endYear": 1998,
+    "movementType": "quartz",
+    "jewels": 6,
+    "family": "77xx analog quartz (Credor)",
+    "notableRefs": [
+      "7771-5010",
+      "7771-5030"
+    ],
+    "notes": "Center-seconds Credor variant based on the 7770; high-grade analog quartz dress movement, not a chronograph. Credor data corroborates 6 jewels.",
+    "longRun": true,
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "7772",
+    "aliases": [
+      "7772A"
+    ],
+    "startYear": 1983,
+    "endYear": 1998,
+    "movementType": "quartz",
+    "jewels": 6,
+    "family": "77xx analog quartz (Credor)",
+    "notes": "Credor date-equipped analog quartz variant in the 7770 series; a high-grade dress movement, not a chronograph.",
+    "longRun": true,
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "7A34",
+    "aliases": [
+      "7A34A"
+    ],
+    "startYear": 1983,
+    "endYear": 1995,
+    "movementType": "quartz",
+    "jewels": 15,
+    "family": "7A analog quartz chronograph",
+    "notes": "Like the 7A38 but without the day wheel; date at 12 o'clock. Less common variant.",
+    "longRun": true,
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "7A38",
+    "aliases": [
+      "7A38A",
+      "7A38-7020",
+      "7A38-7000"
+    ],
+    "startYear": 1983,
+    "endYear": 1995,
+    "movementType": "quartz",
+    "jewels": 15,
+    "family": "7A analog quartz chronograph",
+    "notableRefs": [
+      "7A38-7020",
+      "7A38-7000",
+      "7A38-702A",
+      "7A38-7270"
+    ],
+    "notes": "Most common movement in the 7A family; three sub-registers with day and date. All 7A movements rated ~10 sec/month.",
+    "longRun": true,
+    "rangeConfidence": "established"
+  },
+  {
+    "caliber": "A939",
+    "startYear": 1983,
+    "endYear": 1992,
+    "movementType": "digital-quartz",
+    "jewels": 0,
+    "family": "notable vintage digital / LCD",
+    "notableRefs": [
+      "A939-5009"
+    ],
+    "notes": "LCD alarm-chronograph quartz from the mid-1980s digital range.",
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "M516",
+    "startYear": 1983,
+    "endYear": 1989,
+    "movementType": "digital-quartz",
+    "jewels": 0,
+    "family": "notable vintage digital / LCD",
+    "notableRefs": [
+      "M516-4009"
+    ],
+    "notes": "LCD 'Voice Note' (1983), world's first watch with audio record/playback; carbon-fibre case, later seen in Ghostbusters.",
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "2E20",
+    "aliases": [
+      "2E20A"
+    ],
+    "startYear": 1984,
+    "endYear": 2010,
+    "movementType": "quartz",
+    "jewels": 1,
+    "family": "2xxx analog quartz",
+    "notes": "Very small two-hand analog quartz (8.5 x 15.5 mm, 2.20 mm thick, 1 jewel) for ladies/dress watches; battery 379/SR521SW.",
+    "longRun": true,
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "6F24",
+    "aliases": [
+      "6F24A"
+    ],
+    "startYear": 1984,
+    "endYear": 1999,
+    "movementType": "quartz",
+    "jewels": 1,
+    "family": "6F",
+    "notableRefs": [
+      "6F24-7010",
+      "6F24-7019",
+      "6F24-8000"
+    ],
+    "notes": "Analog quartz tide/moonphase movement; used in Tide Master and Sports 150m models.",
+    "longRun": true,
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "7740",
+    "aliases": [
+      "7740A"
+    ],
+    "startYear": 1984,
+    "endYear": 1998,
+    "movementType": "quartz",
+    "jewels": 3,
+    "family": "77xx analog quartz (dress)",
+    "notableRefs": [
+      "7740-5000"
+    ],
+    "notes": "Daini-built two-hand thin analog quartz for Dolce; hacking seconds, no chronograph despite the family label. End year widened to match the 7741/7742/7749 siblings.",
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "7741",
+    "aliases": [
+      "7741A"
+    ],
+    "startYear": 1984,
+    "endYear": 1998,
+    "movementType": "quartz",
+    "jewels": 3,
+    "family": "77xx analog quartz (dress)",
+    "notableRefs": [
+      "7741-5000",
+      "7741-6030"
+    ],
+    "notes": "Adds a center seconds hand to the 7740; analog quartz Dolce dress movement, not a chronograph.",
+    "longRun": true,
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "7742",
+    "aliases": [
+      "7742A"
+    ],
+    "startYear": 1984,
+    "endYear": 1998,
+    "movementType": "quartz",
+    "jewels": 3,
+    "family": "77xx analog quartz (dress)",
+    "notes": "Date-equipped analog quartz in the 7740 series (Dolce/Chronos); a dress movement, not a chronograph.",
+    "longRun": true,
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "7749",
+    "aliases": [
+      "7749A"
+    ],
+    "startYear": 1984,
+    "endYear": 1998,
+    "movementType": "quartz",
+    "jewels": 3,
+    "family": "77xx analog quartz (dress)",
+    "notes": "Daini-built analog quartz dress caliber in the 7740 series; essentially the 7742 without a seconds hand. Not a chronograph. Jewels corrected from 0 to 3.",
+    "longRun": true,
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "7A48",
+    "aliases": [
+      "7A48A",
+      "7A48-7000"
+    ],
+    "startYear": 1984,
+    "endYear": 1995,
+    "movementType": "quartz",
+    "jewels": 15,
+    "family": "7A analog quartz chronograph",
+    "notableRefs": [
+      "7A48-7000"
+    ],
+    "notes": "Adds a moon-phase subdial and date to the chronograph configuration; used in Sports 100 models.",
+    "longRun": true,
+    "rangeConfidence": "established"
+  },
+  {
+    "caliber": "7A54",
+    "aliases": [
+      "7A54A"
+    ],
+    "startYear": 1984,
+    "endYear": 1995,
+    "movementType": "quartz",
+    "jewels": 15,
+    "family": "7A analog quartz chronograph",
+    "notableRefs": [
+      "7A54-7009"
+    ],
+    "notes": "Special, more decorated 7A-series moon-phase chronograph movement made for the Seiko-owned Lassale line (alongside the 7A75); similar to the 7A48. Known case model 7A54-7009 (pocket watch).",
+    "longRun": true,
     "rangeConfidence": "approximate"
   },
   {
@@ -1160,6 +2454,19 @@
     "rangeConfidence": "approximate"
   },
   {
+    "caliber": "6M13",
+    "aliases": [
+      "6M13A"
+    ],
+    "startYear": 1988,
+    "endYear": 2001,
+    "movementType": "quartz",
+    "jewels": 1,
+    "family": "6M",
+    "notes": "Multi-hand analog quartz with perpetual calendar (1400-2499), alarm and calendar-search functions.",
+    "rangeConfidence": "approximate"
+  },
+  {
     "caliber": "7N82",
     "startYear": 1988,
     "endYear": null,
@@ -1168,6 +2475,19 @@
     "family": "Seiko Quartz",
     "notes": "Day-date economy quartz closely related to 7N43, fitted across Seiko 5 quartz and budget lines.",
     "longRun": true,
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "6M15",
+    "aliases": [
+      "6M15A"
+    ],
+    "startYear": 1989,
+    "endYear": 2003,
+    "movementType": "quartz",
+    "jewels": 1,
+    "family": "6M",
+    "notes": "Multi-hand analog quartz alarm-chronograph with world time.",
     "rangeConfidence": "approximate"
   },
   {
@@ -1189,15 +2509,84 @@
     "rangeConfidence": "approximate"
   },
   {
+    "caliber": "6M25",
+    "aliases": [
+      "6M25A"
+    ],
+    "startYear": 1990,
+    "endYear": 2004,
+    "movementType": "quartz",
+    "jewels": 1,
+    "family": "6M",
+    "notes": "Multi-hand analog quartz with calendar complications, used in Lassale dress models.",
+    "rangeConfidence": "approximate"
+  },
+  {
     "caliber": "7T32",
-    "startYear": 1988,
+    "startYear": 1990,
     "endYear": 2010,
     "movementType": "quartz",
     "jewels": 0,
     "family": "Quartz Chronograph",
-    "notes": "Alarm chronograph quartz from the 7T series, fitted to late-1980s through 2000s Seiko sports chronographs.",
+    "notes": "Alarm chronograph quartz from the 7T series, fitted to 1990s and 2000s Seiko sports chronographs.",
     "longRun": true,
     "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "8F32",
+    "aliases": [
+      "8F32A",
+      "8F32B"
+    ],
+    "startYear": 1990,
+    "endYear": null,
+    "movementType": "quartz",
+    "jewels": 0,
+    "family": "8F perpetual-calendar quartz",
+    "notableRefs": [
+      "8F32-0049",
+      "8F32-0079",
+      "8F32-0210",
+      "8F32-5000"
+    ],
+    "notes": "High-accuracy (+/-20 sec/year) perpetual-calendar analog quartz with day and date and a ~10-year lithium battery. Calendar auto-adjusts through leap years to 2100. Confirmed by Seiko service parts catalogue 4F32A/8F32A/33A/35A. Documented examples appear from 1990.",
+    "longRun": true,
+    "rangeConfidence": "established"
+  },
+  {
+    "caliber": "8F33",
+    "aliases": [
+      "8F33A"
+    ],
+    "startYear": 1990,
+    "endYear": null,
+    "movementType": "quartz",
+    "jewels": 0,
+    "family": "8F perpetual-calendar quartz",
+    "notableRefs": [
+      "8F33-0030"
+    ],
+    "notes": "Perpetual-calendar high-accuracy quartz day-date variant in the 8F family; ~10-year battery, +/-20 sec/year. Shares the 4F32A/8F32A/33A/35A service catalogue with 8F32 and 8F35. Used in Dolce and dress models.",
+    "longRun": true,
+    "rangeConfidence": "established"
+  },
+  {
+    "caliber": "8F35",
+    "aliases": [
+      "8F35A"
+    ],
+    "startYear": 1990,
+    "endYear": null,
+    "movementType": "quartz",
+    "jewels": 0,
+    "family": "8F perpetual-calendar quartz",
+    "notableRefs": [
+      "8F35-0030",
+      "SBCM023"
+    ],
+    "notes": "High-torque perpetual-calendar high-accuracy quartz for 200m divers; +/-20 sec/year, ~8-10 year battery. Used in the Prospex SBCM023 / 8F35-0030 quartz diver. Corrected: this is the diver high-torque caliber, not a Sportura/Premier movement.",
+    "longRun": true,
+    "rangeConfidence": "established"
   },
   {
     "caliber": "5M45",
@@ -1215,6 +2604,42 @@
     ],
     "notes": "AGS/Kinetic caliber used in titanium Landmaster, Flightmaster (GMT) and Scubamaster models (e.g. SBCW001, SBCW005). Real refs corrected from the draft's placeholder 5M45-5A00.",
     "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "8F56",
+    "aliases": [
+      "8F56A",
+      "8F56B"
+    ],
+    "startYear": 1993,
+    "endYear": null,
+    "movementType": "quartz",
+    "jewels": 0,
+    "family": "8F perpetual-calendar quartz",
+    "notableRefs": [
+      "8F56-0080",
+      "8F56-00F0"
+    ],
+    "notes": "Perpetual-calendar high-accuracy analog quartz with GMT / second-time-zone hand; +/-20 sec/year, ~10-year battery. Found in the titanium Perpetual GMT 8F56-0080 and Alpinist/Premier/Landtrek models. Shares the 4F56A/8F56A/8F58A service catalogue with 8F58.",
+    "longRun": true,
+    "rangeConfidence": "established"
+  },
+  {
+    "caliber": "8F58",
+    "aliases": [
+      "8F58A"
+    ],
+    "startYear": 1993,
+    "endYear": null,
+    "movementType": "quartz",
+    "jewels": 0,
+    "family": "8F perpetual-calendar quartz",
+    "notableRefs": [
+      "8F58-0020"
+    ],
+    "notes": "Perpetual-calendar high-accuracy quartz with GMT / dual-time complication; sibling of the 8F56, grouped with it in the Seiko 4F56A/8F56A/8F58A parts catalogue. Confirmed real watch model 8F58-0020. ~10-year battery, +/-20 sec/year.",
+    "longRun": true,
+    "rangeConfidence": "established"
   },
   {
     "caliber": "9F61",

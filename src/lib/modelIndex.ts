@@ -8,6 +8,7 @@
 
 import { MODEL_SETS, seikoIds, type CatalogModel, type SeikoIds } from "@/lib/models";
 import { normalizeRef } from "@/lib/seiko/refs";
+import { canonicalCaliberKey } from "@/data/calibers";
 
 export interface ModelAppearance {
   catalogId: string;
@@ -145,6 +146,15 @@ export function findModelBySlug(slug: string): ModelEntry | null {
 /** Slug for a raw reference string (normalised), or null if not indexed. */
 export function slugForRef(rawRef: string): string | null {
   return SLUG_BY_REF.get(normalizeRef(rawRef)) ?? null;
+}
+
+/** All catalogued models that use a given caliber (matched canonically). */
+export function modelsForCaliber(caliber: string): ModelEntry[] {
+  const key = canonicalCaliberKey(caliber);
+  if (!key) return [];
+  return ALL_MODEL_ENTRIES.filter(
+    (e) => e.caliber && canonicalCaliberKey(e.caliber) === key,
+  );
 }
 
 /** A model is worth its own static page if it's meaningfully identifiable. */

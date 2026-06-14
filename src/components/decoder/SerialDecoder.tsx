@@ -13,9 +13,17 @@ const EXAMPLES = [
   { serial: "5R3001", caliber: "7S26", note: "SKX era" },
 ];
 
-export function SerialDecoder({ autoFocus = false }: { autoFocus?: boolean }) {
-  const [serial, setSerial] = useState("");
-  const [caliber, setCaliber] = useState("");
+export function SerialDecoder({
+  autoFocus = false,
+  initialSerial = "",
+  initialCaliber = "",
+}: {
+  autoFocus?: boolean;
+  initialSerial?: string;
+  initialCaliber?: string;
+}) {
+  const [serial, setSerial] = useState(initialSerial);
+  const [caliber, setCaliber] = useState(initialCaliber);
 
   const currentYear = useMemo(() => new Date().getFullYear(), []);
   const result = useMemo(

@@ -1,4 +1,5 @@
-import { AlertTriangle, Info, ArrowUpRight, ShieldQuestion } from "lucide-react";
+import { AlertTriangle, Info, ArrowUpRight, ArrowRight, ShieldQuestion } from "lucide-react";
+import Link from "next/link";
 import type { DecodeResult } from "@/lib/seiko/types";
 import { CandidateTimeline } from "./CandidateTimeline";
 import { Badge } from "@/components/ui";
@@ -93,6 +94,16 @@ export function ResultCard({ result, currentYear }: { result: DecodeResult; curr
           </div>
         ))}
       </dl>
+
+      {n?.caliberMatched && (
+        <Link
+          href={`/caliber/${n.caliberMatched.caliber.toLowerCase()}`}
+          className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-[var(--burgundy-700)] transition-colors hover:text-[var(--burgundy-600)]"
+        >
+          {`View the ${n.caliberMatched.caliber.toUpperCase()} reference & its models`}
+          <ArrowRight size={14} className="transition-transform group-hover:translate-x-0.5" />
+        </Link>
+      )}
 
       {/* contradiction banner */}
       {banner && (

@@ -15,7 +15,14 @@ const STEPS = [
   { n: "3", t: "Sequence", d: "The remaining digits are that month’s production count for the line." },
 ];
 
-export default function SerialDecoderPage() {
+export default async function SerialDecoderPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ caliber?: string; serial?: string }>;
+}) {
+  const sp = await searchParams;
+  const initialCaliber = (sp.caliber ?? "").toString().toUpperCase().slice(0, 10);
+  const initialSerial = (sp.serial ?? "").toString().toUpperCase().slice(0, 12);
   return (
     <>
       <PageHeader
@@ -24,7 +31,7 @@ export default function SerialDecoderPage() {
         lead="Enter the serial engraved on the caseback. Add the movement caliber and we’ll narrow which decade it came from."
       />
       <Container className="py-12">
-        <SerialDecoder autoFocus />
+        <SerialDecoder autoFocus initialSerial={initialSerial} initialCaliber={initialCaliber} />
 
         <div className="mt-14">
           <Eyebrow>How the code works</Eyebrow>

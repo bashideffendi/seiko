@@ -150,3 +150,15 @@ describe("decodeSeiko — honesty", () => {
     expect(r.notes.some((n) => n.code === "SCHEME_IS_CONVENTION")).toBe(true);
   });
 });
+
+describe("decodeSeiko — external cross-checks (WatchSleuth)", () => {
+  it("matches WatchSleuth for 370237 / cal. 5931 → July 1983", () => {
+    // https://www.watchsleuth.com/seikodatefinder/?mvmt=5931&case=5170&serial=370237
+    // 5931 is an early-’80s analog quartz, so digit-3 resolves to a single year.
+    const r = decode("370237", "5931");
+    expect(r.ok).toBe(true);
+    expect(r.decoded?.month).toEqual({ number: 7, name: "July" });
+    expect(r.decoded?.narrowing?.singleYear).toBe(1983);
+    expect(r.decoded?.narrowing?.likelyYears).toEqual([1983]);
+  });
+});

@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import Link from "next/link";
 import { Search } from "lucide-react";
 import { CALIBERS, canonicalCaliberKey } from "@/data/calibers";
 import type { MovementType } from "@/lib/seiko/types";
@@ -115,9 +116,12 @@ export function CaliberTable() {
             {rows.map((c) => (
               <tr key={c.caliber} className="border-b border-[var(--border)] last:border-0 hover:bg-[var(--surface-2)]/60">
                 <td className="whitespace-nowrap px-4 py-3 align-top">
-                  <span className="font-mono text-[0.95rem] font-medium text-[var(--burgundy-800)]">
+                  <Link
+                    href={`/caliber/${c.caliber.toLowerCase()}`}
+                    className="font-mono text-[0.95rem] font-medium text-[var(--burgundy-700)] underline decoration-[var(--gold-400)] decoration-dotted underline-offset-2 hover:decoration-solid"
+                  >
                     {c.caliber.toUpperCase()}
-                  </span>
+                  </Link>
                   <div className="mt-1 flex flex-wrap gap-1">
                     {c.grandSeiko && <Badge variant="burgundy">GS</Badge>}
                     {c.longRun && <Badge>long run</Badge>}

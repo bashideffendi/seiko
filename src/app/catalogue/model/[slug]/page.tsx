@@ -42,7 +42,7 @@ export default async function ModelPage({ params }: { params: Promise<{ slug: st
   const idRows = [
     ids.marketingRef && { k: "Marketing ref", v: ids.marketingRef },
     ids.caseRef && { k: "Case-movement ref", v: ids.caseRef },
-    entry.caliber && { k: "Caliber", v: entry.caliber, href: "/tools/caliber-lookup" },
+    entry.caliber && { k: "Caliber", v: entry.caliber, href: `/caliber/${entry.caliber.toLowerCase()}` },
     ids.caseNumber && { k: "Case no.", v: ids.caseNumber },
     ids.caseDialCode && { k: "Case-dial code", v: ids.caseDialCode },
   ].filter(Boolean) as { k: string; v: string; href?: string }[];
