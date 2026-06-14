@@ -30,6 +30,11 @@ def normalize(rec):
         elif k == "conf":
             out[k] = v if v in ("high", "medium", "low") else "low"
         else:
+            # string fields: coerce lists/numbers an agent may emit into a string
+            if isinstance(v, list):
+                v = " · ".join(str(x) for x in v if x is not None and str(x).strip())
+            elif v is not None and not isinstance(v, str):
+                v = str(v)
             out[k] = (v or "")
     return out
 
