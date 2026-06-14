@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import { Binary, Cog, Search, Ruler, BatteryMedium, ArrowRight } from "lucide-react";
+import { Binary, Cog, History, Search, Ruler, BatteryMedium, ArrowRight } from "lucide-react";
 import { Container, Badge } from "@/components/ui";
 import { PageHeader } from "@/components/page";
 
@@ -9,6 +9,7 @@ export const metadata: Metadata = { title: "Tools" };
 const TOOLS = [
   { href: "/tools/serial-decoder", icon: Binary, name: "Serial Decoder", desc: "Decode the production month & year from any Seiko caseback serial, with caliber-based decade narrowing.", live: true },
   { href: "/tools/caliber-lookup", icon: Cog, name: "Caliber Lookup", desc: "Search Seiko movements by number — type, jewels, production window and notes.", live: true },
+  { href: "/tools/vintage-case-code", icon: History, name: "Vintage Case Code", desc: "Decode a pre-1966 five-digit case code — ligne dial size, family, and the model for known codes.", live: true },
   { href: "/tools/model-finder", icon: Search, name: "Model Finder", desc: "Narrow down a model from its dial, case and bracelet characteristics.", live: false },
   { href: "/tools/strap-size", icon: Ruler, name: "Strap Size", desc: "Look up lug width by reference and get strap-style recommendations.", live: false },
   { href: "/tools/battery-estimator", icon: BatteryMedium, name: "Battery Estimator", desc: "Estimate remaining quartz battery life and set a change reminder.", live: false },

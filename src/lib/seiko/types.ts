@@ -8,6 +8,7 @@ export type MovementType =
   | "automatic"
   | "manual"
   | "quartz"
+  | "digital-quartz"
   | "spring-drive"
   | "solar"
   | "kinetic";
@@ -25,6 +26,8 @@ export interface CaliberRecord {
   jewels?: number;
   /** Joins to the future catalogue, e.g. "Diver", "Grand Seiko 9S". */
   family?: string;
+  /** Famous case refs / nicknames, e.g. ["6139-6002 Pogue"]. */
+  notableRefs?: string[];
   notes?: string;
   /** Honesty flag on the date RANGE itself (community-sourced). */
   rangeConfidence?: "established" | "approximate";

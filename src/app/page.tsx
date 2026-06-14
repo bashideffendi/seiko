@@ -2,6 +2,7 @@ import Link from "next/link";
 import {
   Binary,
   Cog,
+  History,
   Search,
   Ruler,
   BatteryMedium,
@@ -16,6 +17,7 @@ import { SerialDecoder } from "@/components/decoder/SerialDecoder";
 const TOOLS = [
   { href: "/tools/serial-decoder", icon: Binary, name: "Serial Decoder", desc: "Date any Seiko from its caseback serial.", live: true },
   { href: "/tools/caliber-lookup", icon: Cog, name: "Caliber Lookup", desc: "Movement specs & production windows.", live: true },
+  { href: "/tools/vintage-case-code", icon: History, name: "Vintage Case Code", desc: "Decode pre-1966 five-digit case codes.", live: true },
   { href: "/tools/model-finder", icon: Search, name: "Model Finder", desc: "Identify a watch from its features.", live: false },
   { href: "/tools/strap-size", icon: Ruler, name: "Strap Size", desc: "Lug width & strap recommendations.", live: false },
   { href: "/tools/battery-estimator", icon: BatteryMedium, name: "Battery Estimator", desc: "Quartz battery age & change reminders.", live: false },

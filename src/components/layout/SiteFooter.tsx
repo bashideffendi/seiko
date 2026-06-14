@@ -8,14 +8,15 @@ const COLUMNS = [
     links: [
       { label: "Serial Decoder", href: "/tools/serial-decoder" },
       { label: "Caliber Lookup", href: "/tools/caliber-lookup" },
+      { label: "Vintage Case Code", href: "/tools/vintage-case-code" },
       { label: "Model Finder", href: "/tools/model-finder" },
-      { label: "Strap Size", href: "/tools/strap-size" },
     ],
   },
   {
     title: "Explore",
     links: [
       { label: "Catalogue", href: "/catalogue" },
+      { label: "Models", href: "/catalogue/models" },
       { label: "Learn", href: "/learn" },
       { label: "Stories", href: "/stories" },
     ],

@@ -1,0 +1,2310 @@
+[
+  {
+    "caliber": "6601",
+    "aliases": [
+      "6601A",
+      "6601B"
+    ],
+    "startYear": 1961,
+    "endYear": 1969,
+    "movementType": "automatic",
+    "jewels": 17,
+    "family": "Seiko 5 / Sportsmatic",
+    "notes": "Foundational Sportsmatic automatic, non-calendar (no day/date). Offered in 17/19/21-jewel grades; uses Seiko's bidirectional Magic Lever winding. 6601A from 1961, later 6601B revision.",
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "6602",
+    "aliases": [
+      "6602A",
+      "6602B"
+    ],
+    "startYear": 1961,
+    "endYear": 1969,
+    "movementType": "automatic",
+    "jewels": 17,
+    "family": "Seiko 5 / Sportsmatic",
+    "notes": "Sportsmatic automatic, non-calendar (no day/date despite earlier claims). 6602B (c.1968) reached ~45h power reserve and was thinner. Derived from the Sportsman/957 line.",
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "6605",
+    "startYear": 1962,
+    "endYear": 1969,
+    "movementType": "automatic",
+    "jewels": 17,
+    "family": "Seiko 5 / Sportsmatic",
+    "notes": "Early Sportsmatic automatic calendar movement (c.1962), part of the first-generation Suwa 5/calendar family. Documentation is sparse; date window present on calendar variants.",
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "6205",
+    "startYear": 1963,
+    "endYear": 1969,
+    "movementType": "automatic",
+    "jewels": 17,
+    "family": "Sportsmatic",
+    "notes": "62-series automatic with date complication used across Sportsmatic models.",
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "6206",
+    "startYear": 1963,
+    "endYear": 1969,
+    "movementType": "automatic",
+    "jewels": 17,
+    "family": "Sportsmatic",
+    "notes": "Day-date automatic in the 62xx family; mechanically related to the 6217 diver caliber.",
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "6606",
+    "aliases": [
+      "6606A",
+      "6606B"
+    ],
+    "startYear": 1963,
+    "endYear": 1970,
+    "movementType": "automatic",
+    "jewels": 21,
+    "family": "Seiko 5 / Sportsmatic",
+    "notes": "Sportsmatic 5 automatic day-date (non-quickset), 21 jewels. 6606B launched 1965; traces back to the Suwa 410, Seiko's first '5' date movement. Direct sibling of the 6619.",
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "5722",
+    "aliases": [
+      "5722A",
+      "5722B"
+    ],
+    "startYear": 1964,
+    "endYear": 1968,
+    "movementType": "manual",
+    "jewels": 25,
+    "family": "King Seiko 44KS",
+    "notableRefs": [
+      "5722-9990",
+      "5722-9991",
+      "5722-9000"
+    ],
+    "notes": "Hand-wind 18000 vph 'second-generation' King Seiko caliber, Daini-built; the 5722-9990/9991 are the classic 'KSK' that inspired the modern KS reissue.",
+    "rangeConfidence": "established"
+  },
+  {
+    "caliber": "6619",
+    "aliases": [
+      "6619A"
+    ],
+    "startYear": 1964,
+    "endYear": 1971,
+    "movementType": "automatic",
+    "jewels": 21,
+    "family": "Seiko 5 / Sportsmatic",
+    "notableRefs": [
+      "6619-8060",
+      "6619-8100",
+      "6619-7290",
+      "6619-7050"
+    ],
+    "notes": "High-jewel (21) Sportsmatic 5 / Super 5 automatic day-date, non-quickset. One of the most common late-66xx calibers before the 61xx series took over; notably used in the sterile MACV-SOG watches.",
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "6119",
+    "aliases": [
+      "6119A",
+      "6119B",
+      "6119C"
+    ],
+    "startYear": 1965,
+    "endYear": 1979,
+    "movementType": "automatic",
+    "jewels": 17,
+    "family": "Seiko 5",
+    "notableRefs": [
+      "6119-8460",
+      "6119-6053"
+    ],
+    "notes": "Extremely common Seiko 5 day-date automatic of the late 1960s and 1970s; very long production run across many references.",
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "6217",
+    "aliases": [
+      "6217A",
+      "6217B"
+    ],
+    "startYear": 1965,
+    "endYear": 1970,
+    "movementType": "automatic",
+    "jewels": 17,
+    "family": "Diver",
+    "notableRefs": [
+      "6217-8000 62MAS",
+      "6217-8001 62MAS"
+    ],
+    "notes": "Powers Seiko's first dive watch, the 62MAS (150m); part of the 62-series automatic family, sharing base architecture with the 6206 day-date.",
+    "rangeConfidence": "established"
+  },
+  {
+    "caliber": "4005",
+    "aliases": [
+      "4005A"
+    ],
+    "startYear": 1966,
+    "endYear": 1977,
+    "movementType": "automatic",
+    "jewels": 17,
+    "family": "Bell-Matic",
+    "notableRefs": [
+      "4005-6011",
+      "4005-7000"
+    ],
+    "notes": "Date-only Bell-Matic alarm caliber, less common than the day/date 4006. Window widened from the original draft's over-narrow 1968-1969 claim.",
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "4006",
+    "aliases": [
+      "4006A",
+      "4006B"
+    ],
+    "startYear": 1966,
+    "endYear": 1982,
+    "movementType": "automatic",
+    "jewels": 17,
+    "family": "Bell-Matic",
+    "notableRefs": [
+      "4006-7011",
+      "4006-6001 UFO",
+      "4006-6021",
+      "4006-6027"
+    ],
+    "notes": "Day/date variant of the Bell-Matic automatic alarm watch; offered in 17, 21 or 27 jewels. Produced from 1966 until Bell-Matic production wound down in the early 1980s.",
+    "longRun": true,
+    "rangeConfidence": "established"
+  },
+  {
+    "caliber": "6106",
+    "aliases": [
+      "6106A",
+      "6106B",
+      "6106C"
+    ],
+    "startYear": 1966,
+    "endYear": 1978,
+    "movementType": "automatic",
+    "jewels": 17,
+    "family": "Seiko 5",
+    "notableRefs": [
+      "6106-8227",
+      "6106-7107"
+    ],
+    "notes": "Day-date automatic workhorse with quick-set calendar, used across Seiko 5 and dressier 5 lines.",
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "6118",
+    "aliases": [
+      "6118A",
+      "6118B"
+    ],
+    "startYear": 1966,
+    "endYear": 1977,
+    "movementType": "automatic",
+    "jewels": 25,
+    "family": "Seiko 5 / Sportsmatic",
+    "notableRefs": [
+      "6118-8000",
+      "6118-8050"
+    ],
+    "notes": "Higher-jewel day-date automatic used in Seiko 5 and Sportsmatic Deluxe pieces.",
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "4420",
+    "aliases": [
+      "4420A",
+      "4420B"
+    ],
+    "startYear": 1967,
+    "endYear": 1970,
+    "movementType": "manual",
+    "jewels": 25,
+    "family": "Grand Seiko 44GS",
+    "notableRefs": [
+      "4420-9000",
+      "4420-9990"
+    ],
+    "notes": "Hand-wind 18000 vph 44GS movement; the 4420-9000 case established Taro Tanaka's 'Grammar of Design' that defines modern Grand Seiko styling.",
+    "grandSeiko": true,
+    "rangeConfidence": "established"
+  },
+  {
+    "caliber": "5106",
+    "aliases": [
+      "5106A"
+    ],
+    "startYear": 1967,
+    "endYear": 1972,
+    "movementType": "automatic",
+    "jewels": 33,
+    "family": "Seiko 5",
+    "notableRefs": [
+      "5106-7000",
+      "5106-8000",
+      "5106-9000"
+    ],
+    "notes": "Day-date 51-Stream automatic (often dial-marked 'Presmatic'), 19800 bph, 33 functional jewels, hacking and instant date change; introduced 1967 to replace the 6218, with the 5146 as its hi-beat sibling.",
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "5126",
+    "aliases": [
+      "5126A"
+    ],
+    "startYear": 1967,
+    "endYear": 1979,
+    "movementType": "automatic",
+    "jewels": 23,
+    "family": "Seiko 5",
+    "notableRefs": [
+      "5126-7000",
+      "5126-8090",
+      "5126-8100",
+      "5126-6010"
+    ],
+    "notes": "Core day-date Seiko 5 workhorse of the 51-Stream family, 19800 bph, 23 jewels, bilingual day wheel and crown quickset date; one of the most produced vintage Seiko automatics.",
+    "rangeConfidence": "established"
+  },
+  {
+    "caliber": "5139",
+    "aliases": [
+      "5139A"
+    ],
+    "startYear": 1967,
+    "endYear": 1972,
+    "movementType": "automatic",
+    "jewels": 27,
+    "family": "Seiko 5",
+    "notableRefs": [
+      "5139-7000",
+      "5139-6000"
+    ],
+    "notes": "Deluxe ('DX') 27-jewel day-date member of the 51-Stream Seiko 5 family, 19800 bph; introduced 1967 and phased out around 1969 in favour of the hi-beat 5146.",
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "6105",
+    "aliases": [
+      "6105A",
+      "6105B"
+    ],
+    "startYear": 1967,
+    "endYear": 1978,
+    "movementType": "automatic",
+    "jewels": 17,
+    "family": "Diver",
+    "notableRefs": [
+      "6105-8000",
+      "6105-8009",
+      "6105-8110 Captain Willard",
+      "6105-8119"
+    ],
+    "notes": "Early Seiko dive caliber; the 6105-8110 'Captain Willard' is the cushion-case diver famously associated with Apocalypse Now.",
+    "rangeConfidence": "established"
+  },
+  {
+    "caliber": "6117",
+    "aliases": [
+      "6117A",
+      "6117B"
+    ],
+    "startYear": 1967,
+    "endYear": 1977,
+    "movementType": "automatic",
+    "jewels": 17,
+    "family": "Navigator Timer / GMT",
+    "notableRefs": [
+      "6117-6400 Navigator Timer",
+      "6117-6419",
+      "6117-8000 World Time"
+    ],
+    "notes": "GMT/24-hour caliber; basis of the Navigator Timer and World Time models. The 6117B adds a hacking feature over the 6117A.",
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "6145",
+    "startYear": 1967,
+    "endYear": 1976,
+    "movementType": "automatic",
+    "jewels": 25,
+    "family": "Grand Seiko 61GS hi-beat",
+    "notableRefs": [
+      "6145-8000",
+      "6145-8010"
+    ],
+    "notes": "Grand Seiko 36000 vph hi-beat automatic with date, Suwa-built; the date-only sibling of the 6146 in the 61GS line.",
+    "grandSeiko": true,
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "6146",
+    "startYear": 1967,
+    "endYear": 1976,
+    "movementType": "automatic",
+    "jewels": 25,
+    "family": "Grand Seiko 61GS hi-beat",
+    "notableRefs": [
+      "6146-8000",
+      "6146-8020"
+    ],
+    "notes": "Grand Seiko day-date 36000 vph hi-beat automatic, Suwa-built; the day-date version of the 6145 in the 61GS line.",
+    "grandSeiko": true,
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "6159",
+    "aliases": [
+      "6159A"
+    ],
+    "startYear": 1967,
+    "endYear": 1976,
+    "movementType": "automatic",
+    "jewels": 25,
+    "family": "Grand Seiko 61GS hi-beat",
+    "notableRefs": [
+      "6159-7000 hi-beat diver",
+      "6159-7001",
+      "6159-7010"
+    ],
+    "notes": "Grand Seiko 36000 vph hi-beat caliber originally for the GS line; the 6159-7001 is Seiko's first 300m professional hi-beat diver.",
+    "grandSeiko": true,
+    "rangeConfidence": "established"
+  },
+  {
+    "caliber": "6215",
+    "startYear": 1967,
+    "endYear": 1970,
+    "movementType": "automatic",
+    "jewels": 35,
+    "family": "Diver",
+    "notableRefs": [
+      "6215-7000 300m diver"
+    ],
+    "notes": "High-jewel automatic in the 6215-7000 300m professional diver, predecessor to the 6159-7000.",
+    "rangeConfidence": "established"
+  },
+  {
+    "caliber": "6245",
+    "startYear": 1967,
+    "endYear": 1970,
+    "movementType": "automatic",
+    "jewels": 35,
+    "family": "Grand Seiko 62GS",
+    "notableRefs": [
+      "6245-9000 62GS",
+      "6245-9001 62GS"
+    ],
+    "notes": "First automatic Grand Seiko (62GS); date-only, with the signature recessed crown at 4 and no crown at 3 case design.",
+    "grandSeiko": true,
+    "rangeConfidence": "established"
+  },
+  {
+    "caliber": "6246",
+    "startYear": 1967,
+    "endYear": 1970,
+    "movementType": "automatic",
+    "jewels": 35,
+    "family": "Grand Seiko 62GS",
+    "notableRefs": [
+      "6246-9000 62GS",
+      "6246-9001 62GS"
+    ],
+    "notes": "Day-date version of the 62GS automatic Grand Seiko caliber, sibling to the date-only 6245.",
+    "grandSeiko": true,
+    "rangeConfidence": "established"
+  },
+  {
+    "caliber": "4500",
+    "startYear": 1968,
+    "endYear": 1971,
+    "movementType": "manual",
+    "jewels": 25,
+    "family": "King Seiko 45KS",
+    "notableRefs": [
+      "4500-7000",
+      "4500-7001"
+    ],
+    "notes": "Hi-beat 36000 vph hand-wind base caliber for the 45KS line; no date complication.",
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "4502",
+    "startYear": 1968,
+    "endYear": 1971,
+    "movementType": "manual",
+    "jewels": 25,
+    "family": "King Seiko 45KS",
+    "notableRefs": [
+      "4502-7000",
+      "4502-7010"
+    ],
+    "notes": "Date-equipped variant of the 4500 hi-beat 36000 vph 45KS hand-wind movement.",
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "4520",
+    "startYear": 1968,
+    "endYear": 1972,
+    "movementType": "manual",
+    "jewels": 25,
+    "family": "Grand Seiko 45GS",
+    "notableRefs": [
+      "4520-8000",
+      "4520-8010"
+    ],
+    "notes": "Hi-beat 36000 vph hand-wind no-date 45GS movement, Daini-built; chronometer-grade adjustment.",
+    "grandSeiko": true,
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "4522",
+    "startYear": 1968,
+    "endYear": 1973,
+    "movementType": "manual",
+    "jewels": 25,
+    "family": "Grand Seiko 45GS",
+    "notableRefs": [
+      "4522-7000",
+      "4522-7010",
+      "4522-8000"
+    ],
+    "notes": "Date version of the 45GS hi-beat 36000 vph hand-wind, Daini-built; one of the most collectible vintage GS hand-winds.",
+    "grandSeiko": true,
+    "rangeConfidence": "established"
+  },
+  {
+    "caliber": "5601",
+    "startYear": 1968,
+    "endYear": 1978,
+    "movementType": "automatic",
+    "jewels": 23,
+    "family": "Lord Matic",
+    "notableRefs": [
+      "5601-7000",
+      "5601-8000"
+    ],
+    "notes": "Date-only automatic in the early Lord Matic line, 21600 bph with quickset date.",
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "5605",
+    "startYear": 1968,
+    "endYear": 1978,
+    "movementType": "automatic",
+    "jewels": 23,
+    "family": "Lord Matic",
+    "notableRefs": [
+      "5605-7000",
+      "5605-7070"
+    ],
+    "notes": "Day-date automatic, 21600 bph, core Lord Matic (LM) workhorse caliber.",
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "5606",
+    "aliases": [
+      "5606A",
+      "5606B"
+    ],
+    "startYear": 1968,
+    "endYear": 1978,
+    "movementType": "automatic",
+    "jewels": 23,
+    "family": "Lord Matic",
+    "notableRefs": [
+      "5606-7000",
+      "5606-7290",
+      "5606-8050"
+    ],
+    "notes": "Day-date automatic 21600 bph used widely across LM and LM Special models.",
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "5625",
+    "startYear": 1968,
+    "endYear": 1978,
+    "movementType": "automatic",
+    "jewels": 25,
+    "family": "Lord Matic",
+    "notableRefs": [
+      "5625-7000",
+      "5625-7110"
+    ],
+    "notes": "25-jewel date-only automatic, 21600 bph, Lord Matic and LM Special.",
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "5626",
+    "aliases": [
+      "5626A",
+      "5626B"
+    ],
+    "startYear": 1968,
+    "endYear": 1982,
+    "movementType": "automatic",
+    "jewels": 25,
+    "family": "Lord Matic Special",
+    "notableRefs": [
+      "5626-7000",
+      "5626-7110",
+      "5626-7040"
+    ],
+    "notes": "25-jewel day-date, the flagship Lord Matic Special caliber, long-running across many references.",
+    "longRun": true,
+    "rangeConfidence": "established"
+  },
+  {
+    "caliber": "5645",
+    "startYear": 1968,
+    "endYear": 1978,
+    "movementType": "automatic",
+    "jewels": 25,
+    "family": "Seiko 5",
+    "notableRefs": [
+      "5645-7000",
+      "5645-7010"
+    ],
+    "notes": "25-jewel date automatic used in Seiko 5 and 5 DX, 21600 bph.",
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "5646",
+    "startYear": 1968,
+    "endYear": 1978,
+    "movementType": "automatic",
+    "jewels": 25,
+    "family": "Seiko 5",
+    "notableRefs": [
+      "5646-7010",
+      "5646-8000",
+      "5646-7000"
+    ],
+    "notes": "25-jewel day-date automatic, Seiko 5 DX, 21600 bph with quickset day-date.",
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "6185",
+    "startYear": 1968,
+    "endYear": 1973,
+    "movementType": "automatic",
+    "jewels": 25,
+    "family": "Grand Seiko 61GS V.F.A.",
+    "notableRefs": [
+      "6185-8020",
+      "6185-8021"
+    ],
+    "notes": "Hi-beat Grand Seiko V.F.A. (Very Fine Adjusted) date caliber, factory-regulated to roughly +/-2 sec/day.",
+    "grandSeiko": true,
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "6186",
+    "startYear": 1968,
+    "endYear": 1973,
+    "movementType": "automatic",
+    "jewels": 25,
+    "family": "Grand Seiko 61GS V.F.A.",
+    "notableRefs": [
+      "6186-8000",
+      "6186-8010"
+    ],
+    "notes": "Day-date Grand Seiko V.F.A. hi-beat caliber; the day-date sibling of the 6185 high-accuracy movement.",
+    "grandSeiko": true,
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "7005",
+    "aliases": [
+      "7005A"
+    ],
+    "startYear": 1968,
+    "endYear": 1980,
+    "movementType": "automatic",
+    "jewels": 17,
+    "family": "Seiko 5",
+    "notableRefs": [
+      "7005-8030",
+      "7005-8042",
+      "7005-7140"
+    ],
+    "notes": "Entry Seiko 5 automatic with day-date, non-hacking non-handwinding; common Japan-domestic/Asian workhorse of the late 1960s and 1970s.",
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "7006",
+    "aliases": [
+      "7006A"
+    ],
+    "startYear": 1968,
+    "endYear": 1980,
+    "movementType": "automatic",
+    "jewels": 17,
+    "family": "Seiko 5",
+    "notableRefs": [
+      "7006-8030",
+      "7006-7140"
+    ],
+    "notes": "Single-date sibling of the day-date 7005 in the early Seiko 5 line.",
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "4580",
+    "startYear": 1969,
+    "endYear": 1973,
+    "movementType": "manual",
+    "jewels": 25,
+    "family": "Grand Seiko 45GS VFA",
+    "notableRefs": [
+      "4580-7010",
+      "4580-7000"
+    ],
+    "notes": "Very Fine Adjusted (VFA) hi-beat 36000 vph hand-wind 45GS, Daini-built, factory-regulated to roughly +/-2 sec/day; top of the vintage GS hand-wind range.",
+    "grandSeiko": true,
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "5146",
+    "aliases": [
+      "5146A"
+    ],
+    "startYear": 1969,
+    "endYear": 1973,
+    "movementType": "automatic",
+    "jewels": 27,
+    "family": "Seiko 5",
+    "notableRefs": [
+      "5146-7000",
+      "5146-7040",
+      "5146-5021"
+    ],
+    "notes": "Hi-beat 28800 bph 'Presmatic' day-date automatic, 27 or 30 jewels; the most advanced and last caliber of the 5100 family, introduced 1969 as the 5139 was retired.",
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "5206",
+    "aliases": [
+      "5206A"
+    ],
+    "startYear": 1969,
+    "endYear": 1977,
+    "movementType": "automatic",
+    "jewels": 23,
+    "family": "Lord Matic",
+    "notableRefs": [
+      "5206-6010",
+      "5206-6050"
+    ],
+    "notes": "Date-only Lord Matic (LM) hi-beat 28800 bph automatic, 23 or 25 jewels, Daini-built dress movement with instant midnight date change; evolved into the 5216 around 1972.",
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "5619",
+    "startYear": 1969,
+    "endYear": 1978,
+    "movementType": "automatic",
+    "jewels": 25,
+    "family": "Lord Matic Special",
+    "notableRefs": [
+      "5619-7000",
+      "5619-7010"
+    ],
+    "notes": "Higher-grade 25-jewel day-date variant used in Lord Matic Special.",
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "6138",
+    "aliases": [
+      "6138A",
+      "6138B"
+    ],
+    "startYear": 1969,
+    "endYear": 1980,
+    "movementType": "automatic",
+    "jewels": 21,
+    "family": "Chronograph",
+    "notableRefs": [
+      "6138-0040 Bullhead",
+      "6138-8020 John Player Special",
+      "6138-0030 UFO",
+      "6138-3002 Kakume"
+    ],
+    "notes": "Automatic chronograph with 12-hour register and vertical clutch; powers the Bullhead and John Player Special.",
+    "rangeConfidence": "established"
+  },
+  {
+    "caliber": "6139",
+    "aliases": [
+      "6139A",
+      "6139B"
+    ],
+    "startYear": 1969,
+    "endYear": 1980,
+    "movementType": "automatic",
+    "jewels": 17,
+    "family": "Chronograph",
+    "notableRefs": [
+      "6139-6002 Pogue",
+      "6139-6005",
+      "6139-6000"
+    ],
+    "notes": "Among the first automatic chronographs; the 6139-6002 'Pogue' flew on Skylab. Single register plus day-date.",
+    "rangeConfidence": "established"
+  },
+  {
+    "caliber": "7016",
+    "aliases": [
+      "7016A"
+    ],
+    "startYear": 1969,
+    "endYear": 1980,
+    "movementType": "automatic",
+    "jewels": 21,
+    "family": "5 Speedtimer",
+    "notableRefs": [
+      "7016-8000",
+      "7016-5001 Monaco"
+    ],
+    "notes": "Seiko 5 automatic chronograph with day-date; the 7016-5001 'Monaco' is a sought-after reference.",
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "7017",
+    "aliases": [
+      "7017A",
+      "7018"
+    ],
+    "startYear": 1969,
+    "endYear": 1980,
+    "movementType": "automatic",
+    "jewels": 21,
+    "family": "5 Speedtimer",
+    "notableRefs": [
+      "7017-6010",
+      "7017-8000",
+      "7018-7000"
+    ],
+    "notes": "Single-register Speedtimer automatic chronograph; the 7018 is the date-only sibling.",
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "6155",
+    "startYear": 1970,
+    "endYear": 1977,
+    "movementType": "automatic",
+    "jewels": 25,
+    "family": "Grand Seiko 61GS hi-beat",
+    "notableRefs": [
+      "6155-8000"
+    ],
+    "notes": "Grand Seiko 36000 vph hi-beat automatic with date, part of the 61GS Special era; used on a single reference.",
+    "grandSeiko": true,
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "6156",
+    "startYear": 1970,
+    "endYear": 1977,
+    "movementType": "automatic",
+    "jewels": 25,
+    "family": "Grand Seiko 61GS hi-beat",
+    "notableRefs": [
+      "6156-8000",
+      "6156-8010"
+    ],
+    "notes": "Grand Seiko hi-beat automatic with day-date; the day-date sibling of the 6155 used on the 61GS Special models.",
+    "grandSeiko": true,
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "7019",
+    "aliases": [
+      "7019A"
+    ],
+    "startYear": 1970,
+    "endYear": 1980,
+    "movementType": "automatic",
+    "jewels": 21,
+    "family": "Seiko 5",
+    "notableRefs": [
+      "7019-7060",
+      "7019-8010"
+    ],
+    "notes": "21-jewel Seiko 5 day-date variant of the early 70xx family.",
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "5216",
+    "aliases": [
+      "5216A"
+    ],
+    "startYear": 1971,
+    "endYear": 1979,
+    "movementType": "automatic",
+    "jewels": 23,
+    "family": "Lord Matic",
+    "notableRefs": [
+      "5216-7020",
+      "5216-6040",
+      "5216-8020",
+      "5216-5000"
+    ],
+    "notes": "Day-date Lord Matic / LM Special hi-beat 28800 bph automatic, 23 or 25 jewels, Daini-built; the most common LM caliber, successor to the 5206 with a simplified (non-instant) calendar.",
+    "rangeConfidence": "established"
+  },
+  {
+    "caliber": "5245",
+    "aliases": [
+      "5245A"
+    ],
+    "startYear": 1971,
+    "endYear": 1977,
+    "movementType": "automatic",
+    "jewels": 25,
+    "family": "King Seiko",
+    "notableRefs": [
+      "5245-6000",
+      "5245-6010"
+    ],
+    "notes": "Hi-beat 28800 bph King Seiko automatic of the Vanac era, 25 jewels, Daini-built; date sibling within the 52xx KS Vanac range.",
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "5246",
+    "aliases": [
+      "5246A"
+    ],
+    "startYear": 1971,
+    "endYear": 1977,
+    "movementType": "automatic",
+    "jewels": 25,
+    "family": "King Seiko",
+    "notableRefs": [
+      "5246-6000",
+      "5246-6010",
+      "5246-6051",
+      "5246-5040"
+    ],
+    "notes": "Hi-beat 28800 bph day-date King Seiko / KS Vanac chronometer-grade automatic, 25 jewels, Daini-built, with crown quickset day/date and bilingual day wheel.",
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "5256",
+    "aliases": [
+      "5256A"
+    ],
+    "startYear": 1971,
+    "endYear": 1977,
+    "movementType": "automatic",
+    "jewels": 25,
+    "family": "King Seiko",
+    "notableRefs": [
+      "5256-6000",
+      "5256-8000"
+    ],
+    "notes": "Hi-beat 28800 bph day-date King Seiko / KS Vanac chronometer-grade automatic, 25 jewels, Daini-built; top of the 52xx KS range.",
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "4205",
+    "aliases": [
+      "4205A",
+      "4205B",
+      "4205C"
+    ],
+    "startYear": 1973,
+    "endYear": 1992,
+    "movementType": "automatic",
+    "jewels": 17,
+    "family": "Ladies Automatic (42-series)",
+    "notableRefs": [
+      "4205-0XXX"
+    ],
+    "notes": "Ladies-size 42-series automatic day/date; 17 jewels (lacks the additional bracket jewels of the 4207).",
+    "longRun": true,
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "4207",
+    "aliases": [
+      "4207A",
+      "4207B",
+      "4207C"
+    ],
+    "startYear": 1973,
+    "endYear": 1992,
+    "movementType": "automatic",
+    "jewels": 21,
+    "family": "Ladies Automatic (42-series)",
+    "notableRefs": [
+      "4207-0XXX"
+    ],
+    "notes": "Ladies-size 42-series automatic day/date, 21 jewels, 21600 bph, roughly 24h power reserve.",
+    "longRun": true,
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "6306",
+    "aliases": [
+      "6306A"
+    ],
+    "startYear": 1976,
+    "endYear": 1982,
+    "movementType": "automatic",
+    "jewels": 17,
+    "family": "Diver",
+    "notableRefs": [
+      "6306-7000",
+      "6306-7001"
+    ],
+    "notes": "JDM-only 150m diver with bilingual kanji/English day-date and hacking + hand-winding; predecessor to the 6309 Turtle.",
+    "rangeConfidence": "established"
+  },
+  {
+    "caliber": "6309",
+    "aliases": [
+      "6309A"
+    ],
+    "startYear": 1976,
+    "endYear": 1990,
+    "movementType": "automatic",
+    "jewels": 17,
+    "family": "Diver",
+    "notableRefs": [
+      "6309-7040 Turtle",
+      "6309-7049",
+      "6309-7290 Turtle (export)",
+      "6309-704x"
+    ],
+    "notes": "Powers the cushion-case 150m 'Turtle' diver (7040/7049/7290); non-hacking, non-handwinding; also used in many non-diver 6309-8xxx day-date models. Very long-lived workhorse caliber.",
+    "longRun": true,
+    "rangeConfidence": "established"
+  },
+  {
+    "caliber": "6319",
+    "aliases": [
+      "6319A"
+    ],
+    "startYear": 1976,
+    "endYear": 1990,
+    "movementType": "automatic",
+    "jewels": 21,
+    "family": "Seiko 5",
+    "notableRefs": [
+      "6319-5040",
+      "6319-7000"
+    ],
+    "notes": "21-jewel bilingual day-date Seiko 5 movement in the 63xx series; non-diver dress/sports models, sibling to the 6306/6309 architecture (the 6309 base is 17 jewels).",
+    "longRun": true,
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "7009",
+    "aliases": [
+      "7009A"
+    ],
+    "startYear": 1976,
+    "endYear": 1996,
+    "movementType": "automatic",
+    "jewels": 17,
+    "family": "Seiko 5",
+    "notableRefs": [
+      "7009-3040",
+      "7009-876A",
+      "7009-8038"
+    ],
+    "notes": "Successor to 7005/7006; ubiquitous Seiko 5 day-date that ran from the mid-1970s until superseded by the 7S26.",
+    "longRun": true,
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "6349",
+    "aliases": [
+      "6349A"
+    ],
+    "startYear": 1980,
+    "endYear": 1992,
+    "movementType": "automatic",
+    "jewels": 23,
+    "family": "Diver",
+    "notableRefs": [
+      "6349-7010"
+    ],
+    "notes": "23-jewel date-only (no day) sibling of the 6306/6309, sharing the oscillating weight and dial-holding ring; used in some JDM divers and date-only sports models.",
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "7C43",
+    "startYear": 1985,
+    "endYear": null,
+    "movementType": "quartz",
+    "jewels": 0,
+    "family": "Diver",
+    "notableRefs": [
+      "7C43-7010 Quartz Tuna 1000m"
+    ],
+    "notes": "High-grade sports quartz powering the 7C43-7010 1000m 'Quartz Tuna' professional diver; the Quartz Tuna lineage kept this caliber in long production.",
+    "longRun": true,
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "7N01",
+    "startYear": 1985,
+    "endYear": null,
+    "movementType": "quartz",
+    "jewels": 0,
+    "family": "Seiko Quartz",
+    "notes": "Basic 3-hand quartz movement used across countless Seiko 5 quartz and dress models; very weak for decade narrowing.",
+    "longRun": true,
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "7C46",
+    "startYear": 1986,
+    "endYear": null,
+    "movementType": "quartz",
+    "jewels": 0,
+    "family": "Diver",
+    "notes": "Robust sports quartz used in 200m/300m Seiko divers, sibling to the 7C43 Tuna caliber.",
+    "longRun": true,
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "7N42",
+    "startYear": 1986,
+    "endYear": null,
+    "movementType": "quartz",
+    "jewels": 0,
+    "family": "Seiko Quartz",
+    "notes": "Ubiquitous 3-hand-plus-date quartz used in entry Seiko 5 and dress watches; extremely common, weak narrowing.",
+    "longRun": true,
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "7N43",
+    "startYear": 1986,
+    "endYear": null,
+    "movementType": "quartz",
+    "jewels": 0,
+    "family": "Seiko Quartz",
+    "notes": "Day-date 3-hand quartz, one of Seiko's most widely fitted economy calibers; still in production, near-zero dating value.",
+    "longRun": true,
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "5M22",
+    "aliases": [
+      "5M22A",
+      "5M22B"
+    ],
+    "startYear": 1988,
+    "endYear": 2005,
+    "movementType": "kinetic",
+    "jewels": 6,
+    "family": "Kinetic (AGS)",
+    "notableRefs": [
+      "5M22-6C30",
+      "5M22-7A60"
+    ],
+    "notes": "Early AGS (Automatic Generating System) auto-quartz, three-hand with date; used in SUS/dress models before the Kinetic rebrand of 1993. AGS launched 1988, so window widened back to 1988.",
+    "longRun": true,
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "5M42",
+    "aliases": [
+      "5M42A",
+      "5M42B"
+    ],
+    "startYear": 1988,
+    "endYear": 2005,
+    "movementType": "kinetic",
+    "jewels": 6,
+    "family": "Kinetic (AGS)",
+    "notableRefs": [
+      "5M42-0E30",
+      "5M42-0A89"
+    ],
+    "notes": "Workhorse first-generation AGS/Kinetic, three-hand date; very common across the 1990s Kinetic line. AGS launched 1988, so window widened back to 1988.",
+    "longRun": true,
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "5M43",
+    "aliases": [
+      "5M43A",
+      "5M43B"
+    ],
+    "startYear": 1988,
+    "endYear": 2005,
+    "movementType": "kinetic",
+    "jewels": 6,
+    "family": "Kinetic (AGS)",
+    "notableRefs": [
+      "5M43-0C50",
+      "5M43-0040"
+    ],
+    "notes": "Day-date companion to the 5M42 in the early AGS/Kinetic generation. Covered alongside 3M22/5M42 in Seiko's shared instruction manual.",
+    "longRun": true,
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "7N82",
+    "startYear": 1988,
+    "endYear": null,
+    "movementType": "quartz",
+    "jewels": 0,
+    "family": "Seiko Quartz",
+    "notes": "Day-date economy quartz closely related to 7N43, fitted across Seiko 5 quartz and budget lines.",
+    "longRun": true,
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "5M23",
+    "aliases": [
+      "5M23A",
+      "5M23B"
+    ],
+    "startYear": 1990,
+    "endYear": 2005,
+    "movementType": "kinetic",
+    "jewels": 6,
+    "family": "Kinetic (AGS)",
+    "notableRefs": [
+      "5M23-7A40"
+    ],
+    "notes": "AGS-era auto-quartz diver-style caliber; AGS-branded predecessor to later 5M dive Kinetics. Window widened for safe intersection.",
+    "longRun": true,
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "7T32",
+    "startYear": 1988,
+    "endYear": 2010,
+    "movementType": "quartz",
+    "jewels": 0,
+    "family": "Quartz Chronograph",
+    "notes": "Alarm chronograph quartz from the 7T series, fitted to late-1980s through 2000s Seiko sports chronographs.",
+    "longRun": true,
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "5M45",
+    "aliases": [
+      "5M45A"
+    ],
+    "startYear": 1993,
+    "endYear": 2005,
+    "movementType": "kinetic",
+    "jewels": 6,
+    "family": "Kinetic (AGS)",
+    "notableRefs": [
+      "5M45-6A01",
+      "5M45-6A50"
+    ],
+    "notes": "AGS/Kinetic caliber used in titanium Landmaster, Flightmaster (GMT) and Scubamaster models (e.g. SBCW001, SBCW005). Real refs corrected from the draft's placeholder 5M45-5A00.",
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "9F61",
+    "startYear": 1993,
+    "endYear": null,
+    "movementType": "quartz",
+    "jewels": 9,
+    "family": "Grand Seiko 9F",
+    "notableRefs": [
+      "SBGT",
+      "SBGX time-only"
+    ],
+    "notes": "Three-hand time-only (no date) high-accuracy 9F quartz, +/-10s per year.",
+    "longRun": true,
+    "grandSeiko": true,
+    "rangeConfidence": "established"
+  },
+  {
+    "caliber": "9F62",
+    "startYear": 1993,
+    "endYear": null,
+    "movementType": "quartz",
+    "jewels": 9,
+    "family": "Grand Seiko 9F",
+    "notableRefs": [
+      "SBGX series",
+      "SBGX061 'Snowflake quartz'",
+      "SBGX259"
+    ],
+    "notes": "Most common 9F: three-hand with date, instant date change, +/-10s per year; backbone of SBGX line.",
+    "longRun": true,
+    "grandSeiko": true,
+    "rangeConfidence": "established"
+  },
+  {
+    "caliber": "9F82",
+    "startYear": 1993,
+    "endYear": null,
+    "movementType": "quartz",
+    "jewels": 9,
+    "family": "Grand Seiko 9F",
+    "notableRefs": [
+      "SBGT series"
+    ],
+    "notes": "Three-hand with date 9F variant; +/-10s per year high-accuracy quartz.",
+    "longRun": true,
+    "grandSeiko": true,
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "9F83",
+    "startYear": 1993,
+    "endYear": null,
+    "movementType": "quartz",
+    "jewels": 9,
+    "family": "Grand Seiko 9F",
+    "notableRefs": [
+      "SBGV series"
+    ],
+    "notes": "Three-hand with date 9F quartz, +/-10s per year; one of the original 1993 9F calibers.",
+    "longRun": true,
+    "grandSeiko": true,
+    "rangeConfidence": "established"
+  },
+  {
+    "caliber": "3M22",
+    "aliases": [
+      "3M22A"
+    ],
+    "startYear": 1994,
+    "endYear": 2005,
+    "movementType": "kinetic",
+    "jewels": 6,
+    "family": "Kinetic (AGS)",
+    "notableRefs": [
+      "3M22-0A10",
+      "3M22-0A60",
+      "3M22-0A90"
+    ],
+    "notes": "Slim/small AGS-Kinetic with date and a press-button power-reserve indicator; used in ladies' and dress models (e.g. Age of Discovery) in the mid-to-late 1990s. Covered by Seiko's official 'Cal. 3M22, 5M42, 5M43' manual. Window widened.",
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "7S25",
+    "startYear": 1995,
+    "endYear": 2021,
+    "movementType": "automatic",
+    "jewels": 21,
+    "family": "Seiko 5",
+    "notes": "Date-only sibling of the day-date 7S26, found in some Seiko 5 and entry models.",
+    "longRun": true,
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "7S26",
+    "aliases": [
+      "7S26A",
+      "7S26B",
+      "7S26C"
+    ],
+    "startYear": 1995,
+    "endYear": 2021,
+    "movementType": "automatic",
+    "jewels": 21,
+    "family": "Diver",
+    "notableRefs": [
+      "SKX007",
+      "SKX009",
+      "SKX013",
+      "SNK809"
+    ],
+    "notes": "Workhorse non-hacking, non-handwinding 21-jewel auto powering the legendary SKX diver and SNK dress line.",
+    "longRun": true,
+    "rangeConfidence": "established"
+  },
+  {
+    "caliber": "7S35",
+    "startYear": 1995,
+    "endYear": 2021,
+    "movementType": "automatic",
+    "jewels": 23,
+    "family": "Seiko 5",
+    "notes": "23-jewel date-only counterpart to 7S36 in the 7S family.",
+    "longRun": true,
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "7S36",
+    "aliases": [
+      "7S36A",
+      "7S36B"
+    ],
+    "startYear": 1995,
+    "endYear": 2021,
+    "movementType": "automatic",
+    "jewels": 23,
+    "family": "Seiko 5",
+    "notableRefs": [
+      "SNZF Sea Urchin"
+    ],
+    "notes": "23-jewel day-date variant of 7S26, used in Sea Urchin and various Seiko 5 Sports.",
+    "longRun": true,
+    "rangeConfidence": "established"
+  },
+  {
+    "caliber": "7T62",
+    "startYear": 1995,
+    "endYear": null,
+    "movementType": "quartz",
+    "jewels": 0,
+    "family": "Quartz Chronograph",
+    "notes": "Alarm chronograph quartz with 1/20s chrono and alarm; workhorse of many Seiko and Pulsar sports chronographs.",
+    "longRun": true,
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "7S55",
+    "startYear": 1996,
+    "endYear": 2012,
+    "movementType": "automatic",
+    "jewels": 23,
+    "family": "Seiko 5",
+    "notes": "Higher-grade 7S-series auto used in select Seiko 5 and SUS/Spirit models, often with open-heart dials.",
+    "longRun": true,
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "7T92",
+    "startYear": 1997,
+    "endYear": null,
+    "movementType": "quartz",
+    "jewels": 0,
+    "family": "Quartz Chronograph",
+    "notes": "Alarm chronograph quartz, successor/sibling to 7T62; very common in mid-range sports chronographs.",
+    "longRun": true,
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "8L35",
+    "startYear": 1998,
+    "endYear": null,
+    "movementType": "automatic",
+    "jewels": 26,
+    "family": "Prospex Diver (8L)",
+    "notableRefs": [
+      "SBDX001 Marinemaster 300",
+      "SBDX017 MM300",
+      "SLA021",
+      "SBDX011 Emperor Tuna 1000m"
+    ],
+    "notes": "Undecorated, unadjusted-to-GS-grade sibling of the Grand Seiko 9S55; 28,800 vph, ~50h reserve. The long-running workhorse of the Marinemaster 300 and also powers the 1000m Emperor Tuna (SBDX011/SBDX014).",
+    "longRun": true,
+    "rangeConfidence": "established"
+  },
+  {
+    "caliber": "9S55",
+    "startYear": 1998,
+    "endYear": 2014,
+    "movementType": "automatic",
+    "jewels": 26,
+    "family": "Grand Seiko 9S",
+    "notableRefs": [
+      "SBGR001",
+      "SBGR051"
+    ],
+    "notes": "Defining early-modern 9S5x automatic with date, 28800 vph, ~50h power reserve; workhorse of the 1998 9S revival before the 9S6x update.",
+    "longRun": true,
+    "grandSeiko": true,
+    "rangeConfidence": "established"
+  },
+  {
+    "caliber": "9S56",
+    "startYear": 1998,
+    "endYear": 2014,
+    "movementType": "automatic",
+    "jewels": 26,
+    "family": "Grand Seiko 9S",
+    "notes": "9S5x-family automatic (three-hand, no-date), 28800 vph; sibling of the 9S55.",
+    "longRun": true,
+    "grandSeiko": true,
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "3M62",
+    "aliases": [
+      "3M62A"
+    ],
+    "startYear": 1999,
+    "endYear": 2016,
+    "movementType": "kinetic",
+    "jewels": 6,
+    "family": "Kinetic",
+    "notes": "Compact second-gen Kinetic (3M series) with date; documented alongside 5M62/5M63 in shared Kinetic instruction booklets. Window widened for safe intersection.",
+    "longRun": true,
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "5M54",
+    "aliases": [
+      "5M54A"
+    ],
+    "startYear": 1999,
+    "endYear": 2018,
+    "movementType": "kinetic",
+    "jewels": 6,
+    "family": "Kinetic",
+    "notes": "Kinetic in the 5M62/5M63 family adding a power-reserve indicator (second hand sweeps to show reserve when crown pulled). Confirmed by Seiko's official 'Cal. 5M54, 5M62 & 5M63' manual; used in Arctura-style models. Window widened for safe intersection.",
+    "longRun": true,
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "5M62",
+    "aliases": [
+      "5M62A",
+      "5M62B"
+    ],
+    "startYear": 1999,
+    "endYear": null,
+    "movementType": "kinetic",
+    "jewels": 6,
+    "family": "Kinetic",
+    "notableRefs": [
+      "5M62-0BL0",
+      "5M62-0A60",
+      "5M62-0D30"
+    ],
+    "notes": "Second-gen Kinetic, three-hand with date; one of the most widely used Kinetic movements. Documented in Seiko's official 5M62/5M63 manual; still serviced/listed, so endYear left open.",
+    "longRun": true,
+    "rangeConfidence": "established"
+  },
+  {
+    "caliber": "5M63",
+    "aliases": [
+      "5M63A",
+      "5M63B"
+    ],
+    "startYear": 1999,
+    "endYear": null,
+    "movementType": "kinetic",
+    "jewels": 6,
+    "family": "Kinetic",
+    "notableRefs": [
+      "5M63-0A70",
+      "5M63-0AB0"
+    ],
+    "notes": "Day-date version of the 5M62; ubiquitous across the 2000s-2010s Kinetic catalog. Shares Seiko's official 5M62/5M63 instruction manual. endYear left open.",
+    "longRun": true,
+    "rangeConfidence": "established"
+  },
+  {
+    "caliber": "5M65",
+    "aliases": [
+      "5M65A"
+    ],
+    "startYear": 2002,
+    "endYear": null,
+    "movementType": "kinetic",
+    "jewels": 6,
+    "family": "Kinetic",
+    "notes": "Kinetic with power-reserve indicator (press-button check); grouped with 5M62/5M63/5M65 generation. Widely used from the 2000s onward, so endYear left open.",
+    "longRun": true,
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "9R65",
+    "startYear": 2004,
+    "endYear": null,
+    "movementType": "spring-drive",
+    "jewels": 30,
+    "family": "Grand Seiko 9R",
+    "notableRefs": [
+      "SBGA011 Snowflake",
+      "SBGA211 Snowflake",
+      "SBGA031"
+    ],
+    "notes": "Foundational GS Spring Drive automatic with date, ~72h reserve; debuted 2004 and still widely used.",
+    "longRun": true,
+    "grandSeiko": true,
+    "rangeConfidence": "established"
+  },
+  {
+    "caliber": "7R88",
+    "startYear": 2005,
+    "endYear": null,
+    "movementType": "spring-drive",
+    "jewels": 48,
+    "family": "Credor Spring Drive",
+    "notableRefs": [
+      "Credor Spring Drive Power Reserve",
+      "GBLT997"
+    ],
+    "notes": "Credor manual-wind Spring Drive with power-reserve indicator, ~48h reserve.",
+    "longRun": true,
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "9R66",
+    "startYear": 2005,
+    "endYear": null,
+    "movementType": "spring-drive",
+    "jewels": 30,
+    "family": "Grand Seiko 9R",
+    "notableRefs": [
+      "SBGE001 GMT",
+      "SBGE201",
+      "SBGE253"
+    ],
+    "notes": "GS Spring Drive automatic GMT (date), variant of the 9R6x base, ~72h reserve.",
+    "longRun": true,
+    "grandSeiko": true,
+    "rangeConfidence": "established"
+  },
+  {
+    "caliber": "6R15",
+    "aliases": [
+      "6R15A",
+      "6R15B",
+      "6R15C",
+      "6R15D"
+    ],
+    "startYear": 2006,
+    "endYear": 2019,
+    "movementType": "automatic",
+    "jewels": 23,
+    "family": "Seiko Mechanical / Presage / Prospex",
+    "notableRefs": [
+      "SARB033",
+      "SARB035",
+      "SARB017 Alpinist",
+      "SBDC001 Sumo"
+    ],
+    "notes": "Workhorse 50h-reserve automatic with Spron 510 mainspring and hacking/handwinding; powered the beloved SARB033/035 and original Sumo. Superseded by the 6R35.",
+    "rangeConfidence": "established"
+  },
+  {
+    "caliber": "9S64",
+    "startYear": 2006,
+    "endYear": null,
+    "movementType": "manual",
+    "jewels": 24,
+    "family": "Grand Seiko 9S",
+    "notableRefs": [
+      "SBGW231",
+      "SBGW253",
+      "SBGW260"
+    ],
+    "notes": "Hand-wound 9S, 28800 vph, 72h power reserve; powers classic time-only dress models like the SBGW231.",
+    "longRun": true,
+    "grandSeiko": true,
+    "rangeConfidence": "established"
+  },
+  {
+    "caliber": "9S65",
+    "startYear": 2006,
+    "endYear": null,
+    "movementType": "automatic",
+    "jewels": 35,
+    "family": "Grand Seiko 9S",
+    "notableRefs": [
+      "SBGR251",
+      "SBGR253",
+      "SBGR309"
+    ],
+    "notes": "Core 72h automatic with date, 28800 vph; 2006 update using MEMS-fabricated escapement parts and Spron alloys.",
+    "longRun": true,
+    "grandSeiko": true,
+    "rangeConfidence": "established"
+  },
+  {
+    "caliber": "9S66",
+    "startYear": 2006,
+    "endYear": null,
+    "movementType": "automatic",
+    "jewels": 35,
+    "family": "Grand Seiko 9S",
+    "notableRefs": [
+      "SBGR261"
+    ],
+    "notes": "72h automatic with day-date, 28800 vph; day-date sibling of the 9S65.",
+    "longRun": true,
+    "grandSeiko": true,
+    "rangeConfidence": "established"
+  },
+  {
+    "caliber": "V147",
+    "aliases": [
+      "V14J"
+    ],
+    "startYear": 2006,
+    "endYear": null,
+    "movementType": "solar",
+    "jewels": 0,
+    "family": "Prospex Solar Diver",
+    "notableRefs": [
+      "SNE series"
+    ],
+    "notes": "Three-hand solar movement used in Prospex, Dolce, Alba and other solar dive-style watches. Window widened to avoid false contradiction; shares MT920 capacitor with V14J variant.",
+    "longRun": true,
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "9R86",
+    "startYear": 2007,
+    "endYear": null,
+    "movementType": "spring-drive",
+    "jewels": 50,
+    "family": "Grand Seiko 9R",
+    "notableRefs": [
+      "SBGC001",
+      "SBGC013",
+      "SBGC203",
+      "SBGC231"
+    ],
+    "notes": "GS Spring Drive chronograph GMT automatic, column-wheel, ~72h reserve.",
+    "longRun": true,
+    "grandSeiko": true,
+    "rangeConfidence": "established"
+  },
+  {
+    "caliber": "7R14",
+    "startYear": 2008,
+    "endYear": null,
+    "movementType": "spring-drive",
+    "jewels": 41,
+    "family": "Credor Spring Drive",
+    "notableRefs": [
+      "Credor Eichi",
+      "Credor Eichi II GBLT998"
+    ],
+    "notes": "Hand-wound Spring Drive in the Credor Eichi line, Micro Artist Studio porcelain-dial pieces.",
+    "longRun": true,
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "9R96",
+    "startYear": 2008,
+    "endYear": null,
+    "movementType": "spring-drive",
+    "jewels": 50,
+    "family": "Grand Seiko 9R",
+    "notableRefs": [
+      "SBGC005",
+      "SBGC238"
+    ],
+    "notes": "Higher-accuracy chronograph GMT variant of the 9R86, +/-0.5 sec/day rating.",
+    "longRun": true,
+    "grandSeiko": true,
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "V14J",
+    "startYear": 2008,
+    "endYear": null,
+    "movementType": "solar",
+    "jewels": 0,
+    "family": "Solar",
+    "notes": "Solar caliber used in entry and mid-range Seiko Solar three-hand models; shares the MT920 capacitor (~10-month reserve) with V147.",
+    "longRun": true,
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "V157",
+    "startYear": 2008,
+    "endYear": null,
+    "movementType": "solar",
+    "jewels": 0,
+    "family": "Prospex Solar Diver",
+    "notableRefs": [
+      "SNE series Prospex Diver 200m",
+      "SNE107 Black Knight"
+    ],
+    "notes": "Workhorse 3-hand solar diver movement powering many Prospex 200m solar divers. Documented in the shared V131/V145/V147/V157/V158 instruction manual.",
+    "longRun": true,
+    "rangeConfidence": "established"
+  },
+  {
+    "caliber": "V158",
+    "startYear": 2008,
+    "endYear": null,
+    "movementType": "solar",
+    "jewels": 0,
+    "family": "Solar",
+    "notes": "Three-hand solar caliber (improved accuracy and power reserve over V145A) used in dress and casual solar models. Documented in the shared V157A/V158A technical guide.",
+    "longRun": true,
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "V172",
+    "startYear": 2008,
+    "endYear": null,
+    "movementType": "solar",
+    "jewels": 0,
+    "family": "Prospex Solar Chronograph",
+    "notableRefs": [
+      "SSC series Prospex Solar Chronograph 200m",
+      "SSC017"
+    ],
+    "notes": "Solar chronograph caliber with 1/5-second chrono and 60-minute counter, widely used in Prospex Solar dive chronographs. Start widened to cover platform introduction.",
+    "longRun": true,
+    "rangeConfidence": "established"
+  },
+  {
+    "caliber": "V181",
+    "startYear": 2008,
+    "endYear": null,
+    "movementType": "solar",
+    "jewels": 0,
+    "family": "Solar",
+    "notes": "Solar caliber with multi-function display used in mainstream Seiko Solar watches; uses MT616 capacitor with ~2-month reserve. Listed in the V147/V157/V181/V182/V187 instruction set.",
+    "longRun": true,
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "V182",
+    "startYear": 2008,
+    "endYear": null,
+    "movementType": "solar",
+    "jewels": 0,
+    "family": "Solar",
+    "notes": "Multi-hand solar caliber, sibling to V181, used in Seiko Solar dress and field models; shares the MT616 capacitor and is documented alongside V181 in Seiko's solar instruction set.",
+    "longRun": true,
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "9S85",
+    "startYear": 2009,
+    "endYear": null,
+    "movementType": "automatic",
+    "jewels": 37,
+    "family": "Grand Seiko 9S Hi-Beat",
+    "notableRefs": [
+      "SBGH001",
+      "SBGH005",
+      "SBGH245"
+    ],
+    "notes": "Hi-Beat 36000 automatic, 36000 vph, ~55h reserve; launched 2009 reviving the high-beat line.",
+    "longRun": true,
+    "grandSeiko": true,
+    "rangeConfidence": "established"
+  },
+  {
+    "caliber": "5M85",
+    "aliases": [
+      "5M85A"
+    ],
+    "startYear": 2010,
+    "endYear": null,
+    "movementType": "kinetic",
+    "jewels": 6,
+    "family": "Kinetic",
+    "notableRefs": [
+      "SUN043",
+      "SUN045"
+    ],
+    "notes": "Modern Kinetic with GMT/date and power-reserve check; used in Prospex Kinetic GMT divers (e.g. SUN043 50th-anniversary 'Yeti', SUN045). Start widened to 2010 to cover the full GMT-diver production run.",
+    "rangeConfidence": "established"
+  },
+  {
+    "caliber": "6R20",
+    "startYear": 2010,
+    "endYear": 2019,
+    "movementType": "automatic",
+    "jewels": 29,
+    "family": "Seiko Presage",
+    "notableRefs": [
+      "SARW Presage",
+      "SARG Presage"
+    ],
+    "notes": "Premium ~45h column-wheel-era movement with date and power-reserve indicator, used in upper Presage models.",
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "V175",
+    "startYear": 2010,
+    "endYear": null,
+    "movementType": "solar",
+    "jewels": 0,
+    "family": "Prospex Solar Chronograph",
+    "notableRefs": [
+      "SSC series",
+      "SSC017"
+    ],
+    "notes": "Solar chronograph caliber, sibling to V172, with 1/5-second stopwatch, 60-minute counter, date and 24-hour hand; ~6-month reserve. Used in Prospex and Speedtimer-style solar chronographs.",
+    "longRun": true,
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "4R35",
+    "aliases": [
+      "4R35A",
+      "4R35B"
+    ],
+    "startYear": 2011,
+    "endYear": null,
+    "movementType": "automatic",
+    "jewels": 23,
+    "family": "Seiko 5 Sports",
+    "notableRefs": [
+      "SRPD new 5 Sports"
+    ],
+    "notes": "Hacking and hand-winding date-only auto, the modern successor to 7S25, ~41h power reserve.",
+    "longRun": true,
+    "rangeConfidence": "established"
+  },
+  {
+    "caliber": "4R36",
+    "aliases": [
+      "4R36A",
+      "4R36B"
+    ],
+    "startYear": 2011,
+    "endYear": null,
+    "movementType": "automatic",
+    "jewels": 24,
+    "family": "Seiko 5 Sports",
+    "notableRefs": [
+      "SRPD 5 Sports",
+      "SRPE",
+      "Samurai SRPB"
+    ],
+    "notes": "Hacking hand-winding day-date 24-jewel auto, mainstay of the modern Seiko 5 Sports and entry Prospex.",
+    "longRun": true,
+    "rangeConfidence": "established"
+  },
+  {
+    "caliber": "6R27",
+    "startYear": 2011,
+    "endYear": 2021,
+    "movementType": "automatic",
+    "jewels": 29,
+    "family": "Seiko Presage",
+    "notableRefs": [
+      "SARW Presage",
+      "SARD Presage"
+    ],
+    "notes": "Premium movement with power reserve and small date, found in mid-to-upper Presage enamel/Urushi models.",
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "9S68",
+    "startYear": 2011,
+    "endYear": null,
+    "movementType": "automatic",
+    "jewels": 35,
+    "family": "Grand Seiko 9S",
+    "notableRefs": [
+      "SBGM221"
+    ],
+    "notes": "72h automatic with date, 28800 vph; widely used in current Heritage and dress lines.",
+    "longRun": true,
+    "grandSeiko": true,
+    "rangeConfidence": "established"
+  },
+  {
+    "caliber": "NH35",
+    "aliases": [
+      "NH35A"
+    ],
+    "startYear": 2011,
+    "endYear": null,
+    "movementType": "automatic",
+    "jewels": 24,
+    "family": "Seiko Instruments (SII)",
+    "notes": "SII export-grade twin of 4R35, date-only hacking hand-winding auto widely used in microbrands and mods.",
+    "longRun": true,
+    "rangeConfidence": "established"
+  },
+  {
+    "caliber": "NH36",
+    "aliases": [
+      "NH36A"
+    ],
+    "startYear": 2011,
+    "endYear": null,
+    "movementType": "automatic",
+    "jewels": 24,
+    "family": "Seiko Instruments (SII)",
+    "notes": "SII export twin of 4R36, day-date hacking hand-winding auto popular in mods and third-party builds.",
+    "longRun": true,
+    "rangeConfidence": "established"
+  },
+  {
+    "caliber": "6R24",
+    "startYear": 2012,
+    "endYear": 2021,
+    "movementType": "automatic",
+    "jewels": 29,
+    "family": "Seiko Presage",
+    "notableRefs": [
+      "SARW Presage"
+    ],
+    "notes": "Power-reserve plus date complication movement with ~45h reserve used across premium Presage dress pieces.",
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "4R38",
+    "startYear": 2014,
+    "endYear": null,
+    "movementType": "automatic",
+    "jewels": 24,
+    "family": "Presage",
+    "notes": "Date-only / open-heart 4R variant without day, used in Presage and some open-heart automatics.",
+    "longRun": true,
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "8L55",
+    "startYear": 2014,
+    "endYear": null,
+    "movementType": "automatic",
+    "jewels": 37,
+    "family": "Prospex Diver (8L)",
+    "notableRefs": [
+      "SBEX001 Marinemaster 1000m Hi-Beat",
+      "SLA013"
+    ],
+    "notes": "Hi-beat 36,000 vph 8L movement for the professional 1000m saturation diver, an 8L-grade cousin of the GS 9S85 hi-beat. Introduced 2014 and still in production.",
+    "rangeConfidence": "established"
+  },
+  {
+    "caliber": "9S86",
+    "startYear": 2014,
+    "endYear": null,
+    "movementType": "automatic",
+    "jewels": 37,
+    "family": "Grand Seiko 9S Hi-Beat",
+    "notableRefs": [
+      "SBGJ201",
+      "SBGJ235"
+    ],
+    "notes": "Hi-Beat 36000 GMT automatic, 36000 vph, dual-time with independent hour hand.",
+    "grandSeiko": true,
+    "rangeConfidence": "established"
+  },
+  {
+    "caliber": "NH38",
+    "aliases": [
+      "NH38A"
+    ],
+    "startYear": 2014,
+    "endYear": null,
+    "movementType": "automatic",
+    "jewels": 24,
+    "family": "Seiko Instruments (SII)",
+    "notes": "Open-heart / no-date export twin of the 4R38, used in skeleton-dial microbrand pieces.",
+    "longRun": true,
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "4R37",
+    "startYear": 2016,
+    "endYear": null,
+    "movementType": "automatic",
+    "jewels": 24,
+    "family": "Presage",
+    "notes": "Power-reserve-complication auto in the 4R family, used in select Presage models.",
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "4R57",
+    "startYear": 2016,
+    "endYear": null,
+    "movementType": "automatic",
+    "jewels": 25,
+    "family": "Presage",
+    "notes": "Power-reserve indicator auto in the 4R range, found in Presage power-reserve models.",
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "9R01",
+    "startYear": 2016,
+    "endYear": null,
+    "movementType": "spring-drive",
+    "jewels": 39,
+    "family": "Grand Seiko 9R",
+    "notableRefs": [
+      "SBGD001",
+      "SBGD201 Manchurian",
+      "SBGZ001"
+    ],
+    "notes": "Manual-wind Spring Drive with 8-day (192h) reserve via three barrels; flagship high-end caliber.",
+    "grandSeiko": true,
+    "rangeConfidence": "established"
+  },
+  {
+    "caliber": "9S67",
+    "startYear": 2016,
+    "endYear": null,
+    "movementType": "automatic",
+    "jewels": 35,
+    "family": "Grand Seiko 9S",
+    "notes": "72h automatic with date, 28800 vph; used in select Elegance/dress references.",
+    "grandSeiko": true,
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "9F86",
+    "startYear": 2017,
+    "endYear": null,
+    "movementType": "quartz",
+    "jewels": 9,
+    "family": "Grand Seiko 9F",
+    "notableRefs": [
+      "SBGN series",
+      "SBGN001",
+      "SBGN003",
+      "SBGN005"
+    ],
+    "notes": "First 9F quartz GMT caliber with independently adjustable hour hand, +/-10s per year; debuted on SBGN001/SBGN003.",
+    "grandSeiko": true,
+    "rangeConfidence": "established"
+  },
+  {
+    "caliber": "9R02",
+    "startYear": 2018,
+    "endYear": null,
+    "movementType": "spring-drive",
+    "jewels": 39,
+    "family": "Grand Seiko 9R",
+    "notableRefs": [
+      "SBGZ001 Snowflake-engraved",
+      "SBGZ003"
+    ],
+    "notes": "Manual-wind Spring Drive, ~84h reserve with torque-return system, Micro Artist Studio finished.",
+    "grandSeiko": true,
+    "rangeConfidence": "established"
+  },
+  {
+    "caliber": "6R31",
+    "startYear": 2019,
+    "endYear": null,
+    "movementType": "automatic",
+    "jewels": 24,
+    "family": "Seiko Presage / Prospex",
+    "notes": "Time-and-no-date variant in the modern 70h-reserve 6R3x generation, used in clean-dial Presage/Prospex pieces.",
+    "longRun": true,
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "6R35",
+    "aliases": [
+      "6R35A",
+      "6R35B"
+    ],
+    "startYear": 2019,
+    "endYear": null,
+    "movementType": "automatic",
+    "jewels": 24,
+    "family": "Seiko Mechanical / Presage / Prospex",
+    "notableRefs": [
+      "SPB143 62MAS reissue",
+      "SPB149",
+      "SBDC101 Sumo",
+      "Alpinist SPB"
+    ],
+    "notes": "70h-reserve successor to the 6R15 via a longer barrel; now the standard mid-tier Prospex/Presage automatic.",
+    "longRun": true,
+    "rangeConfidence": "established"
+  },
+  {
+    "caliber": "9R15",
+    "startYear": 2019,
+    "endYear": null,
+    "movementType": "spring-drive",
+    "jewels": 30,
+    "family": "Grand Seiko 9R",
+    "notableRefs": [
+      "SBGA413 Shunbun",
+      "SBGA211 (later)"
+    ],
+    "notes": "Higher-accuracy +/-0.5 sec/day rated upgrade of the 9R65 automatic, ~72h reserve.",
+    "grandSeiko": true,
+    "rangeConfidence": "established"
+  },
+  {
+    "caliber": "9R16",
+    "startYear": 2019,
+    "endYear": null,
+    "movementType": "spring-drive",
+    "jewels": 30,
+    "family": "Grand Seiko 9R",
+    "notableRefs": [
+      "SBGE275",
+      "SBGE277"
+    ],
+    "notes": "Higher-accuracy GMT counterpart to the 9R15, replacing 9R66 in newer GMT references.",
+    "grandSeiko": true,
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "9R31",
+    "startYear": 2019,
+    "endYear": null,
+    "movementType": "spring-drive",
+    "jewels": 30,
+    "family": "Grand Seiko 9R",
+    "notableRefs": [
+      "SBGY002",
+      "SBGY003 Omiwatari",
+      "SBGY007"
+    ],
+    "notes": "Manual-wind Spring Drive, single-barrel ~72h reserve, used in slim Elegance dress models.",
+    "grandSeiko": true,
+    "rangeConfidence": "established"
+  },
+  {
+    "caliber": "6R51",
+    "startYear": 2020,
+    "endYear": null,
+    "movementType": "automatic",
+    "jewels": 29,
+    "family": "Seiko Presage",
+    "notableRefs": [
+      "Presage Sharp Edged / Craftsmanship open-heart"
+    ],
+    "notes": "Modern open-heart power-reserve movement with ~70h reserve for upper Presage models.",
+    "longRun": true,
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "6R55",
+    "startYear": 2020,
+    "endYear": null,
+    "movementType": "automatic",
+    "jewels": 29,
+    "family": "Seiko Presage",
+    "notableRefs": [
+      "Presage Craftsmanship power-reserve"
+    ],
+    "notes": "Power-reserve indicator movement with ~72h reserve used in the current upper Presage lineup.",
+    "longRun": true,
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "9F85",
+    "startYear": 2020,
+    "endYear": null,
+    "movementType": "quartz",
+    "jewels": 9,
+    "family": "Grand Seiko 9F",
+    "notableRefs": [
+      "SBGP series",
+      "SBGP003 44GS Heritage",
+      "SBGP009/011/013"
+    ],
+    "notes": "Refined-generation three-hand date 9F quartz introduced 2020 (time-only sibling of GMT 9F86), +/-10s per year.",
+    "grandSeiko": true,
+    "rangeConfidence": "established"
+  },
+  {
+    "caliber": "9RA2",
+    "startYear": 2020,
+    "endYear": null,
+    "movementType": "spring-drive",
+    "jewels": 38,
+    "family": "Grand Seiko 9R",
+    "notableRefs": [
+      "SLGB001 Evolution 9 GMT",
+      "SLGA021"
+    ],
+    "notes": "5-day reserve automatic Spring Drive GMT, +/-0.5 sec/day, modern Evolution 9 series caliber.",
+    "grandSeiko": true,
+    "rangeConfidence": "established"
+  },
+  {
+    "caliber": "9RA5",
+    "startYear": 2020,
+    "endYear": null,
+    "movementType": "spring-drive",
+    "jewels": 38,
+    "family": "Grand Seiko 9R",
+    "notableRefs": [
+      "SLGA001 60th Anniversary",
+      "SLGA007 White Birch",
+      "SLGA009"
+    ],
+    "notes": "5-day (120h) reserve automatic Spring Drive, +/-0.5 sec/day, thinner dual-barrel architecture.",
+    "grandSeiko": true,
+    "rangeConfidence": "established"
+  },
+  {
+    "caliber": "9SA5",
+    "startYear": 2020,
+    "endYear": null,
+    "movementType": "automatic",
+    "jewels": 47,
+    "family": "Grand Seiko 9SA",
+    "notableRefs": [
+      "SLGH002",
+      "SLGH005"
+    ],
+    "notes": "Hi-Beat 36000 with dual-impulse escapement and free-sprung balance, 80h reserve; debuted 2020 in SLGH002 and White Birch SLGH005.",
+    "grandSeiko": true,
+    "rangeConfidence": "established"
+  },
+  {
+    "caliber": "6R64",
+    "startYear": 2021,
+    "endYear": null,
+    "movementType": "automatic",
+    "jewels": 29,
+    "family": "Seiko Presage / Prospex",
+    "notableRefs": [
+      "Presage / Prospex power-reserve"
+    ],
+    "notes": "Modern movement with power-reserve complication in the long-reserve 6R6x family.",
+    "longRun": true,
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "NH34",
+    "aliases": [
+      "NH34A"
+    ],
+    "startYear": 2022,
+    "endYear": null,
+    "movementType": "automatic",
+    "jewels": 24,
+    "family": "Seiko Instruments (SII)",
+    "notes": "GMT export movement in the NH family with independent 24-hour hand, twin of the 4R34.",
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "9SA4",
+    "startYear": 2023,
+    "endYear": null,
+    "movementType": "manual",
+    "jewels": 39,
+    "family": "Grand Seiko 9SA",
+    "notableRefs": [
+      "SLGW002",
+      "SLGW003"
+    ],
+    "notes": "Manual-wind 9SA-architecture caliber, Hi-Beat 36000 with dual-impulse escapement, used in slim hand-wound models.",
+    "grandSeiko": true,
+    "rangeConfidence": "approximate"
+  },
+  {
+    "caliber": "8L45",
+    "startYear": 2025,
+    "endYear": null,
+    "movementType": "automatic",
+    "jewels": 35,
+    "family": "Prospex Diver (8L)",
+    "notableRefs": [
+      "SLA081 Marinemaster Professional 600 60th Anniversary",
+      "HBF001 Marinemaster 1968 Heritage Diver",
+      "HBF002 JAMSTEC"
+    ],
+    "notes": "Newest-generation 8L with ~72h power reserve and rated +10/-5 sec/day accuracy (SPRON alloy). First appeared in the SLA081 60th Anniversary LE (2025) and became the standard movement of the non-limited Marinemaster (HBF001), replacing the 8L35 in modern 1968-heritage divers.",
+    "rangeConfidence": "established"
+  }
+]

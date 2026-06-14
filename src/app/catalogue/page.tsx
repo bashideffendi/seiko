@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Library, ArrowUpRight, ArrowRight } from "lucide-react";
+import { Library, Cog, ArrowUpRight, ArrowRight } from "lucide-react";
 import { Container, Eyebrow, Badge } from "@/components/ui";
 import { PageHeader } from "@/components/page";
 import { CATALOGUES, CATALOGUE_STATS } from "@/lib/catalogue";
+import { MODEL_STATS } from "@/lib/modelIndex";
 
 // A spread of covers across the decades for the archive teaser.
 const TEASER = [1932, 1969, 1974, 1984, 2005, 2020]
@@ -68,6 +69,25 @@ export default function CataloguePage() {
               ))}
             </div>
           </div>
+        </Link>
+
+        {/* Browse by model */}
+        <Link
+          href="/catalogue/models"
+          className="group mt-4 flex items-center justify-between gap-4 rounded-[var(--radius-lg)] border border-[var(--border)] bg-[var(--surface)] p-6 transition-colors hover:bg-[var(--surface-2)]"
+        >
+          <div className="flex items-center gap-4">
+            <span className="grid h-11 w-11 shrink-0 place-items-center rounded-[var(--radius)] border border-[var(--border)] bg-[var(--surface-2)] text-[var(--burgundy-700)] transition-colors group-hover:border-[var(--gold-400)]">
+              <Cog size={20} strokeWidth={1.6} />
+            </span>
+            <div>
+              <h3 className="font-serif text-xl text-[var(--burgundy-800)]">Browse by model</h3>
+              <p className="mt-0.5 text-sm text-[var(--ink-muted)]">
+                {MODEL_STATS.unique.toLocaleString()} references, each with its own page &amp; similar models.
+              </p>
+            </div>
+          </div>
+          <ArrowRight size={18} className="shrink-0 text-[var(--burgundy-700)] transition-transform group-hover:translate-x-1" />
         </Link>
 
         <div className="mt-12 grid gap-px overflow-hidden rounded-[var(--radius-lg)] border border-[var(--border)] bg-[var(--border)] sm:grid-cols-2 lg:grid-cols-3">

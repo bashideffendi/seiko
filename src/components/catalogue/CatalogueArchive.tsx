@@ -10,6 +10,7 @@ import {
   type CatalogueItem,
 } from "@/lib/catalogue";
 import { modelsFor, modelCount, modelSearchBlob, modelsBySection } from "@/lib/models";
+import { slugForRef } from "@/lib/modelIndex";
 import { Badge } from "@/components/ui";
 import { cn } from "@/lib/cn";
 
@@ -166,7 +167,7 @@ function DetailModal({ item, onClose }: { item: CatalogueItem; onClose: () => vo
 
   return (
     <div
-      className="fixed inset-0 z-[100] flex items-end justify-center bg-[var(--burgundy-950)]/70 p-0 sm:items-center sm:p-6"
+      className="fixed inset-0 z-[100] flex items-end justify-center bg-[var(--burgundy-900)]/70 p-0 sm:items-center sm:p-6"
       onClick={onClose}
     >
       <div
@@ -221,9 +222,20 @@ function DetailModal({ item, onClose }: { item: CatalogueItem; onClose: () => vo
                         <span className="h-px flex-1 bg-[var(--border)]" />
                         <span className="font-mono text-[0.6rem] text-[var(--ink-soft)]">{g.items.length}</span>
                       </div>
-                      {g.items.map((m, i) => (
+                      {g.items.map((m, i) => {
+                        const slug = slugForRef(m.ref);
+                        return (
                         <div key={m.ref + i} className="flex items-baseline gap-2 border-b border-[var(--border)] py-1.5 last:border-0">
-                          <span className="w-[5rem] shrink-0 font-mono text-[0.76rem] font-medium text-[var(--burgundy-800)]">{m.ref}</span>
+                          {slug ? (
+                            <Link
+                              href={`/catalogue/model/${slug}`}
+                              className="w-[5rem] shrink-0 font-mono text-[0.76rem] font-medium text-[var(--burgundy-700)] underline decoration-[var(--gold-400)] decoration-dotted underline-offset-2 hover:decoration-solid"
+                            >
+                              {m.ref}
+                            </Link>
+                          ) : (
+                            <span className="w-[5rem] shrink-0 font-mono text-[0.76rem] font-medium text-[var(--burgundy-800)]">{m.ref}</span>
+                          )}
                           <span className="flex-1 truncate text-[0.74rem] text-[var(--ink-muted)]">
                             {[m.caliber ? `cal.${m.caliber}` : "", m.dial, m.case, m.specs, m.notes].filter(Boolean).join(" · ")}
                           </span>
@@ -241,7 +253,8 @@ function DetailModal({ item, onClose }: { item: CatalogueItem; onClose: () => vo
                             )}
                           />
                         </div>
-                      ))}
+                        );
+                      })}
                     </div>
                   ))}
                 </div>
