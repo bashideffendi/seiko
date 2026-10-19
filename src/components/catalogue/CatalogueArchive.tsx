@@ -174,7 +174,7 @@ function DetailModal({ item, onClose }: { item: ArchiveItem; onClose: () => void
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={item.cover} alt={`${item.title} cover`} width={480} height={640} className="w-full border border-[var(--line)]" />
             <div className="mt-3 flex flex-wrap gap-1.5">
-              <Badge>{LANG_LABEL[item.lang]}</Badge>
+              {item.lang !== "scan" && <Badge>{LANG_LABEL[item.lang]}</Badge>}
               <Badge variant={item.hasText ? "gold" : "default"}>{item.hasText ? "Text-searchable" : "Scan only"}</Badge>
             </div>
           </div>
