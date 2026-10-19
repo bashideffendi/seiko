@@ -124,7 +124,8 @@ export function SiteHeader() {
 
       {/* Announcement bar — same voice as the shop's */}
       <div className="bg-[var(--maroon)] px-4 py-2 text-center text-[11px] font-medium uppercase leading-4 tracking-[0.14em] text-[var(--on-dark)]">
-        <span>The Seiko Almanac · a reference desk by Tiny Hour Tales</span>
+        <span className="sm:hidden">The Seiko Almanac · by Tiny Hour Tales</span>
+        <span className="hidden sm:inline">The Seiko Almanac · a reference desk by Tiny Hour Tales</span>
         <a
           href={SHOP.seiko}
           className="ml-3 hidden border border-dashed border-[rgba(246,238,232,.7)] px-2 py-0.5 font-semibold text-[var(--on-dark)] transition-colors hover:bg-[rgba(246,238,232,.12)] sm:inline-block"

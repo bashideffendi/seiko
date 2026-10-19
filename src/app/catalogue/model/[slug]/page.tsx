@@ -115,7 +115,7 @@ export default async function ModelPage({ params }: { params: Promise<{ slug: st
             <h2 className="font-serif text-[28px] leading-9 text-[var(--ink)]">Identifiers</h2>
             <dl className="mt-4 grid grid-cols-1 gap-px border border-[var(--line)] bg-[var(--line)] sm:grid-cols-2">
               {idRows.map((r) => (
-                <div key={r.k} className="bg-[var(--surface)] px-4 py-4">
+                <div key={r.k} className="bg-[var(--surface)] px-4 py-4 sm:[&:last-child:nth-child(odd)]:col-span-2">
                   <dt className="label !text-[10px]">{r.k}</dt>
                   <dd className="mt-1.5 font-mono text-[15px] text-[var(--ink)]">
                     {r.href ? (
