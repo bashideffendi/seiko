@@ -1,0 +1,324 @@
+[
+ {
+  "caliber": "1E20",
+  "aliases": [
+   "1E20A"
+  ],
+  "startYear": 1983,
+  "endYear": 2004,
+  "movementType": "quartz",
+  "jewels": 5,
+  "family": "1E analog quartz (ladies, ultra-small)",
+  "notes": "Two-hand ultra-small ladies quartz (20-second hand step), 9.5 x 9.0 x 2.4 mm, SR512SW. Seiko's JDM caliber table gives release Nov 1983; it appears in JDM catalogs from 1985 through 1998 (Tisse, Noie). End year after 1998 is not documented and is widened.",
+  "longRun": true,
+  "rangeConfidence": "approximate",
+  "sources": [
+   "https://archive.org/download/seiko-watch-catalogs/1992-seiko-catalog-v1-jp.pdf",
+   "https://archive.org/download/seiko-watch-catalogs/1985-seiko-catalog-v1-jp.pdf",
+   "https://archive.org/download/seiko-watch-catalogs/1998-seiko-catalog-v2-jp.pdf",
+   "https://mizeni.com/movements/seiko-1E20",
+   "https://seikoserviceusa.com/uploads/datasheets/1E20A.pdf"
+  ]
+ },
+ {
+  "caliber": "1F20",
+  "aliases": [
+   "1F20A"
+  ],
+  "startYear": 1988,
+  "endYear": 2002,
+  "movementType": "quartz",
+  "jewels": 0,
+  "family": "1F analog quartz (ladies)",
+  "notes": "Two-hand ladies quartz (20-second hand step), 12.5 x 10.0 x 1.8 mm, SR416SW. JDM release May 1988 per Seiko caliber table; listed in JDM catalogs 1990-1998 (e.g. Tisse). End year after 1998 is not documented and is widened.",
+  "longRun": true,
+  "rangeConfidence": "approximate",
+  "sources": [
+   "https://archive.org/download/seiko-watch-catalogs/1992-seiko-catalog-v1-jp.pdf",
+   "https://archive.org/download/seiko-watch-catalogs/1990-seiko-catalog-v1-jp.pdf",
+   "https://archive.org/download/seiko-watch-catalogs/1998-seiko-catalog-v1-jp.pdf",
+   "https://mizeni.com/movements/seiko-1F20",
+   "https://seikoserviceusa.com/uploads/datasheets/1F20A.pdf",
+   "https://www.ebay.com/itm/156926147249"
+  ]
+ },
+ {
+  "caliber": "1F21",
+  "aliases": [
+   "1F21A"
+  ],
+  "startYear": 1987,
+  "endYear": 2006,
+  "movementType": "quartz",
+  "jewels": 2,
+  "family": "1F analog quartz (ladies)",
+  "notes": "Three-hand ladies quartz with battery end-of-life indicator, 12.5 x 10.0 x 2.2 mm, SR421SW. JDM release Oct 1987 per Seiko caliber table; used in Exceline, Lukia and Tisse and listed in JDM catalogs 1987-1998. Later dealer-dated examples exist; end year is widened.",
+  "longRun": true,
+  "rangeConfidence": "approximate",
+  "sources": [
+   "https://archive.org/download/seiko-watch-catalogs/1992-seiko-catalog-v1-jp.pdf",
+   "https://archive.org/download/seiko-watch-catalogs/1987-seiko-catalog-v2-jp.pdf",
+   "https://archive.org/download/seiko-watch-catalogs/1998-seiko-catalog-v1-jp.pdf",
+   "https://mizeni.com/movements/seiko-1F21",
+   "https://tokeimedic.com/products/1991-seiko-exceline-high-end-ladies-watch-1f21-0ab0",
+   "https://www.sakurawatches.com/seiko-exceline-swdb062"
+  ]
+ },
+ {
+  "caliber": "4N20",
+  "aliases": [
+   "4N20B"
+  ],
+  "startYear": 1987,
+  "endYear": 2002,
+  "movementType": "quartz",
+  "family": "4N analog quartz (ladies, rectangular)",
+  "notes": "Two-hand ladies quartz, 14.5 x 10.8 x 1.9 mm, SR516SW. Seiko's JDM table lists the 4N20B version released Nov 1988; it appears in JDM catalogs 1990-1998 (Creo, Tisse, Exceline, Dolce). Start widened by one year for an earlier A version; end widened.",
+  "longRun": true,
+  "rangeConfidence": "approximate",
+  "sources": [
+   "https://archive.org/download/seiko-watch-catalogs/1992-seiko-catalog-v1-jp.pdf",
+   "https://archive.org/download/seiko-watch-catalogs/1990-seiko-catalog-v1-jp.pdf",
+   "https://archive.org/download/seiko-watch-catalogs/1998-seiko-catalog-v1-jp.pdf",
+   "https://mizeni.com/movements/seiko-4N20"
+  ]
+ },
+ {
+  "caliber": "4N21",
+  "aliases": [
+   "4N21B"
+  ],
+  "startYear": 1987,
+  "endYear": 2002,
+  "movementType": "quartz",
+  "family": "4N analog quartz (ladies, rectangular)",
+  "notes": "Three-hand ladies quartz with battery end-of-life indicator, 14.5 x 10.8 x 1.9 mm, SR516SW. Seiko's JDM table lists the 4N21B version released Oct 1988; it appears in JDM catalogs 1990-1998 (Lucent, Exceline, Spirit); a dealer dates one Lukia example to May 1999.",
+  "longRun": true,
+  "rangeConfidence": "approximate",
+  "sources": [
+   "https://archive.org/download/seiko-watch-catalogs/1992-seiko-catalog-v1-jp.pdf",
+   "https://archive.org/download/seiko-watch-catalogs/1990-seiko-catalog-v1-jp.pdf",
+   "https://archive.org/download/seiko-watch-catalogs/1998-seiko-catalog-v1-jp.pdf",
+   "https://mizeni.com/movements/seiko-4N21",
+   "https://www.dcvintagewatches.com/product-page/1999-seiko-4n21-1130-lukia-collection-womens-dress-watch"
+  ]
+ },
+ {
+  "caliber": "2J31",
+  "startYear": 1994,
+  "endYear": 2004,
+  "movementType": "quartz",
+  "jewels": 4,
+  "family": "2J high-accuracy quartz (ladies)",
+  "notes": "High-accuracy ladies quartz rated +/-20 s/year, no date, SR421SW, used in Exceline. Absent from Seiko's full JDM caliber tables of 1992-1994; first found in the 1995 JDM catalogs and still indexed in 1998. End year is widened.",
+  "rangeConfidence": "approximate",
+  "sources": [
+   "https://archive.org/download/seiko-watch-catalogs/1995-seiko-catalog-v1-jp.pdf",
+   "https://archive.org/download/seiko-watch-catalogs/1998-seiko-catalog-v2-jp.pdf",
+   "https://archive.org/download/seiko-watch-catalogs/1994-seiko-catalog-v1-jp.pdf",
+   "https://mizeni.com/movements/seiko-2J31"
+  ]
+ },
+ {
+  "caliber": "4J41",
+  "startYear": 1993,
+  "endYear": 2006,
+  "movementType": "quartz",
+  "jewels": 5,
+  "family": "4J high-accuracy quartz (ladies)",
+  "notes": "High-accuracy ladies quartz rated +/-10 s/year, no date, SR516SW, used in Exceline and Dolce. First found in the 1994 JDM catalog (vol. 2) and still in 1998; a dealer lists a Dolce 4J41-0AC0 as 2003 production. End year is widened.",
+  "longRun": true,
+  "rangeConfidence": "approximate",
+  "sources": [
+   "https://archive.org/download/seiko-watch-catalogs/1994-seiko-catalog-v2-jp.pdf",
+   "https://archive.org/download/seiko-watch-catalogs/1998-seiko-catalog-v1-jp.pdf",
+   "https://mizeni.com/movements/seiko-4J41",
+   "https://everywatch.com/seiko/watch-9788689"
+  ]
+ },
+ {
+  "caliber": "5A50",
+  "aliases": [
+   "5A50A"
+  ],
+  "startYear": 1984,
+  "endYear": 1997,
+  "movementType": "quartz",
+  "jewels": 6,
+  "family": "5A ultra-thin analog quartz (Lassale)",
+  "notes": "Two-hand ultra-thin quartz (20-second hand step), 16.0 x 9.5 x 1.3 mm, SR512SW, Seiko Epson. Plus9Time dates its Lassale introduction to June 1984; the JDM table gives a domestic release of Nov 1990 and it appears in JDM catalogs 1991-1995.",
+  "longRun": true,
+  "rangeConfidence": "approximate",
+  "sources": [
+   "https://www.plus9time.com/blog/2020/12/12/worlds-thinnest-movement-seiko-9a85",
+   "https://archive.org/download/seiko-watch-catalogs/1992-seiko-catalog-v1-jp.pdf",
+   "https://archive.org/download/seiko-watch-catalogs/1995-seiko-catalog-v2-jp.pdf",
+   "https://mizeni.com/movements/seiko-5A50",
+   "https://seikoserviceusa.com/uploads/datasheets/5A50A.pdf"
+  ]
+ },
+ {
+  "caliber": "8420",
+  "aliases": [
+   "8420A",
+   "8420B"
+  ],
+  "startYear": 1979,
+  "endYear": 1996,
+  "movementType": "quartz",
+  "jewels": 6,
+  "family": "84 analog quartz (thin, high grade)",
+  "notes": "Two-hand thin quartz (20-second hand step), 15.5 x 9.0 x 1.7 mm, SR616SW, used in Credor, Exceline and Lassale. GMT+9 table gives series introduction 1979; JDM table release Sep 1980; in JDM model pages 1981-1987 and in Seiko's caliber table through 1994.",
+  "longRun": true,
+  "rangeConfidence": "approximate",
+  "sources": [
+   "https://web.archive.org/web/20101208235148/http://www.gmtplusnine.com/wp-content/uploads/tqtabled4.htm",
+   "https://archive.org/download/seiko-watch-catalogs/1992-seiko-catalog-v1-jp.pdf",
+   "https://archive.org/download/seiko-watch-catalogs/1981-seiko-catalog-v2-jp.pdf",
+   "https://archive.org/download/seiko-watch-catalogs/1994-seiko-catalog-v1-jp.pdf",
+   "https://mizeni.com/movements/seiko-8420",
+   "https://seikoserviceusa.com/uploads/datasheets/8420A.pdf"
+  ]
+ },
+ {
+  "caliber": "2F50",
+  "aliases": [
+   "2F50A"
+  ],
+  "startYear": 1983,
+  "endYear": 1997,
+  "movementType": "quartz",
+  "jewels": 12,
+  "family": "2F ultra-thin analog quartz (Lassale)",
+  "notes": "Two-hand ultra-thin quartz (20-second hand step), 15.5 x 9.5 x 1.3 mm, SR512SW, made by SII (Daini). Plus9Time dates its Lassale introduction to May 1983; the JDM table gives a domestic release of Feb 1992 and it appears in JDM catalogs 1993-1995.",
+  "longRun": true,
+  "rangeConfidence": "approximate",
+  "sources": [
+   "https://www.plus9time.com/blog/2020/12/12/worlds-thinnest-movement-seiko-9a85",
+   "https://archive.org/download/seiko-watch-catalogs/1992-seiko-catalog-v1-jp.pdf",
+   "https://archive.org/download/seiko-watch-catalogs/1995-seiko-catalog-v1-jp.pdf",
+   "https://mizeni.com/movements/seiko-2F50",
+   "https://seikoserviceusa.com/uploads/datasheets/2F50A.pdf"
+  ]
+ },
+ {
+  "caliber": "6030",
+  "aliases": [
+   "6030A"
+  ],
+  "startYear": 1979,
+  "endYear": 1987,
+  "movementType": "quartz",
+  "jewels": 8,
+  "family": "60 analog quartz (high grade)",
+  "notes": "Three-hand quartz, 24.0 mm, SR920SW, with a battery-life indicator (two-second seconds-hand steps); used in Credor, Dolce and SilverWave. GMT+9 table gives series introduction 1979; found in JDM catalogs 1981-1985 but not in 1986, 1987 or the 1990s caliber tables.",
+  "rangeConfidence": "approximate",
+  "sources": [
+   "https://web.archive.org/web/20101208235148/http://www.gmtplusnine.com/wp-content/uploads/tqtabled4.htm",
+   "https://archive.org/download/seiko-watch-catalogs/1981-seiko-catalog-v2-jp.pdf",
+   "https://archive.org/download/seiko-watch-catalogs/1985-seiko-catalog-v1-jp.pdf",
+   "https://archive.org/download/seiko-watch-catalogs/1987-seiko-catalog-v2-jp.pdf",
+   "https://mizeni.com/movements/seiko-6030",
+   "https://seikoserviceusa.com/uploads/datasheets/6030A.pdf"
+  ]
+ },
+ {
+  "caliber": "2320",
+  "aliases": [
+   "2320A"
+  ],
+  "startYear": 1978,
+  "endYear": 1987,
+  "movementType": "quartz",
+  "jewels": 8,
+  "family": "23 analog quartz (ladies)",
+  "notes": "Two-hand ladies quartz, 15.1 x 13.0 x 2.5 mm, SR621SW, used in Exceline and Belfina. GMT+9 table gives series introduction 1978; found in JDM catalogs 1981-1985 but not in 1986, 1987 or the 1990s caliber tables.",
+  "rangeConfidence": "approximate",
+  "sources": [
+   "https://web.archive.org/web/20101208235148/http://www.gmtplusnine.com/wp-content/uploads/tqtabled4.htm",
+   "https://mizeni.com/movements/seiko-2320",
+   "https://archive.org/download/seiko-watch-catalogs/1981-seiko-catalog-v2-jp.pdf",
+   "https://archive.org/download/seiko-watch-catalogs/1985-seiko-catalog-v1-jp.pdf",
+   "https://archive.org/download/seiko-watch-catalogs/1987-seiko-catalog-v2-jp.pdf"
+  ]
+ },
+ {
+  "caliber": "1220",
+  "aliases": [
+   "1220A"
+  ],
+  "startYear": 1982,
+  "endYear": 1996,
+  "movementType": "quartz",
+  "family": "12 analog quartz (ladies)",
+  "notes": "Two-hand ladies quartz (20-second hand step), 15.1 x 13.0 x 1.9 mm, SR616SW. JDM release Oct 1982 per Seiko caliber table; in JDM model pages 1985-1991 and in the caliber table through 1994.",
+  "longRun": true,
+  "rangeConfidence": "approximate",
+  "sources": [
+   "https://archive.org/download/seiko-watch-catalogs/1992-seiko-catalog-v1-jp.pdf",
+   "https://archive.org/download/seiko-watch-catalogs/1986-seiko-catalog-v2-jp.pdf",
+   "https://archive.org/download/seiko-watch-catalogs/1994-seiko-catalog-v1-jp.pdf",
+   "https://mizeni.com/movements/seiko-1220"
+  ]
+ },
+ {
+  "caliber": "7321",
+  "aliases": [
+   "7321A"
+  ],
+  "startYear": 1982,
+  "endYear": 1996,
+  "movementType": "quartz",
+  "jewels": 5,
+  "family": "73 analog quartz",
+  "notes": "Three-hand quartz with battery end-of-life indicator, 15.5 x 13.0 x 1.8 mm, SR616SW. JDM release Oct 1982 per Seiko caliber table; in JDM catalogs 1985-1994 (Exceline, Dolce) but not found in 1995 or 1998.",
+  "longRun": true,
+  "rangeConfidence": "approximate",
+  "sources": [
+   "https://archive.org/download/seiko-watch-catalogs/1992-seiko-catalog-v1-jp.pdf",
+   "https://archive.org/download/seiko-watch-catalogs/1986-seiko-catalog-v2-jp.pdf",
+   "https://archive.org/download/seiko-watch-catalogs/1994-seiko-catalog-v2-jp.pdf",
+   "https://mizeni.com/movements/seiko-7321",
+   "https://seikoserviceusa.com/uploads/datasheets/7320A&7321A.pdf"
+  ]
+ },
+ {
+  "caliber": "1400",
+  "startYear": 1978,
+  "endYear": 1996,
+  "movementType": "quartz",
+  "jewels": 6,
+  "family": "14 analog quartz (ladies)",
+  "notes": "Two-hand ladies quartz (10-second hand step), 15.1 x 13.0 x 2.3 mm, SR621SW; used in Exceline, Belfina and Credor. JDM table gives release Nov 1978 (14A) and Apr 1982 (14C); in JDM model pages 1981-1986 and in the caliber table through 1994.",
+  "longRun": true,
+  "rangeConfidence": "approximate",
+  "sources": [
+   "https://archive.org/download/seiko-watch-catalogs/1992-seiko-catalog-v1-jp.pdf",
+   "https://mizeni.com/movements/seiko-1400",
+   "https://archive.org/download/seiko-watch-catalogs/1981-seiko-catalog-v2-jp.pdf",
+   "https://archive.org/download/seiko-watch-catalogs/1994-seiko-catalog-v1-jp.pdf",
+   "https://web.archive.org/web/20101208235148/http://www.gmtplusnine.com/wp-content/uploads/tqtabled4.htm"
+  ]
+ },
+ {
+  "caliber": "1421",
+  "aliases": [
+   "1421A"
+  ],
+  "startYear": 1980,
+  "endYear": 1996,
+  "movementType": "quartz",
+  "jewels": 2,
+  "family": "14 analog quartz (ladies)",
+  "notes": "Three-hand ladies quartz with battery end-of-life indicator, 15.1 x 13.0 x 2.8 mm, SR621SW. JDM release May 1980 per Seiko caliber table; in JDM model pages 1981-1986 and in the caliber table through 1994.",
+  "longRun": true,
+  "rangeConfidence": "approximate",
+  "sources": [
+   "https://archive.org/download/seiko-watch-catalogs/1992-seiko-catalog-v1-jp.pdf",
+   "https://mizeni.com/movements/seiko-1421",
+   "https://archive.org/download/seiko-watch-catalogs/1981-seiko-catalog-v2-jp.pdf",
+   "https://archive.org/download/seiko-watch-catalogs/1994-seiko-catalog-v1-jp.pdf",
+   "https://seikoserviceusa.com/uploads/datasheets/1421A.pdf"
+  ]
+ }
+]

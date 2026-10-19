@@ -1,9 +1,10 @@
-import { SCHEME_START_YEAR } from "@/lib/seiko/decode";
+import { SCHEME_START_YEAR } from "@/lib/seiko/decodeCore";
 
 /**
  * Plots the candidate years on a 1966→now rail. Survivors (after caliber
  * narrowing) are emphasized; eliminated candidates are dimmed. This makes the
  * decade ambiguity visible instead of hiding it behind a single guess.
+ * Labels scale up on narrow screens so they stay legible once the SVG shrinks.
  */
 export function CandidateTimeline({
   candidates,
@@ -17,9 +18,9 @@ export function CandidateTimeline({
   contradiction?: boolean;
 }) {
   const W = 640;
-  const H = 78;
-  const padX = 26;
-  const railY = 30;
+  const H = 92;
+  const padX = 30;
+  const railY = 42;
   const start = SCHEME_START_YEAR;
   const end = currentYear;
   const span = Math.max(1, end - start);
@@ -27,14 +28,18 @@ export function CandidateTimeline({
 
   const survivorSet = new Set(likely ?? candidates);
   const narrowed = likely != null && likely.length !== candidates.length;
+  const survivors = candidates.filter((y) => !contradiction && survivorSet.has(y));
+  const label = contradiction
+    ? `Candidate years ${candidates.join(", ")} — none fits the caliber`
+    : narrowed
+      ? `Likely ${survivors.join(" or ")}, out of ${candidates.join(", ")}`
+      : `Candidate years: ${candidates.join(", ")}`;
 
   return (
-    <svg viewBox={`0 0 ${W} ${H}`} className="w-full" role="img" aria-label="Candidate production years">
-      {/* rail */}
-      <line x1={padX} y1={railY} x2={W - padX} y2={railY} stroke="var(--border-strong)" strokeWidth="1" />
-      {/* endpoint labels */}
-      <text x={padX} y={railY + 34} className="tl-end" textAnchor="start">{start}</text>
-      <text x={W - padX} y={railY + 34} className="tl-end" textAnchor="end">{end}</text>
+    <svg viewBox={`0 0 ${W} ${H}`} className="w-full" role="img" aria-label={label}>
+      <line x1={padX} y1={railY} x2={W - padX} y2={railY} stroke="var(--line-2)" strokeWidth="1" />
+      <text x={padX} y={railY + 38} className="tl-end" textAnchor="start">{start}</text>
+      <text x={W - padX} y={railY + 38} className="tl-end" textAnchor="end">{end}</text>
 
       {candidates.map((year) => {
         const cx = x(year);
@@ -44,20 +49,23 @@ export function CandidateTimeline({
           <g key={year}>
             <line
               x1={cx} y1={railY - 9} x2={cx} y2={railY + 9}
-              stroke={dim ? "var(--border-strong)" : "var(--burgundy-600)"}
+              stroke={dim ? "var(--line-2)" : "var(--maroon)"}
               strokeWidth={isSurvivor ? 2 : 1}
             />
-            {isSurvivor && <circle cx={cx} cy={railY} r="6" fill="var(--burgundy-700)" stroke="var(--gold-500)" strokeWidth="1.5" />}
-            {!isSurvivor && <circle cx={cx} cy={railY} r="3.5" fill={dim ? "var(--bg-subtle)" : "var(--burgundy-300)"} stroke="var(--border-strong)" strokeWidth="1" />}
+            {isSurvivor ? (
+              <circle cx={cx} cy={railY} r="7" fill="var(--maroon)" stroke="var(--ivory)" strokeWidth="2" />
+            ) : (
+              <circle cx={cx} cy={railY} r="4" fill={dim ? "var(--stone)" : "var(--burgundy-200)"} stroke="var(--line-2)" strokeWidth="1" />
+            )}
             <text
               x={cx}
-              y={railY - 16}
+              y={railY - 18}
               textAnchor="middle"
               className="tl-year"
               style={{
-                fill: dim ? "var(--ink-soft)" : "var(--burgundy-700)",
-                fontWeight: isSurvivor ? 700 : 500,
-                opacity: dim ? 0.6 : 1,
+                fill: dim ? "var(--ink-soft)" : "var(--maroon)",
+                fontWeight: isSurvivor ? 600 : 400,
+                opacity: dim ? 0.7 : 1,
               }}
             >
               {year}
@@ -67,8 +75,12 @@ export function CandidateTimeline({
       })}
 
       <style>{`
-        .tl-year { font-family: var(--font-mono); font-size: 12px; }
-        .tl-end { font-family: var(--font-mono); font-size: 10px; fill: var(--ink-soft); letter-spacing: 0.05em; }
+        .tl-year { font-family: var(--font-mono); font-size: 13px; }
+        .tl-end { font-family: var(--font-mono); font-size: 11px; fill: var(--ink-soft); letter-spacing: 0.05em; }
+        @media (max-width: 640px) {
+          .tl-year { font-size: 22px; }
+          .tl-end { font-size: 19px; }
+        }
       `}</style>
     </svg>
   );

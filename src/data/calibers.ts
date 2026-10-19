@@ -1,13 +1,16 @@
 import type { CaliberDataset, CaliberRecord } from "@/lib/seiko/types";
+import { canonicalCaliberKey, findCaliberIn } from "@/lib/seiko/caliberKey";
 import extended from "@/data/calibers-extended.json";
+import supplement from "@/data/calibers-supplement.json";
 
-// Seiko caliber reference. Two tiers, merged below:
+// Seiko caliber reference. Three tiers, merged below:
 //   • CORE — ~30 hand-curated, decoder-critical calibers with tight windows.
 //   • EXTENDED — calibers-extended.json, compiled + adversarially verified per family.
+//   • SUPPLEMENT — calibers-supplement.json, researched later with per-record sources.
 // Ranges are approximate where the community disagrees (rangeConfidence:"approximate").
 // This dataset powers BOTH the decoder's decade-narrowing AND the /tools/caliber-lookup
 // page, and is the join target for catalogue data — so the schema is intentionally complete.
-// On a key collision the CORE record wins (it's hand-tuned for the decoder).
+// On a key collision the earlier tier wins (CORE is hand-tuned for the decoder).
 
 const COMMUNITY = [
   "https://www.watchsleuth.com/seikodatefinder/",
@@ -15,7 +18,7 @@ const COMMUNITY = [
 ];
 
 const CALIBERS_CORE: CaliberDataset = [
-  { caliber: "6602", aliases: ["6619", "66xx"], startYear: 1963, endYear: 1973, movementType: "automatic", jewels: 17, family: "Sportmatic / 5", rangeConfidence: "approximate", notes: "Early Seiko 5 / Sportmatic workhorse.", sources: COMMUNITY },
+  { caliber: "6602", startYear: 1963, endYear: 1973, movementType: "automatic", jewels: 17, family: "Sportmatic / 5", rangeConfidence: "approximate", notes: "Early Seiko 5 / Sportmatic workhorse.", sources: COMMUNITY },
   { caliber: "5606", startYear: 1968, endYear: 1978, movementType: "automatic", jewels: 21, family: "Lord Matic", notes: "Lord Matic dress automatic.", sources: COMMUNITY },
   { caliber: "5626", startYear: 1970, endYear: 1980, movementType: "automatic", jewels: 23, family: "Lord Matic Special", rangeConfidence: "approximate", sources: COMMUNITY },
   { caliber: "6105", startYear: 1968, endYear: 1977, movementType: "automatic", jewels: 17, family: "Diver", notes: "6105-8110 'Captain Willard' diver.", sources: COMMUNITY },
@@ -42,63 +45,64 @@ const CALIBERS_CORE: CaliberDataset = [
   { caliber: "9r65", startYear: 2004, endYear: null, movementType: "spring-drive", jewels: 30, family: "Grand Seiko 9R Spring Drive", grandSeiko: true, sources: COMMUNITY },
   { caliber: "7t92", startYear: 2002, endYear: null, movementType: "quartz", jewels: 7, family: "Chronograph (quartz)", longRun: true, notes: "Common quartz alarm-chronograph; long run, weak narrowing.", sources: COMMUNITY },
   { caliber: "7t62", startYear: 1997, endYear: null, movementType: "quartz", jewels: 7, family: "Alarm chronograph (quartz)", longRun: true, sources: COMMUNITY },
-  { caliber: "7n43", aliases: ["7N42", "7N01"], startYear: 1986, endYear: null, movementType: "quartz", jewels: 0, family: "3-hand quartz", longRun: true, notes: "Ubiquitous quartz movement, decades-long run — very weak narrowing power.", sources: COMMUNITY },
+  { caliber: "7n43", startYear: 1986, endYear: null, movementType: "quartz", jewels: 0, family: "3-hand quartz", longRun: true, notes: "Ubiquitous quartz movement, decades-long run — very weak narrowing power.", sources: COMMUNITY },
   { caliber: "5931", aliases: ["5931A"], startYear: 1981, endYear: 1990, movementType: "quartz", jewels: 7, family: "Analog quartz (Dolce / Credor)", rangeConfidence: "approximate", notes: "High-grade analog quartz with Adaptive Drive Control; Dolce/Credor/Chario dress watches, early-to-mid 1980s. Tight early-’80s window (matches WatchSleuth) — overrides the wider auto-compiled range.", sources: COMMUNITY },
   { caliber: "v157", startYear: 2010, endYear: null, movementType: "solar", jewels: 0, family: "Prospex Solar Diver", rangeConfidence: "approximate", sources: COMMUNITY },
   { caliber: "v147", startYear: 2012, endYear: null, movementType: "solar", jewels: 0, family: "Solar chronograph", rangeConfidence: "approximate", sources: COMMUNITY },
-  { caliber: "5m62", aliases: ["5M63", "5M85"], startYear: 1998, endYear: null, movementType: "kinetic", jewels: 11, family: "Kinetic", rangeConfidence: "approximate", notes: "Kinetic (auto-quartz hybrid).", sources: COMMUNITY },
+  { caliber: "5m62", startYear: 1998, endYear: null, movementType: "kinetic", jewels: 11, family: "Kinetic", rangeConfidence: "approximate", notes: "Kinetic (auto-quartz hybrid).", sources: COMMUNITY },
 ];
 
 const CALIBERS_EXTENDED = extended as unknown as CaliberDataset;
+/** Third tier: calibers researched later (mostly vintage ladies'/dress quartz), each with sources. */
+const CALIBERS_SUPPLEMENT = supplement as unknown as CaliberDataset;
 
-/** Canonical key: uppercase, strip spaces/dashes. */
-export function canonicalCaliberKey(raw: string): string {
-  return raw.trim().toUpperCase().replace(/[\s-]+/g, "");
-}
+export { canonicalCaliberKey };
 
-/** Merge core + extended; CORE wins on any caliber-or-alias key collision. */
-function mergeCalibers(core: CaliberDataset, ext: CaliberDataset): CaliberDataset {
+/**
+ * Merge tiers in priority order; an earlier tier wins on any caliber-or-alias key collision.
+ * Canonical caliber keys are normalised to uppercase so display, slugs and joins agree.
+ * Aliases must only ever be variant suffixes or true synonyms — never a different caliber
+ * (an alias silently swallows that caliber's own record).
+ */
+function mergeCalibers(...tiers: CaliberDataset[]): CaliberDataset {
   const seen = new Set<string>();
-  for (const c of core) {
-    seen.add(canonicalCaliberKey(c.caliber));
-    c.aliases?.forEach((a) => seen.add(canonicalCaliberKey(a)));
-  }
-  const merged = [...core];
-  for (const rec of ext) {
-    const key = canonicalCaliberKey(rec.caliber);
-    if (seen.has(key)) continue;
-    seen.add(key);
-    rec.aliases?.forEach((a) => seen.add(canonicalCaliberKey(a)));
-    merged.push(rec);
+  const merged: CaliberDataset = [];
+  for (const tier of tiers) {
+    for (const rec of tier) {
+      const key = canonicalCaliberKey(rec.caliber);
+      if (seen.has(key)) continue;
+      seen.add(key);
+      rec.aliases?.forEach((a) => seen.add(canonicalCaliberKey(a)));
+      merged.push({ ...rec, caliber: key });
+    }
   }
   return merged;
 }
 
-/** The full caliber reference: hand-curated core + verified extended set. */
-export const CALIBERS: CaliberDataset = mergeCalibers(CALIBERS_CORE, CALIBERS_EXTENDED);
+/** The full caliber reference: hand-curated core + verified extended set + researched supplement. */
+export const CALIBERS: CaliberDataset = mergeCalibers(CALIBERS_CORE, CALIBERS_EXTENDED, CALIBERS_SUPPLEMENT);
 
 /**
  * Resolve a user-typed caliber string to a record.
  * Match order: exact canonical → alias → strip a single trailing variant letter → retry.
  */
-export function findCaliber(
-  raw: string,
-  data: CaliberDataset = CALIBERS,
-): CaliberRecord | null {
-  const key = canonicalCaliberKey(raw);
-  if (!key) return null;
+export function findCaliber(raw: string, data: CaliberDataset = CALIBERS): CaliberRecord | null {
+  return findCaliberIn(raw, data);
+}
 
-  for (const rec of data) {
-    if (canonicalCaliberKey(rec.caliber) === key) return rec;
-    if (rec.aliases?.some((a) => canonicalCaliberKey(a) === key)) return rec;
-  }
-  // Strip a single trailing letter (variant suffix like 7S26A → 7S26) and retry.
-  const stripped = key.replace(/[A-Z]$/, "");
-  if (stripped !== key) {
-    for (const rec of data) {
-      if (canonicalCaliberKey(rec.caliber) === stripped) return rec;
-      if (rec.aliases?.some((a) => canonicalCaliberKey(a) === stripped)) return rec;
-    }
-  }
-  return null;
+/** The fields the client-side decoder actually needs (keeps notes/sources out of the bundle). */
+export type SlimCaliber = Pick<
+  CaliberRecord,
+  "caliber" | "aliases" | "startYear" | "endYear" | "movementType" | "longRun" | "grandSeiko" | "rangeConfidence"
+>;
+
+export function slimCalibers(data: CaliberDataset = CALIBERS): SlimCaliber[] {
+  return data.map(({ caliber, aliases, startYear, endYear, movementType, longRun, grandSeiko, rangeConfidence }) => {
+    const out: SlimCaliber = { caliber, startYear, endYear, movementType };
+    if (aliases?.length) out.aliases = aliases;
+    if (longRun) out.longRun = true;
+    if (grandSeiko) out.grandSeiko = true;
+    if (rangeConfidence) out.rangeConfidence = rangeConfidence;
+    return out;
+  });
 }

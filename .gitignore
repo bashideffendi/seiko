@@ -39,3 +39,6 @@ yarn-error.log*
 
 # local editor / dev-server config (absolute paths)
 /.claude/
+
+# tucked reference assets (folder reorg 2026-06-21)
+_reference/

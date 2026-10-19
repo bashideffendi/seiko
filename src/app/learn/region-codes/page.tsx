@@ -1,13 +1,15 @@
-import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowLeft, ArrowUpRight } from "lucide-react";
-import { Container, Eyebrow, Badge } from "@/components/ui";
+import { ArrowLeft } from "lucide-react";
+import { Container, Eyebrow, Badge, ButtonLink } from "@/components/ui";
+import { pageMeta } from "@/lib/meta";
+import { SHOP } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata = pageMeta({
   title: "Seiko Region Codes: J, K & P explained",
   description:
     "What the letter on the end of a Seiko reference means — SKX007J vs SKX007K vs SKX007P — plus the trailing digit. A plain-language guide for collectors and buyers.",
-};
+  path: "/learn/region-codes",
+});
 
 const ROWS = [
   {
@@ -32,12 +34,12 @@ export default function RegionCodesPage() {
     <>
       <header className="border-b border-[var(--border)] bg-[var(--surface-2)]/40">
         <Container className="py-14 sm:py-16">
-          <Link href="/learn" className="inline-flex items-center gap-1.5 text-sm font-medium text-[var(--burgundy-700)] hover:text-[var(--burgundy-600)]">
+          <Link href="/learn" className="inline-flex items-center gap-1.5 text-sm font-medium text-[var(--maroon)] hover:text-[var(--burgundy-600)]">
             <ArrowLeft size={15} /> Learn
           </Link>
           <Eyebrow className="mt-6 block">Guide · Buying</Eyebrow>
-          <h1 className="mt-3 max-w-3xl font-serif text-[2.4rem] font-600 leading-[1.06] text-[var(--burgundy-800)] sm:text-[3.2rem]">
-            What the <span className="italic text-[var(--burgundy-600)]">J, K or P</span> on a Seiko reference means
+          <h1 className="mt-3 max-w-3xl font-serif text-[2.4rem] leading-[1.06] text-[var(--ink)] sm:text-[3.2rem]">
+            What the <em>J, K or P</em> on a Seiko reference means
           </h1>
           <p className="mt-4 max-w-2xl text-[1.05rem] leading-relaxed text-[var(--ink-muted)]">
             You see it in listings — <span className="font-mono">SKX007J1</span>, <span className="font-mono">SKX007K1</span>,
@@ -57,7 +59,7 @@ export default function RegionCodesPage() {
           </p>
 
           {/* The letter */}
-          <h2 className="mt-10 font-serif text-2xl text-[var(--burgundy-800)]">The letter: where it was assembled</h2>
+          <h2 className="mt-10 font-serif text-2xl text-[var(--ink)]">The letter: where it was assembled</h2>
           <div className="mt-5 grid gap-px overflow-hidden rounded-[var(--radius-lg)] border border-[var(--border)] bg-[var(--border)]">
             {ROWS.map((r) => (
               <div key={r.code} className="flex gap-5 bg-[var(--surface)] p-5">
@@ -65,7 +67,7 @@ export default function RegionCodesPage() {
                   {r.code}
                 </span>
                 <div>
-                  <h3 className="font-serif text-lg text-[var(--burgundy-800)]">{r.title}</h3>
+                  <h3 className="font-serif text-lg text-[var(--ink)]">{r.title}</h3>
                   <p className="mt-1 text-[0.92rem] leading-relaxed text-[var(--ink-muted)]">{r.body}</p>
                 </div>
               </div>
@@ -73,7 +75,7 @@ export default function RegionCodesPage() {
           </div>
 
           {/* The digit */}
-          <h2 className="mt-10 font-serif text-2xl text-[var(--burgundy-800)]">The digit: bracelet or packaging</h2>
+          <h2 className="mt-10 font-serif text-2xl text-[var(--ink)]">The digit: bracelet or packaging</h2>
           <p className="mt-3 text-[1rem] leading-relaxed text-[var(--ink)]">
             A trailing <span className="font-mono">1</span> or <span className="font-mono">2</span> — as in
             <span className="font-mono"> J1</span> vs <span className="font-mono">J2</span> — almost always
@@ -84,7 +86,7 @@ export default function RegionCodesPage() {
           {/* The honest bit */}
           <div className="crop mt-10 rounded-[var(--radius-lg)] border border-[var(--border-strong)] bg-[var(--surface)] p-6">
             <Badge variant="burgundy">The honest version</Badge>
-            <h2 className="mt-3 font-serif text-2xl text-[var(--burgundy-800)]">Does J really beat K?</h2>
+            <h2 className="mt-3 font-serif text-2xl text-[var(--ink)]">Does J really beat K?</h2>
             <p className="mt-3 text-[1rem] leading-relaxed text-[var(--ink-muted)]">
               Both house the <strong>same Seiko caliber</strong>. The usual real-world difference is the country of
               assembly and the dial printing — not movement grade. “J” often carries a price premium driven by
@@ -99,20 +101,8 @@ export default function RegionCodesPage() {
 
           {/* Cross-links */}
           <div className="mt-10 flex flex-wrap gap-3">
-            <Link
-              href="/tools/serial-decoder"
-              className="inline-flex items-center gap-1.5 rounded-[var(--radius)] bg-[var(--burgundy-700)] px-5 py-2.5 text-sm font-medium text-[var(--surface)] transition-colors hover:bg-[var(--burgundy-600)]"
-            >
-              Date a watch by its serial
-            </Link>
-            <a
-              href="https://www.tinyhourtales.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 rounded-[var(--radius)] border border-[var(--gold-500)] px-5 py-2.5 text-sm font-medium text-[var(--burgundy-800)] transition-colors hover:bg-[var(--gold-100)]"
-            >
-              Shop verified Seiko <ArrowUpRight size={15} strokeWidth={2.2} />
-            </a>
+            <ButtonLink href="/tools/serial-decoder">Date a Watch by Serial</ButtonLink>
+            <ButtonLink href={SHOP.seiko} variant="outline">Shop Seiko</ButtonLink>
           </div>
         </article>
       </Container>

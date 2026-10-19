@@ -1,18 +1,21 @@
 import Link from "next/link";
-import type { Metadata } from "next";
-import { Binary, Cog, History, Search, Ruler, BatteryMedium, ArrowRight } from "lucide-react";
 import { Container, Badge } from "@/components/ui";
 import { PageHeader } from "@/components/page";
+import { pageMeta } from "@/lib/meta";
 
-export const metadata: Metadata = { title: "Tools" };
+export const metadata = pageMeta({
+  title: "Seiko Tools",
+  description: "Free Seiko tools for collectors: serial-number year finder, caliber lookup and pre-1966 case-code reader. Everything runs in your browser.",
+  path: "/tools",
+});
 
 const TOOLS = [
-  { href: "/tools/serial-decoder", icon: Binary, name: "Serial Decoder", desc: "Decode the production month & year from any Seiko caseback serial, with caliber-based decade narrowing.", live: true },
-  { href: "/tools/caliber-lookup", icon: Cog, name: "Caliber Lookup", desc: "Search Seiko movements by number — type, jewels, production window and notes.", live: true },
-  { href: "/tools/vintage-case-code", icon: History, name: "Vintage Case Code", desc: "Decode a pre-1966 five-digit case code — ligne dial size, family, and the model for known codes.", live: true },
-  { href: "/tools/model-finder", icon: Search, name: "Model Finder", desc: "Narrow down a model from its dial, case and bracelet characteristics.", live: false },
-  { href: "/tools/strap-size", icon: Ruler, name: "Strap Size", desc: "Look up lug width by reference and get strap-style recommendations.", live: false },
-  { href: "/tools/battery-estimator", icon: BatteryMedium, name: "Battery Estimator", desc: "Estimate remaining quartz battery life and set a change reminder.", live: false },
+  { href: "/tools/serial-decoder", name: "Year Finder", desc: "Decode the production month and year from any Seiko caseback serial, with caliber-based decade narrowing.", live: true },
+  { href: "/tools/caliber-lookup", name: "Caliber Lookup", desc: "Search Seiko movements by number — type, jewels, production window and notes.", live: true },
+  { href: "/tools/vintage-case-code", name: "Vintage Case Codes", desc: "Decode a pre-1966 five-digit case code — ligne dial size, family, and the model for known codes.", live: true },
+  { href: "/tools/model-finder", name: "Model Finder", desc: "Narrow down a model from its dial, case and bracelet characteristics.", live: false },
+  { href: "/tools/strap-size", name: "Strap Size", desc: "Look up lug width by reference and get strap-style recommendations.", live: false },
+  { href: "/tools/battery-estimator", name: "Battery Estimator", desc: "Estimate remaining quartz battery life and set a change reminder.", live: false },
 ];
 
 export default function ToolsPage() {
@@ -20,35 +23,23 @@ export default function ToolsPage() {
     <>
       <PageHeader
         eyebrow="The bench"
-        title={<>Tools for reading a <span className="italic text-[var(--burgundy-600)]">Seiko</span></>}
+        title={<>Tools for reading a <em>Seiko</em></>}
         lead="Small, precise utilities for collectors. Everything runs in your browser — nothing you type leaves the page."
       />
       <Container className="py-14">
-        <div className="grid gap-px overflow-hidden rounded-[var(--radius-lg)] border border-[var(--border)] bg-[var(--border)] sm:grid-cols-2">
-          {TOOLS.map((t) => {
-            const Icon = t.icon;
-            return (
-              <Link
-                key={t.href}
-                href={t.href}
-                className="group flex gap-5 bg-[var(--surface)] p-7 transition-colors hover:bg-[var(--surface-2)]"
-              >
-                <span className="grid h-12 w-12 shrink-0 place-items-center rounded-[var(--radius)] border border-[var(--border)] bg-[var(--surface-2)] text-[var(--burgundy-700)] transition-colors group-hover:border-[var(--gold-500)]">
-                  <Icon size={22} strokeWidth={1.6} />
-                </span>
-                <div>
-                  <div className="flex items-center gap-3">
-                    <h3 className="font-serif text-xl text-[var(--burgundy-800)]">{t.name}</h3>
-                    {t.live ? <Badge variant="gold">Live</Badge> : <Badge>Soon</Badge>}
-                  </div>
-                  <p className="mt-1.5 text-sm leading-relaxed text-[var(--ink-muted)]">{t.desc}</p>
-                  <span className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-[var(--burgundy-700)]">
-                    {t.live ? "Open" : "Preview"} <ArrowRight size={14} />
-                  </span>
-                </div>
-              </Link>
-            );
-          })}
+        <div className="grid gap-px border border-[var(--line)] bg-[var(--line)] sm:grid-cols-2 lg:grid-cols-3">
+          {TOOLS.map((t) => (
+            <Link key={t.href} href={t.href} className="group flex flex-col bg-[var(--ivory)] p-7 transition-colors hover:bg-[var(--surface)] sm:p-9">
+              <div className="flex items-center justify-between gap-3">
+                <h2 className="font-serif text-[26px] leading-8 text-[var(--ink)] group-hover:text-[var(--maroon)]">{t.name}</h2>
+                {t.live ? <Badge variant="outline">Live</Badge> : <Badge>Soon</Badge>}
+              </div>
+              <p className="mt-2 text-[15px] leading-relaxed text-[var(--ink-muted)]">{t.desc}</p>
+              <span className="caps mt-6 !text-[11px] text-[var(--maroon)]">
+                <span className="border-b border-transparent pb-0.5 group-hover:border-[var(--maroon)]">{t.live ? "Open" : "Preview"}</span>
+              </span>
+            </Link>
+          ))}
         </div>
       </Container>
     </>

@@ -8,7 +8,7 @@
 
 import { MODEL_SETS, seikoIds, type CatalogModel, type SeikoIds } from "@/lib/models";
 import { normalizeRef } from "@/lib/seiko/refs";
-import { canonicalCaliberKey } from "@/data/calibers";
+import { canonicalCaliberKey } from "@/lib/seiko/caliberKey";
 
 export interface ModelAppearance {
   catalogId: string;

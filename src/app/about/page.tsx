@@ -1,22 +1,27 @@
-import type { Metadata } from "next";
 import { Container } from "@/components/ui";
 import { PageHeader } from "@/components/page";
 import { ButtonLink } from "@/components/ui";
+import { pageMeta } from "@/lib/meta";
+import { SHOP } from "@/lib/site";
 
-export const metadata: Metadata = { title: "About" };
+export const metadata = pageMeta({
+  title: 'About the Almanac',
+  description: 'Seiko Almanac is the reference desk of Tiny Hour Tales — honest, free tools and original catalogues for Seiko collectors.',
+  path: '/about',
+});
 
 export default function AboutPage() {
   return (
     <>
       <PageHeader
         eyebrow="About"
-        title={<>A field guide from <span className="italic text-[var(--burgundy-600)]">Tiny Hour Tales</span></>}
+        title={<>A field guide from <em>Tiny Hour Tales</em></>}
       />
       <Container className="py-12">
         <div className="max-w-2xl space-y-5 text-[1.05rem] leading-relaxed text-[var(--ink-muted)]">
           <p>
             Seiko Almanac is the reference desk of{" "}
-            <a href="https://www.tinyhourtales.com" target="_blank" rel="noopener noreferrer" className="text-[var(--burgundy-700)] underline decoration-[var(--gold-500)] underline-offset-2">Tiny Hour Tales</a>,
+            <a href={SHOP.home} className="border-b border-[var(--maroon)] text-[var(--maroon)] hover:text-[var(--maroon-deep)]">Tiny Hour Tales</a>,
             a shop for curated vintage and modern Seiko. We kept needing the same tools — a serial
             decoder, a caliber reference, a way through decades of catalogue — so we built them, and
             opened them up.

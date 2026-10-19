@@ -14,9 +14,9 @@ export default function GlobalError({
           minHeight: "100vh",
           display: "grid",
           placeItems: "center",
-          background: "#F6F5F1",
-          color: "#1C1814",
-          fontFamily: "Georgia, 'Times New Roman', serif",
+          background: "#FAF7F2",
+          color: "#1E1714",
+          fontFamily: "Didot, 'Bodoni 72', Georgia, serif",
           textAlign: "center",
           padding: "2rem",
         }}
@@ -28,7 +28,7 @@ export default function GlobalError({
               letterSpacing: "0.2em",
               textTransform: "uppercase",
               fontSize: "0.7rem",
-              color: "#8C6C39",
+              color: "#6B5F57",
               margin: 0,
             }}
           >
@@ -37,15 +37,15 @@ export default function GlobalError({
           <h1 style={{ fontSize: "2.4rem", margin: "0.6rem 0 0", fontWeight: 400 }}>
             Something stopped the watch.
           </h1>
-          <p style={{ color: "#645B50", marginTop: "0.75rem" }}>An unexpected error occurred.</p>
+          <p style={{ color: "#574B44", marginTop: "0.75rem" }}>An unexpected error occurred.</p>
           <button
             onClick={() => reset()}
             style={{
               marginTop: "1.6rem",
               padding: "0.65rem 1.5rem",
-              borderRadius: 8,
-              border: "1px solid #4D0E1C",
-              background: "#4D0E1C",
+              borderRadius: 0,
+              border: "1px solid #490B18",
+              background: "#490B18",
               color: "#fff",
               cursor: "pointer",
               fontSize: "0.95rem",

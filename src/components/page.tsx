@@ -1,24 +1,28 @@
 import type { ReactNode } from "react";
-import { Construction } from "lucide-react";
 import { Container, Eyebrow, ButtonLink } from "@/components/ui";
+import { SHOP } from "@/lib/site";
 
+/** Page title block in the shop's style (cf. its brand pages): eyebrow, Bodoni title, lead. */
 export function PageHeader({
   eyebrow,
   title,
   lead,
+  children,
 }: {
   eyebrow: string;
   title: ReactNode;
   lead?: ReactNode;
+  children?: ReactNode;
 }) {
   return (
-    <header className="border-b border-[var(--border)] bg-[var(--surface-2)]/40">
-      <Container className="py-14 sm:py-16">
+    <header className="border-b border-[var(--line)]">
+      <Container className="pb-12 pt-14 sm:pb-14 sm:pt-20">
         <Eyebrow>{eyebrow}</Eyebrow>
-        <h1 className="mt-3 max-w-3xl font-serif text-[2.6rem] font-600 leading-[1.05] text-[var(--burgundy-800)] sm:text-[3.4rem]">
+        <h1 className="mt-3 max-w-4xl font-serif text-[44px] leading-[1.06] text-[var(--ink)] sm:text-[64px]">
           {title}
         </h1>
-        {lead && <p className="mt-4 max-w-2xl text-[1.05rem] leading-relaxed text-[var(--ink-muted)]">{lead}</p>}
+        {lead && <p className="mt-5 max-w-2xl text-[17px] leading-[1.65] text-[var(--ink-muted)]">{lead}</p>}
+        {children}
       </Container>
     </header>
   );
@@ -39,27 +43,19 @@ export function ComingSoon({
     <>
       <PageHeader eyebrow={eyebrow} title={title} lead={lead} />
       <Container className="py-14">
-        <div className="flex items-center gap-2.5 text-[var(--gold-700)]">
-          <Construction size={17} />
-          <span className="label !text-[var(--gold-700)]">In the workshop</span>
-        </div>
-
-        <ul className="mt-6 grid gap-px overflow-hidden rounded-[var(--radius-lg)] border border-[var(--border)] bg-[var(--border)] sm:grid-cols-2">
+        <p className="label">In the workshop</p>
+        <ul className="mt-5 grid gap-px border border-[var(--line)] bg-[var(--line)] sm:grid-cols-2">
           {features.map((f) => (
-            <li key={f.name} className="bg-[var(--surface)] p-6">
-              <h3 className="font-serif text-xl text-[var(--burgundy-800)]">{f.name}</h3>
-              <p className="mt-1.5 text-sm leading-relaxed text-[var(--ink-muted)]">{f.detail}</p>
+            <li key={f.name} className="bg-[var(--surface)] p-6 sm:p-8">
+              <h2 className="font-serif text-[22px] leading-7 text-[var(--ink)]">{f.name}</h2>
+              <p className="mt-2 text-[15px] leading-relaxed text-[var(--ink-muted)]">{f.detail}</p>
             </li>
           ))}
         </ul>
 
         <div className="mt-10 flex flex-wrap gap-3">
-          <ButtonLink href="/tools/serial-decoder" variant="primary">
-            Try the Serial Decoder
-          </ButtonLink>
-          <ButtonLink href="https://www.tinyhourtales.com" variant="gold" external>
-            Browse the shop ↗
-          </ButtonLink>
+          <ButtonLink href="/tools/serial-decoder" variant="primary">Find a Year</ButtonLink>
+          <ButtonLink href={SHOP.seiko} variant="outline">Shop Seiko</ButtonLink>
         </div>
       </Container>
     </>

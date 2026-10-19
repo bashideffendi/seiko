@@ -1,10 +1,13 @@
-import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, Construction } from "lucide-react";
-import { Container, Eyebrow, Badge } from "@/components/ui";
+import { Container, Badge } from "@/components/ui";
 import { PageHeader } from "@/components/page";
+import { pageMeta } from "@/lib/meta";
 
-export const metadata: Metadata = { title: "Learn" };
+export const metadata = pageMeta({
+  title: "Learn",
+  description: "Short, honest field guides for Seiko collectors — starting with what the J, K and P on a Seiko reference really mean.",
+  path: "/learn",
+});
 
 const LIVE = [
   {
@@ -29,41 +32,32 @@ export default function LearnPage() {
     <>
       <PageHeader
         eyebrow="Knowledge"
-        title={<>Learn to <span className="italic text-[var(--burgundy-600)]">read</span> a Seiko</>}
+        title={<>Learn to <em>read</em> a Seiko</>}
         lead="Guides for collectors at every stage — from your first automatic to spotting a re-dial across a room."
       />
       <Container className="py-14">
-        {/* Live guides */}
-        <div className="grid gap-4 sm:grid-cols-2">
+        <div className="grid gap-px border border-[var(--line)] bg-[var(--line)] sm:grid-cols-2">
           {LIVE.map((g) => (
-            <Link
-              key={g.href}
-              href={g.href}
-              className="group crop flex flex-col rounded-[var(--radius-lg)] border border-[var(--border-strong)] bg-[var(--surface)] p-6 transition-colors hover:bg-[var(--surface-2)]"
-            >
-              <div className="flex items-center gap-2">
-                <Eyebrow>{g.kicker}</Eyebrow>
-                <Badge variant="gold">New</Badge>
+            <Link key={g.href} href={g.href} className="group flex flex-col bg-[var(--sand)] p-7 transition-colors hover:bg-[var(--linen)] sm:p-9">
+              <div className="flex items-center gap-3">
+                <span className="label">{g.kicker}</span>
+                <Badge variant="burgundy">New</Badge>
               </div>
-              <h3 className="mt-3 font-serif text-xl leading-snug text-[var(--burgundy-800)]">{g.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-[var(--ink-muted)]">{g.desc}</p>
-              <span className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-[var(--burgundy-700)]">
-                Read the guide <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
+              <h2 className="mt-3 font-serif text-[28px] leading-9 text-[var(--ink)] group-hover:text-[var(--maroon)]">{g.title}</h2>
+              <p className="mt-2 text-[15px] leading-relaxed text-[var(--ink-muted)]">{g.desc}</p>
+              <span className="caps mt-6 !text-[11px] text-[var(--maroon)]">
+                <span className="border-b border-[var(--maroon)] pb-0.5">Read the guide</span>
               </span>
             </Link>
           ))}
         </div>
 
-        {/* Coming soon */}
-        <div className="mt-12 flex items-center gap-2.5 text-[var(--gold-700)]">
-          <Construction size={17} />
-          <span className="label !text-[var(--gold-700)]">In the workshop</span>
-        </div>
-        <ul className="mt-5 grid gap-px overflow-hidden rounded-[var(--radius-lg)] border border-[var(--border)] bg-[var(--border)] sm:grid-cols-2 lg:grid-cols-3">
+        <p className="label mt-14">In the workshop</p>
+        <ul className="mt-5 grid gap-px border border-[var(--line)] bg-[var(--line)] sm:grid-cols-2 lg:grid-cols-3">
           {SOON.map((f) => (
-            <li key={f.name} className="bg-[var(--surface)] p-6">
-              <h3 className="font-serif text-xl text-[var(--burgundy-800)]">{f.name}</h3>
-              <p className="mt-1.5 text-sm leading-relaxed text-[var(--ink-muted)]">{f.detail}</p>
+            <li key={f.name} className="bg-[var(--ivory)] p-7">
+              <h3 className="font-serif text-[22px] leading-7 text-[var(--ink)]">{f.name}</h3>
+              <p className="mt-2 text-[15px] leading-relaxed text-[var(--ink-muted)]">{f.detail}</p>
             </li>
           ))}
         </ul>

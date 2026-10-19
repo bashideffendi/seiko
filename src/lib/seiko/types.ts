@@ -15,7 +15,7 @@ export type MovementType =
 
 /** One movement (caliber) record. The canonical join key across the whole product. */
 export interface CaliberRecord {
-  /** Canonical key: uppercase, no variant suffix, e.g. "7S26". */
+  /** Canonical key: uppercase, no variant suffix, e.g. "7S26" (normalised on merge). */
   caliber: string;
   /** Variant suffixes / synonyms, e.g. ["7S26A", "7S26B", "7S26C"]. */
   aliases?: string[];
@@ -63,6 +63,8 @@ export type DecodeErrorCode =
 
 export type DecodeNoteCode =
   | "OCTOBER_O_OR_ZERO"
+  | "LETTER_O_READ_AS_ZERO"
+  | "FUTURE_MONTH_EXCLUDED"
   | "SEVEN_DIGIT_LOWER_CONFIDENCE"
   | "CALIBER_UNKNOWN"
   | "CALIBER_CONTRADICTION"

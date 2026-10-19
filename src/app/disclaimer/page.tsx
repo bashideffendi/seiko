@@ -1,8 +1,12 @@
-import type { Metadata } from "next";
 import { Container } from "@/components/ui";
 import { PageHeader } from "@/components/page";
+import { pageMeta } from "@/lib/meta";
 
-export const metadata: Metadata = { title: "Disclaimer & Sources" };
+export const metadata = pageMeta({
+  title: 'Disclaimer & Sources',
+  description: 'How the Seiko Almanac dates watches, where its caliber windows come from, and why every result is an estimate. Not affiliated with Seiko.',
+  path: '/disclaimer',
+});
 
 const SOURCES = [
   { name: "WatchSleuth — Seiko Date Finder", url: "https://www.watchsleuth.com/seikodatefinder/" },
@@ -16,7 +20,7 @@ export default function DisclaimerPage() {
     <>
       <PageHeader
         eyebrow="Disclaimer & Sources"
-        title={<>How sure is <span className="italic text-[var(--burgundy-600)]">any</span> of this?</>}
+        title={<>How sure is <em>any</em> of this?</>}
       />
       <Container className="py-12">
         <div className="max-w-2xl space-y-5 text-[1rem] leading-relaxed text-[var(--ink-muted)]">
@@ -47,7 +51,7 @@ export default function DisclaimerPage() {
             {SOURCES.map((s) => (
               <li key={s.name} className="text-sm text-[var(--ink-muted)]">
                 {s.url ? (
-                  <a href={s.url} target="_blank" rel="noopener noreferrer" className="text-[var(--burgundy-700)] underline decoration-[var(--gold-500)] underline-offset-2">
+                  <a href={s.url} target="_blank" rel="noopener noreferrer" className="text-[var(--maroon)] underline decoration-[var(--gold-500)] underline-offset-2">
                     {s.name}
                   </a>
                 ) : (

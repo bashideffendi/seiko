@@ -2,9 +2,8 @@
 
 import { useMemo, useState } from "react";
 import Link from "next/link";
-import { Search } from "lucide-react";
-import { CALIBERS, canonicalCaliberKey } from "@/data/calibers";
-import type { MovementType } from "@/lib/seiko/types";
+import type { CaliberRecord, MovementType } from "@/lib/seiko/types";
+import { canonicalCaliberKey, caliberSlug } from "@/lib/seiko/caliberKey";
 import { Badge } from "@/components/ui";
 import { cn } from "@/lib/cn";
 
@@ -19,149 +18,164 @@ const TYPES: { key: MovementType | "all"; label: string }[] = [
   { key: "kinetic", label: "Kinetic" },
 ];
 
-const CURRENT_YEAR = new Date().getFullYear();
+export type CaliberRow = Omit<CaliberRecord, "sources">;
 
-// Distinct families with at least two calibers — used for the family browse.
-const FAMILIES = Array.from(
-  CALIBERS.reduce((m, c) => {
-    if (c.family) m.set(c.family, (m.get(c.family) ?? 0) + 1);
-    return m;
-  }, new Map<string, number>()),
-)
-  .filter(([, n]) => n >= 2)
-  .map(([f]) => f)
-  .sort();
+function years(c: CaliberRow) {
+  return `${c.startYear}–${c.endYear ?? "present"}${c.rangeConfidence === "approximate" ? " ~" : ""}`;
+}
 
-export function CaliberTable() {
+export function CaliberTable({ calibers, asOf }: { calibers: CaliberRow[]; asOf: number }) {
   const [q, setQ] = useState("");
   const [type, setType] = useState<MovementType | "all">("all");
   const [family, setFamily] = useState<string>("all");
 
+  // Distinct families with at least two calibers — used for the family browse.
+  const families = useMemo(
+    () =>
+      Array.from(
+        calibers.reduce((m, c) => {
+          if (c.family) m.set(c.family, (m.get(c.family) ?? 0) + 1);
+          return m;
+        }, new Map<string, number>()),
+      )
+        .filter(([, n]) => n >= 2)
+        .map(([f]) => f)
+        .sort(),
+    [calibers],
+  );
+
   const rows = useMemo(() => {
     const key = canonicalCaliberKey(q);
-    return CALIBERS.filter((c) => {
-      if (type !== "all" && c.movementType !== type) return false;
-      if (family !== "all" && c.family !== family) return false;
-      if (!key) return true;
-      const hay = [
-        c.caliber,
-        ...(c.aliases ?? []),
-        c.family ?? "",
-        c.notes ?? "",
-        ...(c.notableRefs ?? []),
-      ]
-        .join(" ")
-        .toUpperCase();
-      // key has spaces/dashes stripped (canonicalCaliberKey), so strip the haystack
-      // too — otherwise a dashed ref like "6309-7040" never matches its own key.
-      return hay.replace(/[\s-]+/g, "").includes(key);
-    }).sort((a, b) => a.startYear - b.startYear || a.caliber.localeCompare(b.caliber));
-  }, [q, type, family]);
+    return calibers
+      .filter((c) => {
+        if (type !== "all" && c.movementType !== type) return false;
+        if (family !== "all" && c.family !== family) return false;
+        if (!key) return true;
+        const hay = [c.caliber, ...(c.aliases ?? []), c.family ?? "", c.notes ?? "", ...(c.notableRefs ?? [])]
+          .join(" ")
+          .toUpperCase();
+        // key has spaces/dashes stripped, so strip the haystack too — otherwise a dashed
+        // ref like "6309-7040" never matches its own key.
+        return hay.replace(/[\s-]+/g, "").includes(key);
+      })
+      .sort((a, b) => a.startYear - b.startYear || a.caliber.localeCompare(b.caliber));
+  }, [calibers, q, type, family]);
 
   return (
     <div>
-      <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
-        <label className="relative w-full lg:max-w-xs">
-          <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-[var(--ink-soft)]" />
-          <input
-            value={q}
-            onChange={(e) => setQ(e.target.value)}
-            placeholder="Search caliber, family, ref…"
-            spellCheck={false}
-            className="w-full rounded-[var(--radius)] border border-[var(--border-strong)] bg-[var(--surface)] py-2.5 pl-9 pr-3 font-mono text-sm text-[var(--ink)] outline-none focus:border-[var(--burgundy-500)]"
-          />
-        </label>
-        <div className="flex flex-wrap items-center gap-3">
-          <div className="flex flex-wrap gap-1.5">
-            {TYPES.map((t) => (
-              <button
-                key={t.key}
-                type="button"
-                onClick={() => setType(t.key)}
-                className={cn(
-                  "rounded-full border px-3 py-1 font-mono text-[0.7rem] uppercase tracking-[0.1em] transition-colors",
-                  type === t.key
-                    ? "border-[var(--burgundy-700)] bg-[var(--burgundy-700)] text-[var(--surface)]"
-                    : "border-[var(--border)] bg-[var(--surface)] text-[var(--ink-muted)] hover:border-[var(--gold-500)]",
-                )}
-              >
-                {t.label}
-              </button>
-            ))}
-          </div>
-          <select
-            value={family}
-            onChange={(e) => setFamily(e.target.value)}
-            className="rounded-[var(--radius)] border border-[var(--border-strong)] bg-[var(--surface)] px-3 py-1.5 font-mono text-[0.72rem] text-[var(--ink-muted)] outline-none focus:border-[var(--burgundy-500)]"
-            aria-label="Filter by family"
-          >
-            <option value="all">All families</option>
-            {FAMILIES.map((f) => (
-              <option key={f} value={f}>{f}</option>
-            ))}
-          </select>
+      <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-3 sm:flex-row">
+          <label className="block w-full sm:max-w-sm">
+            <span className="sr-only">Search calibers</span>
+            <input
+              type="search"
+              value={q}
+              onChange={(e) => setQ(e.target.value)}
+              placeholder="Search a caliber, family or reference"
+              spellCheck={false}
+              className="field h-12 px-4 text-[15px]"
+            />
+          </label>
+          <label className="block w-full sm:max-w-xs">
+            <span className="sr-only">Filter by family</span>
+            <select value={family} onChange={(e) => setFamily(e.target.value)} className="field h-12 px-3 text-[15px]">
+              <option value="all">All families</option>
+              {families.map((f) => (
+                <option key={f} value={f}>{f}</option>
+              ))}
+            </select>
+          </label>
+        </div>
+        <div className="flex flex-wrap gap-2" role="group" aria-label="Filter by movement type">
+          {TYPES.map((t) => (
+            <button
+              key={t.key}
+              type="button"
+              onClick={() => setType(t.key)}
+              aria-pressed={type === t.key}
+              className={cn(
+                "h-10 border px-4 text-[12px] font-medium uppercase tracking-[0.16em] transition-colors",
+                type === t.key
+                  ? "border-[var(--maroon)] bg-[var(--maroon)] text-[var(--ivory)]"
+                  : "border-[var(--line-2)] bg-[var(--ivory)] text-[var(--ink)] hover:border-[var(--maroon)] hover:text-[var(--maroon)]",
+              )}
+            >
+              {t.label}
+            </button>
+          ))}
         </div>
       </div>
 
-      <div className="mt-6 overflow-x-auto rounded-[var(--radius-lg)] border border-[var(--border)]">
+      <p className="mt-5 text-[12px] uppercase tracking-[0.14em] text-[var(--ink-soft)]" aria-live="polite">
+        {rows.length} of {calibers.length} calibers · ranges are community-sourced approximations · as of {asOf}
+      </p>
+
+      {/* Phones: one card per caliber (no sideways-scrolling table). */}
+      <ul className="mt-4 divide-y divide-[var(--line)] border border-[var(--line)] bg-[var(--surface)] md:hidden">
+        {rows.map((c) => (
+          <li key={c.caliber}>
+            <Link href={`/caliber/${caliberSlug(c.caliber)}`} className="block px-4 py-4 hover:bg-[var(--sand)]">
+              <span className="flex items-baseline justify-between gap-3">
+                <span className="font-mono text-[17px] text-[var(--maroon)]">{c.caliber}</span>
+                <span className="font-mono text-[13px] text-[var(--ink)]">{years(c)}</span>
+              </span>
+              <span className="mt-1 block text-[13px] capitalize text-[var(--ink-muted)]">
+                {[c.movementType.replace("-", " "), c.jewels != null ? `${c.jewels} jewels` : null, c.family].filter(Boolean).join(" · ")}
+              </span>
+              {c.notes && <span className="mt-1.5 line-clamp-2 block text-[13px] leading-relaxed text-[var(--ink-soft)]">{c.notes}</span>}
+            </Link>
+          </li>
+        ))}
+      </ul>
+
+      {/* Wider screens: the full table. */}
+      <div className="mt-4 hidden border border-[var(--line)] md:block">
         <table className="w-full border-collapse text-left">
           <thead>
-            <tr className="border-b border-[var(--border)] bg-[var(--surface-2)]">
+            <tr className="border-b border-[var(--line)] bg-[var(--sand)]">
               {["Caliber", "Type", "Jewels", "Years", "Family", "Notes"].map((h) => (
-                <th key={h} className="label whitespace-nowrap px-4 py-3 !text-[0.58rem]">{h}</th>
+                <th key={h} scope="col" className="label whitespace-nowrap px-4 py-3 !text-[10px]">{h}</th>
               ))}
             </tr>
           </thead>
           <tbody>
             {rows.map((c) => (
-              <tr key={c.caliber} className="border-b border-[var(--border)] last:border-0 hover:bg-[var(--surface-2)]/60">
+              <tr key={c.caliber} className="border-b border-[var(--line)] bg-[var(--surface)] last:border-0 hover:bg-[var(--ivory)]">
                 <td className="whitespace-nowrap px-4 py-3 align-top">
                   <Link
-                    href={`/caliber/${c.caliber.toLowerCase()}`}
-                    className="font-mono text-[0.95rem] font-medium text-[var(--burgundy-700)] underline decoration-[var(--gold-400)] decoration-dotted underline-offset-2 hover:decoration-solid"
+                    href={`/caliber/${caliberSlug(c.caliber)}`}
+                    className="font-mono text-[15px] text-[var(--maroon)] underline decoration-[var(--line-2)] underline-offset-4 hover:decoration-[var(--maroon)]"
                   >
-                    {c.caliber.toUpperCase()}
+                    {c.caliber}
                   </Link>
-                  <div className="mt-1 flex flex-wrap gap-1">
+                  <div className="mt-1.5 flex flex-wrap gap-1">
                     {c.grandSeiko && <Badge variant="burgundy">GS</Badge>}
-                    {c.longRun && <Badge>long run</Badge>}
+                    {c.longRun && <Badge>Long run</Badge>}
                   </div>
                 </td>
-                <td className="whitespace-nowrap px-4 py-3 align-top text-sm capitalize text-[var(--ink-muted)]">
+                <td className="whitespace-nowrap px-4 py-3 align-top text-[14px] capitalize text-[var(--ink-muted)]">
                   {c.movementType.replace("-", " ")}
                 </td>
-                <td className="px-4 py-3 align-top font-mono text-sm text-[var(--ink-muted)]">{c.jewels ?? "—"}</td>
-                <td className="whitespace-nowrap px-4 py-3 align-top font-mono text-sm text-[var(--ink)]">
-                  {c.startYear}<span className="text-[var(--ink-soft)]">–</span>{c.endYear ?? "present"}
-                  {c.rangeConfidence === "approximate" && (
-                    <span className="ml-1 text-[var(--ink-soft)]" title="Approximate range">~</span>
-                  )}
-                </td>
-                <td className="px-4 py-3 align-top text-sm text-[var(--ink-muted)]">{c.family ?? "—"}</td>
-                <td className="px-4 py-3 align-top text-sm leading-relaxed text-[var(--ink-muted)] min-w-[16rem]">
+                <td className="px-4 py-3 align-top font-mono text-[14px] text-[var(--ink-muted)]">{c.jewels ?? "—"}</td>
+                <td className="whitespace-nowrap px-4 py-3 align-top font-mono text-[14px] text-[var(--ink)]">{years(c)}</td>
+                <td className="px-4 py-3 align-top text-[14px] text-[var(--ink-muted)]">{c.family ?? "—"}</td>
+                <td className="min-w-[16rem] px-4 py-3 align-top text-[14px] leading-relaxed text-[var(--ink-muted)]">
                   {c.notes ?? "—"}
                   {c.notableRefs && c.notableRefs.length > 0 && (
-                    <span className="mt-1 block font-mono text-[0.68rem] text-[var(--gold-700)]">
-                      {c.notableRefs.slice(0, 3).join(" · ")}
-                    </span>
+                    <span className="mt-1 block font-mono text-[12px] text-[var(--ink-soft)]">{c.notableRefs.slice(0, 3).join(" · ")}</span>
                   )}
                 </td>
               </tr>
             ))}
-            {rows.length === 0 && (
-              <tr>
-                <td colSpan={6} className="px-4 py-10 text-center text-sm text-[var(--ink-soft)]">
-                  No calibers match “{q}”. Try a different number, family or type.
-                </td>
-              </tr>
-            )}
           </tbody>
         </table>
       </div>
 
-      <p className="mt-4 font-mono text-[0.7rem] uppercase tracking-[0.14em] text-[var(--ink-soft)]">
-        {rows.length} of {CALIBERS.length} calibers · ranges are community-sourced approximations · as of {CURRENT_YEAR}
-      </p>
+      {rows.length === 0 && (
+        <p className="mt-4 px-4 py-10 text-center text-[15px] text-[var(--ink-soft)]">
+          No calibers match “{q}”. Try a different number, family or type.
+        </p>
+      )}
     </div>
   );
 }

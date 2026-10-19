@@ -1,50 +1,75 @@
 @import "tailwindcss";
 
+/* Seiko Almanac — dressed in the Tiny Hour Tales house style (THT Design):
+   maroon #490B18 / deep maroon #2B0710 / warm ivory & linen / ink #1E1714,
+   Bodoni Moda for display, Jost for text, a mono only for technical data. */
+
 :root {
-  /* === Brand accent — burgundy (Tiny Hour Tales) === */
-  --burgundy-50:  #FBF4F3;
-  --burgundy-100: #F3E1DD;
-  --burgundy-200: #E1BAB3;
-  --burgundy-300: #C6857C;
-  --burgundy-400: #A55850;
-  --burgundy-500: #7E342D;
-  --burgundy-600: #5E1B1B;
-  --burgundy-700: #4D0E1C;
-  --burgundy-800: #3A0C16;
-  --burgundy-900: #2A0810;
+  /* === House palette (mirrors the shop's --thd-* tokens) === */
+  --maroon: #490B18;
+  --maroon-deep: #2B0710;
+  --ivory: #FAF7F2;
+  --stone: #F2ECE4;
+  --sand: #F3EDE5;
+  --linen: #EFE7DD;
+  --ink: #1E1714;
+  --text: #3D332E;
+  --muted: #6B5F57;
+  --line: #E4DBD1;
+  --line-2: #DCD1C5;
+  --on-dark: #F6EEE8;
+  --on-dark-2: #E9DCD3;
+  --on-dark-soft: #D9C4BA;
+  --on-dark-faint: #BFA9A0;
+  --dark-rule: #4A2028;
 
-  /* === Gold — refined for light backgrounds === */
-  --gold-100: #F1E7D2;
-  --gold-200: #E4D0A8;
-  --gold-300: #D6BB84;
-  --gold-400: #BE9A5C;
-  --gold-500: #A8854B;
-  --gold-600: #8C6C39;
-  --gold-700: #73582C;
+  /* === Maroon scale (legacy name: burgundy) === */
+  --burgundy-50:  #FBF5F3;
+  --burgundy-100: #F4E5E1;
+  --burgundy-200: #E4C3BC;
+  --burgundy-300: #C8918A;
+  --burgundy-400: #9E5650;
+  --burgundy-500: #74262D;
+  --burgundy-600: #5B1322;
+  --burgundy-700: #490B18;
+  --burgundy-800: #3A0913;
+  --burgundy-900: #2B0710;
 
-  /* === Neutral — clean off-white editorial === */
-  --bg:         #F6F5F1;
-  --bg-subtle:  #EFEDE6;
-  --surface:    #FFFFFF;
-  --surface-2:  #FAF9F5;
-  --border:     #E5E2DA;
-  --border-strong: #D2CEC2;
-  --ink:        #1C1814;
-  --ink-muted:  #645B50;
-  --ink-soft:   #938A7C;
+  /* === Warm neutrals (legacy name: gold) — the shop uses no metallic accent,
+         so former gold accents resolve to linen/taupe tones. === */
+  --gold-100: #F3EDE5;
+  --gold-200: #EAE0D5;
+  --gold-300: #DCD1C5;
+  --gold-400: #C6B6A7;
+  --gold-500: #9C8A7C;
+  --gold-600: #6B5F57;
+  --gold-700: #574B44;
+
+  /* === Surfaces & text === */
+  --bg:         var(--ivory);
+  --bg-subtle:  var(--stone);
+  --surface:    #FFFDFA;
+  --surface-2:  var(--sand);
+  --border:     var(--line);
+  --border-strong: var(--line-2);
+  --ink-muted:  #574B44;   /* body copy, 7.6:1 on ivory */
+  --ink-soft:   #6B5F57;   /* secondary text, 5.6:1 on ivory (AA) */
 
   /* === Semantic === */
-  --success: #2F6B4A;  --success-bg: #E7F0E5;
-  --warning: #8A5E0C;  --warning-bg: #F6EDD7;
-  --danger:  #93211F;  --danger-bg:  #F6DED9;
-  --info:    #295A86;  --info-bg:    #E0E9F0;
+  --success: #2F5E43;  --success-bg: #E6EEE4;
+  --warning: #7A520B;  --warning-bg: #F5ECD8;
+  --danger:  #8E1F22;  --danger-bg:  #F6E0DA;
+  --info:    #2B5578;  --info-bg:    #E2E9EF;
 
-  --radius-sm: 4px;
-  --radius: 8px;
-  --radius-lg: 14px;
+  /* The shop is square-cornered; keep a hair of radius only where it reads as craft. */
+  --radius-sm: 0px;
+  --radius: 0px;
+  --radius-lg: 0px;
 
-  --font-serif: var(--font-fraunces), "Spectral", Georgia, "Times New Roman", serif;
-  --font-sans:  var(--font-geist), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --gutter: clamp(20px, 5.5vw, 80px);
+
+  --font-serif: var(--font-bodoni), "Bodoni Moda", Didot, "Bodoni 72", Georgia, "Times New Roman", serif;
+  --font-sans:  var(--font-jost), "Jost", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-mono:  var(--font-geist-mono), ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
 }
 
@@ -58,6 +83,8 @@
   --color-ink: var(--ink);
   --color-ink-muted: var(--ink-muted);
   --color-ink-soft: var(--ink-soft);
+  --color-maroon: var(--maroon);
+  --color-maroon-deep: var(--maroon-deep);
   --color-burgundy: var(--burgundy-700);
   --color-burgundy-600: var(--burgundy-600);
   --color-burgundy-500: var(--burgundy-500);
@@ -73,73 +100,96 @@
   --font-mono: var(--font-mono);
 }
 
-html, body { height: 100%; }
+html { -webkit-text-size-adjust: 100%; }
+html, body { min-height: 100%; }
 
 body {
   background-color: var(--bg);
   color: var(--ink);
   font-family: var(--font-sans);
+  font-weight: 400;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  letter-spacing: -0.006em;
 }
 
 /* === Typography === */
 .font-serif { font-family: var(--font-serif); }
 .font-mono  { font-family: var(--font-mono); }
 .tabular { font-variant-numeric: tabular-nums; }
-h1, h2, h3 { letter-spacing: -0.018em; }
+h1, h2, h3, h4 { font-weight: 400; letter-spacing: 0; text-wrap: balance; }
+p { text-wrap: pretty; }
 
-/* Small-caps label — restrained gold */
+/* Eyebrow / small-caps label — the shop's .thd-eyebrow */
 .label {
   text-transform: uppercase;
-  letter-spacing: 0.2em;
-  font-size: 0.66rem;
+  letter-spacing: 0.22em;
+  font-size: 0.6875rem; /* 11px */
+  line-height: 1.45;
   font-weight: 500;
-  font-family: var(--font-mono);
-  color: var(--gold-600);
+  font-family: var(--font-sans);
+  color: var(--muted);
 }
 
-/* Thin gold hairline */
-.rule-gold { height: 1px; border: 0; background: linear-gradient(to right, transparent, var(--gold-400), transparent); }
+/* Uppercase tracked link/nav text */
+.caps {
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.8125rem; /* 13px */
+  font-weight: 500;
+}
+
+/* Hairline rule */
+.rule { height: 1px; border: 0; background: var(--line); }
 
 /* Hairline divider with centered label */
 .flourish {
-  display: flex; align-items: center; gap: 0.85rem; color: var(--gold-600);
+  display: flex; align-items: center; gap: 0.85rem; color: var(--muted);
 }
 .flourish::before, .flourish::after {
-  content: ""; flex: 1; height: 1px;
-  background: linear-gradient(to right, transparent, var(--border-strong), transparent);
+  content: ""; flex: 1; height: 1px; background: var(--line);
 }
 
-/* Subtle corner ticks (kept very light for the clean look) */
+/* Legacy corner ticks — now a plain hairline frame */
 .crop { position: relative; }
-.crop::before, .crop::after {
-  content: ""; position: absolute; width: 11px; height: 11px;
-  border-color: var(--gold-400); border-style: solid; opacity: 0.45; pointer-events: none;
-}
-.crop::before { top: 0; left: 0; border-width: 1px 0 0 1px; }
-.crop::after  { bottom: 0; right: 0; border-width: 0 1px 1px 0; }
 
 /* Vertical lockup divider */
 .lockdiv { width: 1px; align-self: stretch; background: var(--border-strong); }
 
-/* Focus ring */
+/* Focus ring — maroon, like the shop */
 *:focus-visible {
-  outline: 2px solid var(--gold-500); outline-offset: 2px; border-radius: var(--radius-sm);
+  outline: 2px solid var(--maroon); outline-offset: 2px;
 }
+.on-dark *:focus-visible { outline-color: var(--ivory); }
+
+/* Skip link */
+.skip-link { position: absolute; left: -9999px; top: 8px; z-index: 1000; background: var(--ink); color: #fff; padding: 10px 16px; font-size: 14px; font-weight: 500; }
+.skip-link:focus { left: 8px; }
+
+/* Text fields — square, hairline, maroon focus */
+.field {
+  width: 100%;
+  border: 1px solid var(--line-2);
+  background: var(--surface);
+  color: var(--ink);
+  border-radius: 0;
+  transition: border-color .2s, box-shadow .2s;
+}
+.field::placeholder { color: #8C7F75; opacity: 1; }
+.field:focus { outline: none; border-color: var(--maroon); box-shadow: 0 0 0 3px rgba(73, 11, 24, .10); }
 
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
 input[type="number"] { -moz-appearance: textfield; appearance: textfield; }
 
-::-webkit-scrollbar { width: 11px; height: 11px; }
-::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 10px; border: 3px solid var(--bg); }
-::-webkit-scrollbar-thumb:hover { background: var(--ink-soft); }
+::selection { background: var(--burgundy-100); color: var(--maroon-deep); }
 
-::selection { background: var(--gold-200); color: var(--burgundy-900); }
-
-@keyframes rise { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes rise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 .rise { opacity: 0; animation: rise 0.7s cubic-bezier(0.16, 0.84, 0.34, 1) forwards; }
-@media (prefers-reduced-motion: reduce) { .rise { animation: none; opacity: 1; } }
+@media (prefers-reduced-motion: reduce) {
+  .rise { animation: none; opacity: 1; }
+  *, *::before, *::after { transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+}
+
+/* Hide scrollbars on a strip that must not look like a nested scroller */
+.no-scrollbar { scrollbar-width: none; }
+.no-scrollbar::-webkit-scrollbar { display: none; }

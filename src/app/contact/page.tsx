@@ -1,14 +1,19 @@
-import type { Metadata } from "next";
-import { Mail, Instagram, ArrowUpRight } from "lucide-react";
 import { Container } from "@/components/ui";
 import { PageHeader } from "@/components/page";
+import { pageMeta } from "@/lib/meta";
+import { CONTACT, SHOP } from "@/lib/site";
 
-export const metadata: Metadata = { title: "Contact" };
+export const metadata = pageMeta({
+  title: "Contact",
+  description: "Spotted an error, have a Seiko to identify, or looking for one to wear? Reach Tiny Hour Tales on WhatsApp, Instagram or email.",
+  path: "/contact",
+});
 
 const LINKS = [
-  { icon: Mail, label: "Email", value: "hello@tinyhourtales.com", href: "mailto:hello@tinyhourtales.com" },
-  { icon: Instagram, label: "Instagram", value: "@tinyhourtales", href: "https://instagram.com/tinyhourtales" },
-  { icon: ArrowUpRight, label: "Shop", value: "tinyhourtales.com", href: "https://www.tinyhourtales.com" },
+  { label: "WhatsApp", value: CONTACT.whatsappDisplay, href: CONTACT.whatsappUrl, external: true },
+  { label: "Instagram", value: CONTACT.instagram, href: CONTACT.instagramUrl, external: true },
+  { label: "Email", value: CONTACT.email, href: `mailto:${CONTACT.email}`, external: false },
+  { label: "Shop", value: "tinyhourtales.com", href: SHOP.home, external: false },
 ];
 
 export default function ContactPage() {
@@ -16,30 +21,27 @@ export default function ContactPage() {
     <>
       <PageHeader
         eyebrow="Contact"
-        title={<>Say <span className="italic text-[var(--burgundy-600)]">hello</span></>}
-        lead="Spotted an error, have a watch to identify, or just want to talk Seiko? We’d love to hear from you."
+        title={<>Say <em>hello</em></>}
+        lead="Spotted an error in the Almanac, have a watch you’d like identified, or just want to talk Seiko? We’d love to hear from you — WhatsApp is quickest."
       />
       <Container className="py-12">
-        <div className="grid max-w-2xl gap-px overflow-hidden rounded-[var(--radius-lg)] border border-[var(--border)] bg-[var(--border)] sm:grid-cols-3">
-          {LINKS.map((l) => {
-            const Icon = l.icon;
-            return (
-              <a
-                key={l.label}
-                href={l.href}
-                target={l.href.startsWith("http") ? "_blank" : undefined}
-                rel="noopener noreferrer"
-                className="group flex flex-col gap-2 bg-[var(--surface)] p-6 transition-colors hover:bg-[var(--surface-2)]"
-              >
-                <Icon size={20} className="text-[var(--burgundy-700)]" strokeWidth={1.7} />
-                <span className="label !text-[0.56rem]">{l.label}</span>
-                <span className="font-mono text-sm text-[var(--burgundy-800)]">{l.value}</span>
-              </a>
-            );
-          })}
+        <div className="grid max-w-4xl gap-px border border-[var(--line)] bg-[var(--line)] sm:grid-cols-2 lg:grid-cols-4">
+          {LINKS.map((l) => (
+            <a
+              key={l.label}
+              href={l.href}
+              target={l.external ? "_blank" : undefined}
+              rel={l.external ? "noopener noreferrer" : undefined}
+              className="group flex flex-col gap-2 bg-[var(--ivory)] p-6 transition-colors hover:bg-[var(--surface)]"
+            >
+              <span className="label">{l.label}</span>
+              <span className="text-[16px] text-[var(--ink)] [overflow-wrap:anywhere] group-hover:text-[var(--maroon)]">{l.value}</span>
+            </a>
+          ))}
         </div>
-        <p className="mt-6 text-sm text-[var(--ink-soft)]">
-          Note: contact details are placeholders for now — update them before launch.
+        <p className="mt-6 max-w-2xl text-[15px] leading-relaxed text-[var(--ink-muted)]">
+          Corrections make the Almanac better for everyone: if a date, caliber window or reference looks wrong,
+          send us the serial, the caliber and a photo of the caseback and we’ll check it against the catalogues.
         </p>
       </Container>
     </>

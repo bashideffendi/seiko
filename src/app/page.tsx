@@ -1,187 +1,210 @@
 import Link from "next/link";
-import {
-  Binary,
-  Cog,
-  History,
-  Search,
-  Ruler,
-  BatteryMedium,
-  Library,
-  ArrowRight,
-  ArrowUpRight,
-} from "lucide-react";
-import { Container, Eyebrow, Badge, ButtonLink } from "@/components/ui";
-import { CoBrand } from "@/components/brand";
+import { Container, ButtonLink, SectionHead, TextLink } from "@/components/ui";
 import { SerialDecoder } from "@/components/decoder/SerialDecoder";
+import { ShopShelf } from "@/components/shop/ShopShelf";
+import { JsonLd } from "@/components/JsonLd";
+import { CALIBERS, slimCalibers } from "@/data/calibers";
+import { CATALOGUES, CATALOGUE_STATS } from "@/lib/catalogue";
+import { MODEL_STATS } from "@/lib/modelIndex";
+import { CONTACT, SHOP, SITE_NAME, SITE_URL } from "@/lib/site";
 
-const TOOLS = [
-  { href: "/tools/serial-decoder", icon: Binary, name: "Serial Decoder", desc: "Date any Seiko from its caseback serial.", live: true },
-  { href: "/tools/caliber-lookup", icon: Cog, name: "Caliber Lookup", desc: "Movement specs & production windows.", live: true },
-  { href: "/tools/vintage-case-code", icon: History, name: "Vintage Case Code", desc: "Decode pre-1966 five-digit case codes.", live: true },
-  { href: "/tools/model-finder", icon: Search, name: "Model Finder", desc: "Identify a watch from its features.", live: false },
-  { href: "/tools/strap-size", icon: Ruler, name: "Strap Size", desc: "Lug width & strap recommendations.", live: false },
-  { href: "/tools/battery-estimator", icon: BatteryMedium, name: "Battery Estimator", desc: "Quartz battery age & change reminders.", live: false },
+// ISR: the "Available at Tiny Hour Tales" shelf re-reads the shop feed at most every 30 minutes.
+export const revalidate = 1800;
+
+const HERO_COVERS = ["1932-1932-seiko", "1969-1969-seiko-jdm-catalog-no-1", "1968-1968-seiko-jdm-catalog-no-1"]
+  .map((id) => CATALOGUES.find((c) => c.id === id))
+  .filter((c): c is (typeof CATALOGUES)[number] => !!c);
+
+const TEASER = [1960, 1969, 1975, 1981, 1990, 2007]
+  .map((y) => CATALOGUES.find((c) => c.year === y))
+  .filter((c): c is (typeof CATALOGUES)[number] => !!c);
+
+const SECTIONS = [
+  { n: "01", href: "/tools/serial-decoder", name: "Year Finder", desc: "Date any Seiko from the serial on its caseback — with the caliber to settle the decade." },
+  { n: "02", href: "/tools/caliber-lookup", name: "Caliber Lookup", desc: `${CALIBERS.length} movements with type, jewels and production window.` },
+  { n: "03", href: "/catalogue/models", name: "Models", desc: `${MODEL_STATS.unique.toLocaleString("en-US")} references read from original catalogues, each with its own page.` },
+  { n: "04", href: "/catalogue/archive", name: "Catalogue Archive", desc: `${CATALOGUE_STATS.count} Seiko catalogues, ${CATALOGUE_STATS.earliest}–${CATALOGUE_STATS.latest}, searchable by year, reference and caliber.` },
+  { n: "05", href: "/tools/vintage-case-code", name: "Vintage Case Codes", desc: "Read the five-digit case codes of Seiko made before the 1966 serial scheme." },
+  { n: "06", href: "/learn", name: "Learn", desc: "Short field guides — starting with what J, K and P on a Seiko reference really mean." },
 ];
 
-const ERAS = ["1932", "1960s JDM", "1969 Divers", "1970s Chrono", "1984", "Grand Seiko", "2020 Prospex"];
+const JSON_LD = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": `${SITE_URL}/#website`,
+      url: SITE_URL,
+      name: SITE_NAME,
+      description: "Seiko serial decoder, caliber reference and original catalogue archive by Tiny Hour Tales.",
+      inLanguage: "en",
+      publisher: { "@id": "https://tinyhourtales.com/#organization" },
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://tinyhourtales.com/#organization",
+      name: "Tiny Hour Tales",
+      url: SHOP.home,
+      logo: `${SITE_URL}/brand/tht-logo.png`,
+      email: CONTACT.email,
+      sameAs: [CONTACT.instagramUrl],
+    },
+  ],
+};
 
 export default function HomePage() {
   return (
     <>
-      {/* ===== Hero — the hub ===== */}
-      <section className="border-b border-[var(--border)]">
-        <Container className="flex flex-col items-center pb-16 pt-16 text-center sm:pt-20">
-          <div className="rise" style={{ animationDelay: "0ms" }}>
-            <CoBrand variant="full" seikoHeight={26} />
-          </div>
-          <p className="rise label mt-9" style={{ animationDelay: "70ms" }}>
-            A Tiny Hour Tales reference desk
-          </p>
-          <h1
-            className="rise mt-4 max-w-4xl font-serif text-[2.7rem] leading-[1.04] text-[var(--ink)] sm:text-[4.1rem]"
-            style={{ animationDelay: "130ms", fontWeight: 400 }}
-          >
-            Read any Seiko — by{" "}
-            <span className="italic text-[var(--burgundy-700)]">serial</span>,{" "}
-            <span className="italic text-[var(--burgundy-700)]">caliber</span> &amp;{" "}
-            <span className="italic text-[var(--burgundy-700)]">catalogue</span>.
-          </h1>
-          <p
-            className="rise mt-6 max-w-xl text-[1.08rem] leading-relaxed text-[var(--ink-muted)]"
-            style={{ animationDelay: "200ms" }}
-          >
-            Decode a caseback serial, look up a movement, and trace any model through ninety years
-            of original Seiko catalogue. Built for collectors, kept by a watch shop.
-          </p>
-          <div className="rise mt-9 flex flex-wrap items-center justify-center gap-3" style={{ animationDelay: "270ms" }}>
-            <ButtonLink href="/tools" variant="primary">Open the tools</ButtonLink>
-            <ButtonLink href="/catalogue" variant="outline">Browse the catalogue</ButtonLink>
-          </div>
-        </Container>
-      </section>
+      <JsonLd data={JSON_LD} />
 
-      {/* ===== Tools ===== */}
-      <section className="border-b border-[var(--border)]">
-        <Container className="py-16">
-          <div className="flex items-end justify-between gap-4">
-            <div>
-              <Eyebrow>The bench</Eyebrow>
-              <h2 className="mt-2 font-serif text-3xl text-[var(--ink)] sm:text-4xl" style={{ fontWeight: 400 }}>Tools</h2>
-            </div>
-            <Link href="/tools" className="hidden items-center gap-1.5 text-sm font-medium text-[var(--burgundy-700)] hover:text-[var(--burgundy-600)] sm:inline-flex">
-              All tools <ArrowRight size={15} />
-            </Link>
-          </div>
-
-          <div className="mt-8 grid gap-px overflow-hidden rounded-[var(--radius-lg)] border border-[var(--border)] bg-[var(--border)] sm:grid-cols-2 lg:grid-cols-3">
-            {TOOLS.map((t) => {
-              const Icon = t.icon;
-              return (
-                <Link key={t.href} href={t.href} className="group flex flex-col gap-3 bg-[var(--surface)] p-6 transition-colors hover:bg-[var(--surface-2)]">
-                  <div className="flex items-center justify-between">
-                    <span className="grid h-11 w-11 place-items-center rounded-[var(--radius)] border border-[var(--border)] bg-[var(--surface-2)] text-[var(--burgundy-700)] transition-colors group-hover:border-[var(--gold-400)]">
-                      <Icon size={20} strokeWidth={1.6} />
-                    </span>
-                    {t.live ? <Badge variant="gold">Live</Badge> : <Badge variant="default">Soon</Badge>}
-                  </div>
-                  <div>
-                    <h3 className="font-serif text-xl text-[var(--ink)]" style={{ fontWeight: 400 }}>{t.name}</h3>
-                    <p className="mt-1 text-sm leading-relaxed text-[var(--ink-muted)]">{t.desc}</p>
-                  </div>
-                  <span className="mt-auto inline-flex items-center gap-1 text-sm font-medium text-[var(--burgundy-700)] opacity-0 transition-opacity group-hover:opacity-100">
-                    Open <ArrowRight size={14} />
-                  </span>
-                </Link>
-              );
-            })}
-          </div>
-        </Container>
-      </section>
-
-      {/* ===== Serial decoder feature ===== */}
-      <section className="border-b border-[var(--border)] bg-[var(--surface-2)]">
-        <Container className="py-16">
-          <div className="mx-auto max-w-2xl text-center">
-            <Eyebrow>Most-used tool</Eyebrow>
-            <h2 className="mt-2 font-serif text-3xl text-[var(--ink)] sm:text-4xl" style={{ fontWeight: 400 }}>
-              Decode a serial in <span className="italic text-[var(--burgundy-700)]">seconds</span>
-            </h2>
-            <p className="mt-3 text-[1.02rem] leading-relaxed text-[var(--ink-muted)]">
-              The number engraved on the caseback tells you the month and year it was made — entirely in your browser.
+      {/* ===== Hero — split like the shop's: copy on sand, archive on linen ===== */}
+      <section className="grid border-b border-[var(--line)] lg:min-h-[620px] lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)]">
+        <div className="order-2 flex items-center bg-[var(--sand)] px-[var(--gutter)] py-14 lg:order-1 lg:py-20">
+          <div className="max-w-[520px]">
+            <p className="rise label" style={{ animationDelay: "0ms" }}>The Seiko Almanac · by Tiny Hour Tales</p>
+            <h1
+              className="rise mt-5 font-serif text-[52px] leading-[1.02] text-[var(--maroon)] sm:text-[72px] lg:text-[84px]"
+              style={{ animationDelay: "60ms" }}
+            >
+              Know your Seiko,
+              <br />
+              <em>by heart.</em>
+            </h1>
+            <p className="rise mt-6 text-[17px] leading-[1.75] text-[var(--text)]" style={{ animationDelay: "120ms" }}>
+              Find the year your watch was made, look up its caliber, and trace it through ninety years of
+              original Seiko catalogues — kept by the people who handpick every piece at Tiny Hour Tales.
             </p>
+            <div className="rise mt-9 flex flex-wrap gap-3" style={{ animationDelay: "180ms" }}>
+              <ButtonLink href="#year-finder" variant="primary">Find the Year</ButtonLink>
+              <ButtonLink href="/catalogue" variant="outline">Browse the Catalogue</ButtonLink>
+            </div>
           </div>
-          <div className="mt-9">
-            <SerialDecoder />
+        </div>
+
+        <div className="relative order-1 flex items-center justify-center overflow-hidden bg-[var(--linen)] px-6 py-12 lg:order-2 lg:py-16" aria-hidden="true">
+          <div className="relative flex items-end justify-center">
+            {HERO_COVERS.map((c, i) => (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                key={c.id}
+                src={c.cover}
+                alt=""
+                width={480}
+                height={680}
+                fetchPriority={i === 1 ? "high" : undefined}
+                decoding="async"
+                className="w-[30vw] max-w-[250px] border border-[rgba(30,23,20,.08)] object-cover shadow-[0_28px_50px_-28px_rgba(43,7,16,.55)] sm:w-[200px] lg:w-[min(16vw,250px)]"
+                style={{
+                  aspectRatio: "480 / 680",
+                  rotate: `${(i - 1) * 6}deg`,
+                  translate: `${(i - 1) * 6}% ${i === 1 ? "-6%" : "0"}`,
+                  zIndex: i === 1 ? 3 : 1,
+                  marginInline: i === 1 ? "-1.5rem" : 0,
+                }}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ===== Trust strip — the shop's row of reassurances, in Almanac terms ===== */}
+      <section className="border-b border-[var(--line)] bg-[var(--ivory)]">
+        <Container>
+          <dl className="grid grid-cols-2 lg:grid-cols-4">
+            {[
+              { k: "Calibers", v: CALIBERS.length.toLocaleString("en-US") },
+              { k: "Catalogued references", v: MODEL_STATS.unique.toLocaleString("en-US") },
+              { k: "Original catalogues", v: String(CATALOGUE_STATS.count) },
+              { k: "Years covered", v: `${CATALOGUE_STATS.earliest}–${CATALOGUE_STATS.latest}` },
+            ].map((s, i) => (
+              <div
+                key={s.k}
+                className={`flex flex-col gap-1 py-6 ${i % 2 === 1 ? "pl-5 sm:pl-8" : ""} ${i > 1 ? "border-t border-[var(--line)] lg:border-t-0" : ""} ${i > 0 ? "lg:border-l lg:border-[var(--line)] lg:pl-8" : ""}`}
+              >
+                <dt className="order-2 text-[12px] font-medium uppercase tracking-[0.16em] text-[var(--muted)]">{s.k}</dt>
+                <dd className="order-1 font-serif text-[30px] leading-9 text-[var(--ink)]">{s.v}</dd>
+              </div>
+            ))}
+          </dl>
+        </Container>
+      </section>
+
+      {/* ===== Year Finder ===== */}
+      <section id="year-finder" className="scroll-mt-24 border-b border-[var(--line)]">
+        <Container className="py-16 lg:py-24">
+          <div className="grid gap-10 lg:grid-cols-[minmax(0,0.75fr)_minmax(0,1.6fr)] lg:gap-16">
+            <div>
+              <SectionHead eyebrow="Year Finder" title={<>When was it <em>made?</em></>} />
+              <p className="mt-4 max-w-md text-[16px] leading-[1.7] text-[var(--ink-muted)]">
+                The serial on a Seiko caseback carries the month and the last digit of the year it was made.
+                Add the caliber and the Almanac works out the decade — and tells you honestly when it can’t.
+              </p>
+              <div className="mt-6">
+                <TextLink href="/tools/serial-decoder">Open the full decoder</TextLink>
+              </div>
+            </div>
+            <SerialDecoder calibers={slimCalibers()} idPrefix="home" />
+          </div>
+        </Container>
+      </section>
+
+      {/* ===== Available at Tiny Hour Tales (live shop feed; hidden if unavailable) ===== */}
+      <Container className="border-b border-[var(--line)] py-16 lg:py-24">
+        <ShopShelf mode="home" limit={8} />
+      </Container>
+
+      {/* ===== The Almanac — index of sections ===== */}
+      <section className="border-b border-[var(--line)]">
+        <Container className="py-16 lg:py-24">
+          <SectionHead eyebrow="The Almanac" title={<>Everything we keep <em>on the bench</em></>} />
+          <div className="mt-10 grid gap-px border border-[var(--line)] bg-[var(--line)] sm:grid-cols-2 lg:grid-cols-3">
+            {SECTIONS.map((s) => (
+              <Link key={s.href} href={s.href} className="group flex flex-col bg-[var(--ivory)] p-7 transition-colors hover:bg-[var(--surface)] sm:p-9">
+                <span className="font-serif text-[15px] italic text-[var(--muted)]">{s.n}</span>
+                <h3 className="mt-3 font-serif text-[26px] leading-8 text-[var(--ink)] transition-colors group-hover:text-[var(--maroon)]">{s.name}</h3>
+                <p className="mt-2 text-[15px] leading-relaxed text-[var(--ink-muted)]">{s.desc}</p>
+                <span className="caps mt-6 !text-[11px] text-[var(--maroon)]">
+                  <span className="border-b border-transparent pb-0.5 transition-colors group-hover:border-[var(--maroon)]">Open</span>
+                </span>
+              </Link>
+            ))}
           </div>
         </Container>
       </section>
 
       {/* ===== Catalogue teaser ===== */}
-      <section className="border-b border-[var(--border)]">
-        <Container className="py-16">
-          <div className="grid gap-10 lg:grid-cols-[1fr_1.1fr] lg:items-center">
+      <section>
+        <Container className="py-16 lg:py-24">
+          <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] lg:items-center">
             <div>
-              <Eyebrow>The archive</Eyebrow>
-              <h2 className="mt-2 font-serif text-3xl leading-tight text-[var(--ink)] sm:text-4xl" style={{ fontWeight: 400 }}>
-                Ninety years of Seiko, <span className="italic text-[var(--burgundy-700)]">catalogued</span>.
-              </h2>
-              <p className="mt-4 max-w-md text-[1.02rem] leading-relaxed text-[var(--ink-muted)]">
-                A growing, searchable library drawn from
-                <span className="font-mono text-[var(--burgundy-700)]"> 125 </span>
-                original Seiko catalogues — search by year, model reference or caliber.
+              <SectionHead eyebrow="The Archive" title={<>Ninety years of Seiko, <em>catalogued</em></>} />
+              <p className="mt-4 max-w-md text-[16px] leading-[1.7] text-[var(--ink-muted)]">
+                {CATALOGUE_STATS.count} original Seiko catalogues and {CATALOGUE_STATS.pages.toLocaleString("en-US")} pages,
+                from a 1932 price list to the 2020 collections — the source for every reference on these pages, not
+                second-hand lists.
               </p>
-              <Link href="/catalogue" className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-[var(--burgundy-700)] hover:text-[var(--burgundy-600)]">
-                Explore the catalogue <ArrowRight size={15} />
-              </Link>
-            </div>
-
-            <div className="crop rounded-[var(--radius-lg)] border border-[var(--border-strong)] bg-[var(--surface)] p-7">
-              <div className="flex items-center gap-2 text-[var(--gold-600)]">
-                <Library size={16} />
-                <span className="label">Spanning</span>
-              </div>
-              <div className="mt-4 flex flex-wrap gap-2.5">
-                {ERAS.map((e) => (
-                  <span key={e} className="rounded-full border border-[var(--border)] bg-[var(--surface-2)] px-3.5 py-1.5 font-mono text-[0.78rem] text-[var(--ink-muted)]">{e}</span>
-                ))}
-              </div>
-              <div className="mt-6 grid grid-cols-3 gap-4 border-t border-[var(--border)] pt-6">
-                {[
-                  { n: "125", l: "catalogues" },
-                  { n: "1,260", l: "models" },
-                  { n: "1932", l: "earliest" },
-                ].map((s) => (
-                  <div key={s.l}>
-                    <div className="font-serif text-3xl text-[var(--burgundy-700)]" style={{ fontWeight: 400 }}>{s.n}</div>
-                    <div className="label !text-[0.56rem]">{s.l}</div>
-                  </div>
-                ))}
+              <div className="mt-8 flex flex-wrap gap-3">
+                <ButtonLink href="/catalogue/archive" variant="primary">Open the Archive</ButtonLink>
+                <ButtonLink href="/catalogue/models" variant="outline">Browse Models</ButtonLink>
               </div>
             </div>
+            <Link href="/catalogue/archive" className="group grid grid-cols-3 gap-3 sm:gap-4" aria-label="Open the catalogue archive">
+              {TEASER.map((c) => (
+                <span key={c.id} className="block overflow-hidden border border-[var(--line)] bg-[var(--stone)]">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={c.cover}
+                    alt={`${c.yearLabel} ${c.title} cover`}
+                    width={480}
+                    height={640}
+                    loading="lazy"
+                    decoding="async"
+                    className="aspect-[3/4] w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                  />
+                </span>
+              ))}
+            </Link>
           </div>
-        </Container>
-      </section>
-
-      {/* ===== Shop band ===== */}
-      <section className="bg-[var(--surface)]">
-        <Container className="flex flex-col items-start justify-between gap-7 py-16 sm:flex-row sm:items-center">
-          <div>
-            <CoBrand variant="mark" seikoHeight={18} />
-            <h2 className="mt-5 font-serif text-3xl text-[var(--ink)] sm:text-4xl" style={{ fontWeight: 400 }}>
-              Found the one you’ve been <span className="italic text-[var(--burgundy-700)]">chasing</span>?
-            </h2>
-            <p className="mt-2 max-w-md text-[var(--ink-muted)]">
-              Curated vintage &amp; modern Seiko, serviced and ready to wear.
-            </p>
-          </div>
-          <a
-            href="https://www.tinyhourtales.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex shrink-0 items-center gap-2 rounded-[var(--radius)] bg-[var(--burgundy-700)] px-6 py-3 font-medium text-[var(--surface)] transition-colors hover:bg-[var(--burgundy-600)]"
-          >
-            Visit the shop <ArrowUpRight size={17} strokeWidth={2.2} />
-          </a>
         </Container>
       </section>
     </>

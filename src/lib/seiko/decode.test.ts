@@ -134,10 +134,10 @@ describe("decodeSeiko — caliber narrowing", () => {
 
 describe("findCaliber — alias & variant resolution", () => {
   it("resolves a variant suffix to the base caliber", () => {
-    expect(findCaliber("7S26A")?.caliber).toBe("7s26");
+    expect(findCaliber("7S26A")?.caliber).toBe("7S26");
   });
   it("resolves the NH35 export twin", () => {
-    expect(findCaliber("nh35")?.caliber).toBe("nh35");
+    expect(findCaliber("nh35")?.caliber).toBe("NH35");
   });
   it("returns null for an unknown caliber", () => {
     expect(findCaliber("XYZ99")).toBeNull();

@@ -1,13 +1,18 @@
-import type { Metadata } from "next";
 import { ComingSoon } from "@/components/page";
+import { pageMeta } from "@/lib/meta";
 
-export const metadata: Metadata = { title: "Strap Size" };
+export const metadata = pageMeta({
+  title: 'Strap Size',
+  description: 'Lug widths by Seiko reference and strap recommendations — a tool in the workshop at the Seiko Almanac.',
+  path: '/tools/strap-size',
+  noindex: true,
+});
 
 export default function StrapSizePage() {
   return (
     <ComingSoon
       eyebrow="Tool · Strap Size"
-      title={<>The right <span className="italic text-[var(--burgundy-600)]">strap</span>, first time</>}
+      title={<>The right <em>strap</em>, first time</>}
       lead="Look up the lug width for a reference and get strap-style recommendations that suit the watch — from tropic to oyster to leather."
       features={[
         { name: "Lug width by reference", detail: "Exact mm for hundreds of popular Seiko references." },

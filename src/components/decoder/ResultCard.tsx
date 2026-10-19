@@ -1,33 +1,32 @@
-import { AlertTriangle, Info, ArrowUpRight, ArrowRight, ShieldQuestion } from "lucide-react";
 import Link from "next/link";
 import type { DecodeResult } from "@/lib/seiko/types";
+import { caliberSlug } from "@/lib/seiko/caliberKey";
 import { CandidateTimeline } from "./CandidateTimeline";
 import { Badge } from "@/components/ui";
+import { SHOP } from "@/lib/site";
 
-const CONFIDENCE_LABEL: Record<string, { text: string; variant: "gold" | "burgundy" | "warning" | "default" }> = {
-  high: { text: "High confidence", variant: "gold" },
-  medium: { text: "Likely", variant: "burgundy" },
+const CONFIDENCE_LABEL: Record<string, { text: string; variant: "burgundy" | "outline" | "warning" | "default" }> = {
+  high: { text: "High confidence", variant: "burgundy" },
+  medium: { text: "Likely", variant: "outline" },
   low: { text: "Low confidence", variant: "warning" },
   none: { text: "—", variant: "default" },
 };
 
-function decadeOf(year: number) {
-  return `${Math.floor(year / 10) * 10}s`;
-}
+const linkCls = "border-b border-[var(--maroon)] pb-0.5 text-[var(--maroon)] transition-colors hover:border-[var(--maroon-deep)] hover:text-[var(--maroon-deep)]";
 
 export function ResultCard({ result, currentYear }: { result: DecodeResult; currentYear: number }) {
   // Error states (skip the empty-input case — caller renders a placeholder instead).
   if (!result.ok) {
     if (result.error?.code === "EMPTY") return null;
     return (
-      <div className="rounded-[var(--radius-lg)] border border-[var(--border)] bg-[var(--surface)] p-6">
-        <div className="flex items-start gap-3">
-          <Info size={18} className="mt-0.5 shrink-0 text-[var(--ink-soft)]" />
-          <div>
-            <p className="font-serif text-lg text-[var(--burgundy-800)]">We couldn’t read that one</p>
-            <p className="mt-1 text-sm leading-relaxed text-[var(--ink-muted)]">{result.error?.message}</p>
-          </div>
-        </div>
+      <div className="border border-[var(--line)] bg-[var(--surface)] p-6 sm:p-8">
+        <p className="font-serif text-[22px] leading-7 text-[var(--ink)]">We couldn’t read that one</p>
+        <p className="mt-2 max-w-2xl text-[15px] leading-relaxed text-[var(--ink-muted)]">{result.error?.message}</p>
+        {result.error?.code === "FIVE_DIGIT_PRE1966" && (
+          <p className="mt-4 text-[14px]">
+            <Link href="/tools/vintage-case-code" className={linkCls}>Try the vintage case-code reader for pre-1966 watches</Link>
+          </p>
+        )}
       </div>
     );
   }
@@ -43,22 +42,18 @@ export function ResultCard({ result, currentYear }: { result: DecodeResult; curr
 
   if (n?.contradiction) {
     headline = <>{d.month.name} — <span className="text-[var(--danger)]">year unresolved</span></>;
-  } else if (n?.singleYear) {
-    headline = <>Likely <span className="italic">{d.month.name}</span> {n.singleYear}</>;
   } else if (likely.length === 1) {
-    headline = <>Likely <span className="italic">{d.month.name}</span> {likely[0]}</>;
+    headline = <>Likely <em>{d.month.name}</em> {likely[0]}</>;
   } else {
-    headline = <><span className="italic">{d.month.name}</span>, year ending in {d.yearDigit}</>;
+    headline = <><em>{d.month.name}</em>, a year ending in {d.yearDigit}</>;
     sub = (
-      <p className="mt-2 text-sm text-[var(--ink-muted)]">
+      <p className="mt-3 text-[15px] text-[var(--ink-muted)]">
         Most likely one of{" "}
-        <span className="font-mono text-[var(--burgundy-700)]">{likely.join(" · ")}</span>
-        {!n && " — add the caliber below to narrow it."}
+        <span className="font-mono text-[var(--maroon)]">{likely.join(" · ")}</span>
+        {!n && " — add the caliber to narrow it."}
       </p>
     );
   }
-
-  const ctaYear = n?.singleYear ?? (likely.length === 1 ? likely[0] : null);
 
   // Notes worth surfacing prominently (rest go to fine print).
   const banner = result.notes.find((x) => x.code === "CALIBER_CONTRADICTION");
@@ -68,69 +63,59 @@ export function ResultCard({ result, currentYear }: { result: DecodeResult; curr
     (x) => !["CALIBER_CONTRADICTION", "GRAND_SEIKO_DIFFERENT", "CALIBER_UNKNOWN"].includes(x.code),
   );
 
+  const matched = n?.caliberMatched;
+
   return (
-    <div className="crop rounded-[var(--radius-lg)] border border-[var(--border-strong)] bg-[var(--surface)] p-6 shadow-[0_18px_50px_-34px_rgba(32,22,15,0.6)] sm:p-7">
+    <div className="border border-[var(--line)] bg-[var(--surface)] p-5 sm:p-8">
       <div className="flex items-center justify-between gap-3">
-        <span className="label">Decoded</span>
+        <span className="label">The reading</span>
         <Badge variant={conf.variant}>{conf.text}</Badge>
       </div>
 
-      <h3 className="mt-3 font-serif text-[2rem] font-600 leading-tight text-[var(--burgundy-800)] sm:text-[2.4rem]">
-        {headline}
-      </h3>
+      <h2 className="mt-3 font-serif text-[34px] leading-[1.1] text-[var(--ink)] sm:text-[44px]">{headline}</h2>
       {sub}
 
       {/* spec grid */}
-      <dl className="mt-6 grid grid-cols-2 gap-px overflow-hidden rounded-[var(--radius)] border border-[var(--border)] bg-[var(--border)] sm:grid-cols-4">
+      <dl className="mt-6 grid grid-cols-2 gap-px border border-[var(--line)] bg-[var(--line)] sm:grid-cols-4">
         {[
           { k: "Month", v: `${d.month.name} (${String(d.month.number).padStart(2, "0")})` },
           { k: "Year digit", v: String(d.yearDigit) },
           { k: "Production no.", v: `#${d.sequence}` },
-          { k: "Caliber", v: n?.caliberMatched ? n.caliberMatched.caliber.toUpperCase() : n?.caliberQueried ? n.caliberQueried.toUpperCase() : "—" },
+          { k: "Caliber", v: matched ? matched.caliber : n?.caliberQueried ? n.caliberQueried.toUpperCase() : "—" },
         ].map((cell) => (
-          <div key={cell.k} className="bg-[var(--surface-2)] px-4 py-3">
-            <dt className="label !text-[0.58rem]">{cell.k}</dt>
-            <dd className="mt-1 font-mono text-[0.95rem] text-[var(--ink)]">{cell.v}</dd>
+          <div key={cell.k} className="bg-[var(--ivory)] px-4 py-3">
+            <dt className="label !text-[10px]">{cell.k}</dt>
+            <dd className="mt-1 font-mono text-[15px] text-[var(--ink)]">{cell.v}</dd>
           </div>
         ))}
       </dl>
 
-      {n?.caliberMatched && (
-        <Link
-          href={`/caliber/${n.caliberMatched.caliber.toLowerCase()}`}
-          className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-[var(--burgundy-700)] transition-colors hover:text-[var(--burgundy-600)]"
-        >
-          {`View the ${n.caliberMatched.caliber.toUpperCase()} reference & its models`}
-          <ArrowRight size={14} className="transition-transform group-hover:translate-x-0.5" />
-        </Link>
+      {matched && (
+        <p className="mt-4 text-[14px]">
+          <Link href={`/caliber/${caliberSlug(matched.caliber)}`} className={linkCls}>
+            The {matched.caliber}: production window, specs &amp; catalogued models
+          </Link>
+        </p>
       )}
 
-      {/* contradiction banner */}
       {banner && (
-        <div className="mt-5 flex items-start gap-3 rounded-[var(--radius)] border border-[var(--danger)]/30 bg-[var(--danger-bg)] p-4">
-          <AlertTriangle size={18} className="mt-0.5 shrink-0 text-[var(--danger)]" />
-          <p className="text-sm leading-relaxed text-[var(--danger)]">
-            <span className="font-semibold">Serial &amp; caliber don’t agree.</span> {banner.message}
+        <div className="mt-5 border-l-2 border-[var(--danger)] bg-[var(--danger-bg)] px-4 py-3">
+          <p className="text-[14px] leading-relaxed text-[var(--danger)]">
+            <span className="font-medium">Serial and caliber don’t agree.</span> {banner.message}
           </p>
         </div>
       )}
 
       {gs && (
-        <div className="mt-5 flex items-start gap-3 rounded-[var(--radius)] border border-[var(--warning)]/30 bg-[var(--warning-bg)] p-4">
-          <ShieldQuestion size={18} className="mt-0.5 shrink-0 text-[var(--warning)]" />
-          <p className="text-sm leading-relaxed text-[var(--warning)]">{gs.message}</p>
+        <div className="mt-5 border-l-2 border-[var(--warning)] bg-[var(--warning-bg)] px-4 py-3">
+          <p className="text-[14px] leading-relaxed text-[var(--warning)]">{gs.message}</p>
         </div>
       )}
 
-      {unknown && (
-        <p className="mt-4 flex items-start gap-2 text-sm text-[var(--ink-muted)]">
-          <Info size={15} className="mt-0.5 shrink-0 text-[var(--info)]" />
-          {unknown.message}
-        </p>
-      )}
+      {unknown && <p className="mt-4 text-[14px] leading-relaxed text-[var(--ink-muted)]">{unknown.message}</p>}
 
       {/* timeline */}
-      <div className="mt-6">
+      <div className="mt-7">
         <span className="label">Possible production years</span>
         <div className="mt-2">
           <CandidateTimeline
@@ -143,14 +128,14 @@ export function ResultCard({ result, currentYear }: { result: DecodeResult; curr
       </div>
 
       {/* fine print + contextual CTA */}
-      <div className="mt-6 flex flex-col gap-4 border-t border-[var(--border)] pt-5 sm:flex-row sm:items-end sm:justify-between">
-        <details className="group max-w-md">
-          <summary className="label cursor-pointer list-none text-[var(--ink-soft)] transition-colors hover:text-[var(--burgundy-700)]">
-            How sure is this? ({finePrint.length})
+      <div className="mt-6 flex flex-col gap-5 border-t border-[var(--line)] pt-5 sm:flex-row sm:items-end sm:justify-between">
+        <details className="group max-w-xl">
+          <summary className="label cursor-pointer list-none transition-colors hover:text-[var(--maroon)] [&::-webkit-details-marker]:hidden">
+            <span className="border-b border-[var(--line-2)] pb-0.5">How sure is this? ({finePrint.length})</span>
           </summary>
           <ul className="mt-3 space-y-2">
             {finePrint.map((note) => (
-              <li key={note.code} className="text-[0.82rem] leading-relaxed text-[var(--ink-muted)]">
+              <li key={note.code} className="text-[14px] leading-relaxed text-[var(--ink-muted)]">
                 {note.message}
               </li>
             ))}
@@ -158,13 +143,10 @@ export function ResultCard({ result, currentYear }: { result: DecodeResult; curr
         </details>
 
         <a
-          href="https://www.tinyhourtales.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex shrink-0 items-center gap-1.5 rounded-[var(--radius)] border border-[var(--gold-500)] px-4 py-2.5 text-sm font-medium text-[var(--burgundy-800)] transition-colors hover:bg-[var(--gold-100)]"
+          href={SHOP.seiko}
+          className="inline-flex h-11 shrink-0 items-center justify-center border border-[var(--maroon)] px-5 text-[12px] font-medium uppercase tracking-[0.16em] text-[var(--maroon)] transition-colors hover:bg-[var(--maroon)] hover:text-[var(--ivory)]"
         >
-          {ctaYear ? `Find a ${decadeOf(ctaYear)} Seiko` : "Browse Seiko in the shop"}
-          <ArrowUpRight size={15} strokeWidth={2.2} />
+          Shop Seiko at Tiny Hour Tales
         </a>
       </div>
     </div>
