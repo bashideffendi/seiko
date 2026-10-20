@@ -36,7 +36,12 @@ export interface MarketingRef {
   variant: string | null;
 }
 
-const CASE_REF_RE = /\b([0-9][0-9A-Z]{3})-([0-9A-Z]{3,4})\b/i;
+// Calibers are four characters, a digit first and two digits last (6139, 7S26, 4R36, 1E20);
+// the case number is always four characters. JDM catalogues also print a caliber + 3-digit
+// model number (2220-210, 6159-010): that names the movement but is not a case ref. Family
+// codes such as 70AC-040, 31EL-010 or 45GS-020 are neither.
+const CASE_REF_RE = /\b([0-9][0-9A-Z][0-9]{2})-([0-9A-Z]{4})\b/i;
+const JDM_MODEL_RE = /\b([0-9][0-9A-Z][0-9]{2})-([0-9]{3})\b/i;
 const MARKETING_RE = /^([A-Z]{2,4}[0-9]{2,4})([JKP])?([0-9])?$/i;
 const CASE_DIAL_RE = /^([0-9][0-9A-Z]{2})-([0-9A-Z]{3})$/i;
 
@@ -67,12 +72,15 @@ export function isCaseDialCode(raw: string): boolean {
 
 /**
  * Pull the caliber out of any model record. Prefers an explicit caliber field,
- * else derives it from a CCCC-NNNN reference.
+ * else derives it from a CCCC-NNNN reference or a JDM caliber–model number (2220-210).
  */
 export function caliberFromRef(ref: string | undefined, explicit?: string): string | null {
   if (explicit && explicit.trim()) return explicit.trim().toUpperCase();
-  const parsed = ref ? parseCaseRef(ref) : null;
-  return parsed?.caliber ?? null;
+  if (!ref) return null;
+  const parsed = parseCaseRef(ref);
+  if (parsed) return parsed.caliber;
+  const jdm = normalizeRef(ref).match(JDM_MODEL_RE);
+  return jdm ? jdm[1].toUpperCase() : null;
 }
 
 /** Parse a marketing reference + region suffix (e.g. SKX007K1 → base SKX007, region K, variant 1). */
