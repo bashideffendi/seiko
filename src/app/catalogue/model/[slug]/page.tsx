@@ -92,7 +92,7 @@ export default async function ModelPage({ params }: { params: Promise<{ slug: st
             <span aria-hidden="true" className="mx-2">/</span>
             <span aria-current="page">{entry.ref}</span>
           </nav>
-          <div className={photo ? "lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(0,440px)] lg:items-end lg:gap-16" : undefined}>
+          <div className={photo ? "lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(0,440px)] lg:items-center lg:gap-16" : undefined}>
             <div>
               <div className="mt-8 flex flex-wrap items-center gap-3">
                 <Eyebrow>Model reference</Eyebrow>
@@ -113,20 +113,19 @@ export default async function ModelPage({ params }: { params: Promise<{ slug: st
             </div>
 
             {photo && (
-              <figure className="mt-10 lg:mt-8">
-                <div className="flex justify-center border border-[var(--line)] bg-[var(--surface)] p-5 sm:p-8">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={photo.url}
-                    width={photo.w}
-                    height={photo.h}
-                    alt={`Seiko ${entry.ref} as pictured in the ${photo.catalogTitle}, ${photo.pagePhrase}`}
-                    fetchPriority="high"
-                    decoding="async"
-                    className="h-auto max-h-[380px] w-auto max-w-full sm:max-h-[480px]"
-                  />
-                </div>
-                <figcaption className="mt-3 flex flex-wrap items-center justify-between gap-x-4 gap-y-3">
+              <figure className="mt-10 flex flex-col items-center lg:mt-8">
+                {/* A clipping from the original page: the scan's own paper, a hairline and a soft shadow. */}
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={photo.url}
+                  width={photo.w}
+                  height={photo.h}
+                  alt={`Seiko ${entry.ref} as pictured in the ${photo.catalogTitle}, ${photo.pagePhrase}`}
+                  fetchPriority="high"
+                  decoding="async"
+                  className="h-auto max-h-[360px] w-auto max-w-full border border-[var(--line)] shadow-[0_22px_40px_-28px_rgba(43,7,16,.55)] sm:max-h-[440px]"
+                />
+                <figcaption className="mt-5 flex flex-col items-center gap-3 text-center">
                   <span className="text-[13px] leading-5 text-[var(--ink-muted)]">
                     From the {photo.year} Seiko catalogue, {photo.pagePhrase}
                   </span>
