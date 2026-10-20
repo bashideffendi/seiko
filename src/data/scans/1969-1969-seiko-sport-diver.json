@@ -1,0 +1,16 @@
+{
+ "id": "1969-1969-seiko-sport-diver",
+ "year": 1969,
+ "title": "Seiko Sport Diver",
+ "source": "1969 Seiko Sport Diver.pdf",
+ "dir": "1969/1969-1969-seiko-sport-diver",
+ "thumbWidth": 240,
+ "pages": [
+  {"n":0,"label":"Cover","w":1600,"h":2071},
+  {"n":1,"label":"12","w":1600,"h":2071},
+  {"n":2,"label":"13","w":1600,"h":2071},
+  {"n":3,"label":"14","w":1600,"h":2071},
+  {"n":4,"label":"15","w":1600,"h":2071},
+  {"n":5,"label":"16","w":1600,"h":2071}
+ ]
+}

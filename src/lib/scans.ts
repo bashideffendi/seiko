@@ -12,6 +12,9 @@ import scan1968jdm2s from "@/data/scans/1968-1968-seiko-jdm-catalog-no-2-supplem
 import scan1968jdm2 from "@/data/scans/1968-1968-seiko-jdm-catalog-no-2.json";
 import scan1969jdm1 from "@/data/scans/1969-1969-seiko-jdm-catalog-no-1.json";
 import scan1969jdm2 from "@/data/scans/1969-1969-seiko-jdm-catalog-no-2.json";
+import scan1969sd from "@/data/scans/1969-1969-seiko-sport-diver.json";
+import scan1969v1 from "@/data/scans/1969-1969-seiko-v1.json";
+import scan1969v2 from "@/data/scans/1969-1969-seiko-v2.json";
 import scan1972cat from "@/data/scans/1972-1972-seiko-catalogue.json";
 import scan1972lux from "@/data/scans/1972-1972-seiko-luxury.json";
 import scan1972v1 from "@/data/scans/1972-1972-seiko-v1.json";
@@ -60,6 +63,9 @@ export const SCAN_SETS: Record<string, ScanSet> = {
   "1968-1968-seiko-jdm-catalog-no-2": scan1968jdm2 as ScanSet,
   "1969-1969-seiko-jdm-catalog-no-1": scan1969jdm1 as ScanSet,
   "1969-1969-seiko-jdm-catalog-no-2": scan1969jdm2 as ScanSet,
+  "1969-1969-seiko-sport-diver": scan1969sd as ScanSet,
+  "1969-1969-seiko-v1": scan1969v1 as ScanSet,
+  "1969-1969-seiko-v2": scan1969v2 as ScanSet,
   "1972-1972-seiko-catalogue": scan1972cat as ScanSet,
   "1972-1972-seiko-luxury": scan1972lux as ScanSet,
   "1972-1972-seiko-v1": scan1972v1 as ScanSet,
