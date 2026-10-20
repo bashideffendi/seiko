@@ -9,6 +9,7 @@
 import { MODEL_SETS, seikoIds, type CatalogModel, type SeikoIds } from "@/lib/models";
 import { normalizeRef } from "@/lib/seiko/refs";
 import { canonicalCaliberKey } from "@/lib/seiko/caliberKey";
+import { formatPrice } from "@/lib/seiko/price";
 import { isValidBbox, pagePhrase, scanFor, scanPage, watchPhotoUrl, type BBox } from "@/lib/scans";
 
 export interface ModelAppearance {
@@ -139,7 +140,7 @@ function buildIndex(): ModelEntry[] {
     entry.case = pick(entry, "case");
     entry.bracelet = pick(entry, "bracelet");
     entry.specs = pick(entry, "specs");
-    entry.price = pick(entry, "price");
+    entry.price = formatPrice(pick(entry, "price"));
     entry.wr = pick(entry, "wr");
     entry.notes = pick(entry, "notes");
     entry.jewels = best.jewels ?? null;

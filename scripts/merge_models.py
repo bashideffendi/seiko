@@ -100,7 +100,13 @@ def main():
     import collections
     conf = collections.Counter(r["conf"] for r in deduped)
     print(f"merged {len(batch_files)} batch files -> {outpath}")
-    print(f"  records: {len(lean)} | conf: {dict(conf)} | with-caliber: {sum(1 for r in deduped if r.get('caliber'))}")
+    print(f"  records: {len(lean)} | conf: {dict(conf)} | with-caliber: {sum(1 for r in deduped if r.get('caliber'))}"
+          f" | with-price: {sum(1 for r in deduped if r.get('price'))}")
+    # Seiko bracelet/strap codes start with a letter (B702S, Z529G); a leading digit is a misread B/Z.
+    odd = [r for r in deduped if re.match(r"\d", r.get("bracelet", ""))]
+    if odd:
+        print(f"  CHECK bracelet codes starting with a digit ({len(odd)}): "
+              + ", ".join(f"{r['ref']}={r['bracelet']}" for r in odd[:12]) + (" …" if len(odd) > 12 else ""))
     if errors:
         print("  ERRORS:")
         for bf, e in errors:

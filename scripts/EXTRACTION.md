@@ -32,12 +32,25 @@ the batch's outFile** (do not return the JSON as text). Prompt template:
 > on JDM / `L NN` on export), price, specs (SS/SGP/TSGP/WP/MB/auto/chrono/diver),
 > section header, dial colour. Skip covers / dividers / text-only pages.
 >
+> **Price:** copy it exactly as printed, currency included (`¥32,000`, `32,000円`,
+> `$125`); several variants stay together (`¥16,000 (SS·WP·MB) / ¥18,500 (SGP·WP·MB)`).
+> The site writes yen one way on display (`src/lib/seiko/price.ts`).
+>
+> **Bracelet / strap codes (`B/R …`, `S/R …`) start with a LETTER** — `B702S`,
+> `Z529G`, `M509S`, `Q514S`, `E507S`, `BLL46` — then three characters and a colour
+> suffix (S steel, G gold, Y two-tone). A leading digit (`8702S`, `2529G`) is a
+> misread B or Z; zoom in before writing it.
+>
 > Record shape: `{page, section, ref, caliber, jewels, price, specs, notes, conf}`
 > (conf = high|medium|low). Extract only what's legible; blank + conf "low" for
 > illegible digits; never invent.
 >
 > **Write the JSON array (and nothing else) to this exact path using the Write
 > tool: `<batch outFile>`. Then reply only: done <N records>.**
+
+Lesson (1975 pilot, Oct 2026): the first pass misread 139 of 150 bracelet codes
+(B→8, Z→2, S/G swapped). Refs and jewels were right. After every batch, eyeball a
+contact sheet of the caption crops before trusting the bracelet field.
 
 Tip: at 210 DPI the men's mechanical lines read well (and expose calibers);
 ladies / bracelet / fancy / stopwatch refs are often too small — those pages

@@ -7,6 +7,7 @@ import { MODEL_SETS } from "@/lib/models";
 import { slugForRef } from "@/lib/modelIndex";
 import { isValidBbox, SCAN_SETS, scanFor } from "@/lib/scans";
 import { pageMeta } from "@/lib/meta";
+import { formatPrice } from "@/lib/seiko/price";
 
 export const dynamicParams = false;
 
@@ -26,7 +27,10 @@ function readerData(catalogId: string) {
       ref: r.ref,
       slug: slugForRef(r.ref),
       section: r.section || undefined,
-      sub: [r.case, r.jewels != null ? `${r.jewels} jewels` : "", r.dial ? `${r.dial} dial` : ""].filter(Boolean).join(" · ") || undefined,
+      sub:
+        [r.wr === "WR" && r.case ? `${r.case}WR` : r.case, r.jewels != null ? `${r.jewels} jewels` : "", r.dial ? `${r.dial} dial` : "", formatPrice(r.price) ?? ""]
+          .filter(Boolean)
+          .join(" · ") || undefined,
     }));
   const title = models?.catalog.title ?? set.title;
   return { set, spots, title, edition: models?.catalog.edition };

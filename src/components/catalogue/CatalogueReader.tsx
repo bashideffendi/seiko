@@ -296,7 +296,7 @@ function Reader({ set, spots, title, initialPage, initialWatch }: ReaderProps & 
     <div ref={topRef} className="scroll-mt-[72px] min-[1180px]:scroll-mt-[104px]">
       {/* Toolbar */}
       <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-3 border-b border-[var(--line)] pb-4">
-        <div className="flex items-center gap-2">
+        <div className="flex w-full items-center gap-2 sm:w-auto">
           <IconButton label="Previous page" onClick={() => go(prev)} disabled={prev === null}>
             <ChevronLeft size={18} strokeWidth={1.5} aria-hidden="true" />
           </IconButton>
@@ -305,7 +305,7 @@ function Reader({ set, spots, title, initialPage, initialWatch }: ReaderProps & 
             id="reader-page"
             value={page}
             onChange={(e) => go(Number(e.target.value))}
-            className="field h-11 w-auto cursor-pointer px-3 pr-8 text-[14px]"
+            className="field h-11 min-w-0 flex-1 cursor-pointer px-3 pr-8 text-[14px] sm:w-auto sm:flex-none"
           >
             {set.pages.map((p) => (
               <option key={p.n} value={p.n}>
@@ -319,7 +319,7 @@ function Reader({ set, spots, title, initialPage, initialWatch }: ReaderProps & 
           </IconButton>
         </div>
 
-        <div className="flex items-center gap-1.5">
+        <div className="flex w-full items-center gap-1.5 sm:w-auto">
           <IconButton label="Zoom out" onClick={() => zoomBy(1 / ZOOM_STEP)} disabled={!zoomed}>
             <ZoomOut size={18} strokeWidth={1.5} aria-hidden="true" />
           </IconButton>
@@ -340,7 +340,7 @@ function Reader({ set, spots, title, initialPage, initialWatch }: ReaderProps & 
             aria-pressed={outlines}
             onClick={() => setOutlines((o) => !o)}
             className={cn(
-              "ml-1.5 h-11 border px-3 text-[11px] font-medium uppercase tracking-[0.16em] transition-colors",
+              "ml-auto h-11 border px-3 text-[11px] font-medium uppercase tracking-[0.16em] transition-colors sm:ml-1.5",
               outlines
                 ? "border-[var(--maroon)] text-[var(--maroon)] hover:bg-[var(--maroon)] hover:text-[var(--ivory)]"
                 : "border-[var(--line-2)] text-[var(--ink)] hover:border-[var(--maroon)] hover:text-[var(--maroon)]",
@@ -481,22 +481,25 @@ function Reader({ set, spots, title, initialPage, initialWatch }: ReaderProps & 
                 <p className="label !text-[var(--maroon)]">Highlighted</p>
                 <p className="mt-1 font-mono text-[18px] text-[var(--ink)]">{selected.ref}</p>
                 {selected.sub && <p className="mt-0.5 text-[13px] text-[var(--ink-muted)]">{selected.sub}</p>}
-                <div className="mt-3 flex flex-wrap gap-2">
-                  <button
-                    type="button"
-                    onClick={focusSelected}
-                    className="inline-flex h-10 items-center gap-2 border border-[var(--maroon)] px-3 text-[11px] font-medium uppercase tracking-[0.16em] text-[var(--maroon)] transition-colors hover:bg-[var(--maroon)] hover:text-[var(--ivory)]"
-                  >
-                    <Crosshair size={14} strokeWidth={1.5} aria-hidden="true" /> Zoom to Watch
-                  </button>
+                <div className="mt-4 grid gap-2 min-[420px]:grid-cols-2 lg:grid-cols-1">
                   {selected.slug && (
                     <Link
                       href={`/catalogue/model/${selected.slug}`}
-                      className="inline-flex h-10 items-center border border-transparent px-2 text-[11px] font-medium uppercase tracking-[0.16em] text-[var(--maroon)] underline decoration-[var(--line-2)] underline-offset-4 hover:decoration-[var(--maroon)]"
+                      className="inline-flex h-10 items-center justify-center border border-[var(--maroon)] bg-[var(--maroon)] px-2 text-[11px] font-medium uppercase tracking-[0.14em] text-[var(--ivory)] transition-colors hover:border-[var(--maroon-deep)] hover:bg-[var(--maroon-deep)]"
                     >
                       Model Page
                     </Link>
                   )}
+                  <button
+                    type="button"
+                    onClick={focusSelected}
+                    className={cn(
+                      "inline-flex h-10 items-center justify-center gap-1.5 border border-[var(--maroon)] px-2 text-[11px] font-medium uppercase tracking-[0.14em] text-[var(--maroon)] transition-colors hover:bg-[var(--maroon)] hover:text-[var(--ivory)]",
+                      !selected.slug && "min-[420px]:col-span-2 lg:col-span-1",
+                    )}
+                  >
+                    <Crosshair size={14} strokeWidth={1.5} aria-hidden="true" /> Zoom to Watch
+                  </button>
                 </div>
               </div>
             )}
@@ -588,7 +591,7 @@ function PageGrid({
               >
                 <span
                   className={cn(
-                    "block overflow-hidden border bg-[var(--stone)] transition-colors",
+                    "relative block overflow-hidden border bg-[var(--stone)] transition-colors",
                     isCurrent ? "border-2 border-[var(--maroon)]" : "border-[var(--line)] group-hover:border-[var(--maroon)]",
                   )}
                   style={{ aspectRatio: `${p.w} / ${p.h}` }}
@@ -603,15 +606,25 @@ function PageGrid({
                     decoding="async"
                     className="h-full w-full object-cover"
                   />
+                  {n > 0 && (
+                    <span
+                      aria-hidden="true"
+                      className={cn(
+                        "absolute right-0 top-0 min-w-[18px] px-1 text-center font-mono text-[10px] leading-[16px]",
+                        isCurrent ? "bg-[var(--maroon)] text-[var(--ivory)]" : "bg-[rgba(250,247,242,.94)] text-[var(--ink)]",
+                      )}
+                    >
+                      {n}
+                    </span>
+                  )}
                 </span>
                 <span
                   className={cn(
-                    "mt-1 flex items-center justify-between gap-1 text-[10px] uppercase tracking-[0.1em]",
+                    "mt-1 block truncate text-center text-[10px] uppercase tracking-[0.1em]",
                     isCurrent ? "text-[var(--maroon)]" : "text-[var(--ink-soft)] group-hover:text-[var(--maroon)]",
                   )}
                 >
-                  <span className="truncate">{isNumberLabel(p.label) ? p.label : p.label.replace(" cover", "")}</span>
-                  {n > 0 && <span className="font-mono normal-case tracking-normal">{n}</span>}
+                  {isNumberLabel(p.label) ? p.label : p.label.replace(" cover", "")}
                 </span>
               </a>
             </li>

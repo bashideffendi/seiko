@@ -59,15 +59,25 @@ export default async function ModelPage({ params }: { params: Promise<{ slug: st
     ids.caseDialCode && { k: "Case–dial code", v: ids.caseDialCode },
   ].filter(Boolean) as { k: string; v: string; href?: string }[];
 
+  const wr = entry.wr === "WR" ? "Water resistant" : entry.wr;
   const specRows = [
     entry.dial && { k: "Dial", v: entry.dial },
     entry.case && { k: "Case", v: entry.case },
-    entry.bracelet && { k: "Bracelet", v: entry.bracelet },
+    entry.bracelet && { k: /strap/i.test(entry.bracelet) ? "Strap" : "Bracelet", v: entry.bracelet },
     entry.jewels != null && { k: "Jewels", v: `${entry.jewels}` },
-    entry.wr && { k: "Water resist.", v: entry.wr },
+    wr && { k: "Water resist.", v: wr },
     entry.price && { k: "List price", v: entry.price },
     entry.specs && { k: "Specs", v: entry.specs },
   ].filter(Boolean) as { k: string; v: string }[];
+
+  // The few facts a collector checks first, shown beside the photo.
+  const facts = [
+    entry.case && { k: "Case", v: entry.wr === "WR" ? `${entry.case} · WR` : entry.case },
+    entry.jewels != null && { k: "Jewels", v: `${entry.jewels}` },
+    entry.dial && { k: "Dial", v: entry.dial },
+    entry.price && { k: "List price", v: entry.price },
+  ].filter(Boolean) as { k: string; v: string }[];
+  const notes = entry.notes ? entry.notes.charAt(0).toUpperCase() + entry.notes.slice(1) : "";
 
   const similar = similarModels(entry);
   const photo = entry.photo;
@@ -110,6 +120,16 @@ export default async function ModelPage({ params }: { params: Promise<{ slug: st
                   </>
                 )}
               </p>
+              {facts.length > 0 && (
+                <dl className="mt-8 flex max-w-xl flex-wrap gap-x-10 gap-y-5 border-t border-[var(--line)] pt-6">
+                  {facts.map((f) => (
+                    <div key={f.k}>
+                      <dt className="label !text-[10px]">{f.k}</dt>
+                      <dd className="mt-1.5 font-mono text-[15px] text-[var(--ink)]">{f.v}</dd>
+                    </div>
+                  ))}
+                </dl>
+              )}
             </div>
 
             {photo && (
@@ -141,20 +161,24 @@ export default async function ModelPage({ params }: { params: Promise<{ slug: st
 
       <Container className="py-12 lg:py-16">
         <div className="grid gap-12 lg:grid-cols-[1.5fr_1fr]">
-          <div>
-            <h2 className="font-serif text-[28px] leading-9 text-[var(--ink)]">Identifiers</h2>
-            <dl className="mt-4 grid grid-cols-1 gap-px border border-[var(--line)] bg-[var(--line)] sm:grid-cols-2">
-              {idRows.map((r) => (
-                <div key={r.k} className="bg-[var(--surface)] px-4 py-4 sm:[&:last-child:nth-child(odd)]:col-span-2">
-                  <dt className="label !text-[10px]">{r.k}</dt>
-                  <dd className="mt-1.5 font-mono text-[15px] text-[var(--ink)]">
-                    {r.href ? (
-                      <Link href={r.href} className="border-b border-[var(--maroon)] text-[var(--maroon)] hover:text-[var(--maroon-deep)]">{r.v}</Link>
-                    ) : r.v}
-                  </dd>
-                </div>
-              ))}
-            </dl>
+          <div className="[&>h2:first-child]:mt-0">
+            {idRows.length > 0 && (
+              <>
+                <h2 className="font-serif text-[28px] leading-9 text-[var(--ink)]">Identifiers</h2>
+                <dl className="mt-4 grid grid-cols-1 gap-px border border-[var(--line)] bg-[var(--line)] sm:grid-cols-2">
+                  {idRows.map((r) => (
+                    <div key={r.k} className="bg-[var(--surface)] px-4 py-4 sm:[&:last-child:nth-child(odd)]:col-span-2">
+                      <dt className="label !text-[10px]">{r.k}</dt>
+                      <dd className="mt-1.5 font-mono text-[15px] text-[var(--ink)]">
+                        {r.href ? (
+                          <Link href={r.href} className="border-b border-[var(--maroon)] text-[var(--maroon)] hover:text-[var(--maroon-deep)]">{r.v}</Link>
+                        ) : r.v}
+                      </dd>
+                    </div>
+                  ))}
+                </dl>
+              </>
+            )}
 
             {specRows.length > 0 && (
               <>
@@ -170,8 +194,8 @@ export default async function ModelPage({ params }: { params: Promise<{ slug: st
               </>
             )}
 
-            {entry.notes && (
-              <p className="mt-6 text-[15px] leading-relaxed text-[var(--ink-muted)]">{entry.notes}</p>
+            {notes && (
+              <p className="mt-6 text-[15px] leading-relaxed text-[var(--ink-muted)]">{notes}</p>
             )}
 
             <h2 className="mt-12 font-serif text-[28px] leading-9 text-[var(--ink)]">Appears in</h2>
