@@ -10,15 +10,18 @@
 const group = (digits: string) => digits.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
 function yen(amount: string) {
-  return `¥${group(amount.replace(/,/g, ""))}`;
+  return `¥${group(amount.replace(/[,.]/g, ""))}`;
 }
+
+// A yen amount: plain digits, or groups of three split by commas or (as some JDM lists print) dots.
+const AMOUNT = String.raw`\d{1,3}(?:[,.]\d{3})+|\d+`;
+const BEFORE_EN = new RegExp(String.raw`(${AMOUNT})\s*円`, "g");
+const AFTER_YEN = new RegExp(String.raw`[¥￥]\s*(${AMOUNT})`, "g");
 
 export function formatPrice(raw: string | null | undefined): string | undefined {
   const s = raw?.trim();
   if (!s) return undefined;
   // A bare number is a JDM price list without a symbol.
-  if (/^\d[\d,]*$/.test(s)) return yen(s);
-  return s
-    .replace(/(\d[\d,]*)\s*円/g, (_, n: string) => yen(n))
-    .replace(/[¥￥]\s*(\d[\d,]*)/g, (_, n: string) => yen(n));
+  if (new RegExp(`^(?:${AMOUNT})$`).test(s)) return yen(s);
+  return s.replace(BEFORE_EN, (_, n: string) => yen(n)).replace(AFTER_YEN, (_, n: string) => yen(n));
 }
