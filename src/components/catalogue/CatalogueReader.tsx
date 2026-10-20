@@ -305,7 +305,7 @@ function Reader({ set, spots, title, initialPage, initialWatch }: ReaderProps & 
             id="reader-page"
             value={page}
             onChange={(e) => go(Number(e.target.value))}
-            className="field h-11 min-w-0 flex-1 cursor-pointer px-3 pr-8 text-[14px] sm:w-auto sm:flex-none"
+            className="field h-11 min-w-0 flex-1 cursor-pointer px-3 pr-8 text-[14px] sm:!w-auto sm:flex-none"
           >
             {set.pages.map((p) => (
               <option key={p.n} value={p.n}>
@@ -653,7 +653,7 @@ function IconButton({
       title={label}
       onClick={onClick}
       disabled={disabled}
-      className="grid h-11 w-11 place-items-center border border-[var(--line-2)] bg-[var(--surface)] text-[var(--ink)] transition-colors hover:border-[var(--maroon)] hover:text-[var(--maroon)] disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:border-[var(--line-2)] disabled:hover:text-[var(--ink)]"
+      className="grid h-11 w-11 shrink-0 place-items-center border border-[var(--line-2)] bg-[var(--surface)] text-[var(--ink)] transition-colors hover:border-[var(--maroon)] hover:text-[var(--maroon)] disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:border-[var(--line-2)] disabled:hover:text-[var(--ink)]"
     >
       {children}
     </button>
