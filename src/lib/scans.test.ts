@@ -23,6 +23,8 @@ import { compactModel } from "@/lib/modelCompact";
 import { archiveItems } from "@/lib/archive";
 
 const ID = "1975-1975-seiko-catalog";
+// A catalogue in the archive that has not been digitised yet.
+const UNSCANNED = "1985-1985-seiko-v1";
 const set = SCAN_SETS[ID];
 const records = MODEL_SETS[ID].records;
 
@@ -90,6 +92,28 @@ describe("bbox helpers", () => {
   });
 });
 
+describe("every digitised catalogue", () => {
+  it("pairs each scan manifest with its models file, and every photo with a real page", () => {
+    for (const [id, scan] of Object.entries(SCAN_SETS)) {
+      const models = MODEL_SETS[id];
+      expect(models, id).toBeTruthy();
+      expect(scan.id, id).toBe(id);
+      expect(scan.dir, id).toBe(`${models.catalog.year}/${id}`);
+      expect(scan.pages.map((p) => p.n), id).toEqual(scan.pages.map((_, i) => i));
+      const pages = new Set(scan.pages.map((p) => p.n));
+      const withPhoto = models.records.filter((r) => r.photo);
+      for (const r of withPhoto) {
+        expect(isValidBbox(r.bbox), `${id} ${r.ref}`).toBe(true);
+        expect(r.photo, `${id} ${r.ref}`).toMatch(/^watches\/p\d{3}-\d{2}-[a-z0-9-]+\.webp$/);
+        expect(r.photoSize?.length, `${id} ${r.ref}`).toBe(2);
+        expect(pages.has(r.page), `${id} ${r.ref} p${r.page}`).toBe(true);
+      }
+      expect(new Set(withPhoto.map((r) => r.photo)).size, `${id} unique photo files`).toBe(withPhoto.length);
+      if (models.catalog.photos != null) expect(models.catalog.photos, id).toBe(withPhoto.length);
+    }
+  });
+});
+
 describe("1975 digitised catalogue", () => {
   it("has a manifest for every scanned page", () => {
     expect(scanFor(ID)).toBe(set);
@@ -150,12 +174,12 @@ describe("1975 digitised catalogue", () => {
     const item = archiveItems().find((c) => c.id === ID)!;
     expect(item.photoCount).toBe(150);
     expect(item.readerHref).toBe(readerHref(ID, 0));
-    expect(archiveItems().find((c) => c.id === "1974-1974-seiko-v2")?.readerHref).toBeNull();
+    expect(archiveItems().find((c) => c.id === UNSCANNED)?.readerHref).toBeNull();
   });
 
   it("returns no photo for a record whose catalogue is not digitised", () => {
     const rec = { ...records[0] };
-    expect(photoOf({ catalogId: "1974-1974-seiko-v2", catalogTitle: "x", year: 1974, record: rec })).toBeNull();
+    expect(photoOf({ catalogId: UNSCANNED, catalogTitle: "x", year: 1985, record: rec })).toBeNull();
     expect(photoOf({ catalogId: ID, catalogTitle: "x", year: 1975, record: { ...rec, bbox: [0.9, 0.9, 0.5, 0.5] } })).toBeNull();
   });
 

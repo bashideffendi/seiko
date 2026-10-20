@@ -5,7 +5,12 @@
 // (Cloudflare R2) is one environment variable: NEXT_PUBLIC_CATALOGUE_ASSET_BASE, e.g.
 // "https://scans.tinyhourtales.com" — with the same key layout, `<year>/<catalogue-id>/…`.
 
+import scan1968jdm2 from "@/data/scans/1968-1968-seiko-jdm-catalog-no-2.json";
+import scan1969jdm2 from "@/data/scans/1969-1969-seiko-jdm-catalog-no-2.json";
+import scan1972lux from "@/data/scans/1972-1972-seiko-luxury.json";
+import scan1974v2 from "@/data/scans/1974-1974-seiko-v2.json";
 import scan1975 from "@/data/scans/1975-1975-seiko-catalog.json";
+import scan1976v1 from "@/data/scans/1976-1976-seiko-v1.json";
 
 /** Where catalogue assets live: /catalogue in /public today, a CDN origin tomorrow. */
 export const CATALOGUE_ASSET_BASE = trimSlash(process.env.NEXT_PUBLIC_CATALOGUE_ASSET_BASE || "/catalogue");
@@ -36,7 +41,12 @@ export type BBox = [number, number, number, number];
 
 // Catalogues whose scans have been digitised, keyed by catalogue id.
 export const SCAN_SETS: Record<string, ScanSet> = {
+  "1968-1968-seiko-jdm-catalog-no-2": scan1968jdm2 as ScanSet,
+  "1969-1969-seiko-jdm-catalog-no-2": scan1969jdm2 as ScanSet,
+  "1972-1972-seiko-luxury": scan1972lux as ScanSet,
+  "1974-1974-seiko-v2": scan1974v2 as ScanSet,
   "1975-1975-seiko-catalog": scan1975 as ScanSet,
+  "1976-1976-seiko-v1": scan1976v1 as ScanSet,
 };
 
 export function scanFor(catalogId: string): ScanSet | null {
