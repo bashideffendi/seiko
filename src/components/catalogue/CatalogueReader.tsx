@@ -1,8 +1,9 @@
 "use client";
 
-import { useEffect, useEffectEvent, useMemo, useRef, useState, useSyncExternalStore } from "react";
+import { Suspense, useEffect, useEffectEvent, useMemo, useRef, useState } from "react";
 import type { PointerEvent as ReactPointerEvent, MouseEvent as ReactMouseEvent, ReactNode } from "react";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import { ChevronLeft, ChevronRight, Crosshair, ZoomIn, ZoomOut } from "lucide-react";
 import { cn } from "@/lib/cn";
 import {
@@ -31,31 +32,61 @@ type Gesture =
   | { kind: "one"; x0: number; y0: number; t0: number; v0: View }
   | { kind: "pinch"; d0: number; v0: View };
 
-const noopSubscribe = () => () => {};
 const ZOOM_STEP = 1.6;
 const TAP_ZOOM = 2.5;
 
 const isNumberLabel = (label: string) => /^\d+$/.test(label);
 const optionLabel = (label: string) => (isNumberLabel(label) ? `Page ${label}` : label);
 
+type ReaderProps = { set: ScanSet; spots: ReaderSpot[]; title: string };
+
+function countPerPage(spots: ReaderSpot[]) {
+  const m = new Map<number, number>();
+  for (const s of spots) m.set(s.page, (m.get(s.page) ?? 0) + 1);
+  return m;
+}
+
 /**
  * Page-by-page reader for a digitised catalogue. Only the current page's large image is
  * loaded (its neighbours are prefetched once it lands); thumbnails load lazily.
- * Reads ?page= and ?watch= once after hydration and keeps them in the URL as you read.
+ * Opens at ?page= (highlighting ?watch=) and keeps the URL in step as you read.
+ * The page is static, so the reader itself renders on the client (Suspense fallback =
+ * a plain list of page links).
  */
-export function CatalogueReader({ set, spots, title }: { set: ScanSet; spots: ReaderSpot[]; title: string }) {
-  // The page is statically rendered; the query string is read on the client.
-  const search = useSyncExternalStore(noopSubscribe, () => window.location.search, () => null);
-  const hydrated = search !== null;
-  const [initialised, setInitialised] = useState(false);
-  const [page, setPage] = useState(set.pages[0]?.n ?? 0);
-  const [watch, setWatch] = useState<string | null>(null);
-  if (hydrated && !initialised) {
-    setInitialised(true);
-    const q = new URLSearchParams(search);
-    setPage(parsePageParam(set, q.get("page")));
-    setWatch(q.get("watch"));
-  }
+export function CatalogueReader(props: ReaderProps) {
+  return (
+    <Suspense fallback={<ReaderFallback set={props.set} spots={props.spots} />}>
+      <ReaderFromUrl {...props} />
+    </Suspense>
+  );
+}
+
+function ReaderFromUrl(props: ReaderProps) {
+  const q = useSearchParams();
+  // Read once: from then on the reader owns page/watch and writes them back to the URL.
+  const [initial] = useState(() => ({ page: parsePageParam(props.set, q.get("page")), watch: q.get("watch") }));
+  return <Reader {...props} initialPage={initial.page} initialWatch={initial.watch} />;
+}
+
+function ReaderFallback({ set, spots }: { set: ScanSet; spots: ReaderSpot[] }) {
+  const pg = set.pages[0];
+  return (
+    <div>
+      <div className="h-[61px] border-b border-[var(--line)]" />
+      <div className="mt-6 grid gap-8 lg:grid-cols-[minmax(0,1fr)_300px] lg:gap-10">
+        <div
+          className="mx-auto w-full border border-[var(--line)] bg-[var(--stone)]"
+          style={{ aspectRatio: `${pg.w} / ${pg.h}`, maxWidth: `max(320px, calc((100svh - 200px) * ${(pg.w / pg.h).toFixed(4)}))` }}
+        />
+      </div>
+      <PageGrid set={set} perPage={countPerPage(spots)} current={null} />
+    </div>
+  );
+}
+
+function Reader({ set, spots, title, initialPage, initialWatch }: ReaderProps & { initialPage: number; initialWatch: string | null }) {
+  const [page, setPage] = useState(initialPage);
+  const [watch, setWatch] = useState<string | null>(initialWatch);
 
   const [view, setView] = useState<View>(IDENTITY);
   const [gesturing, setGesturing] = useState(false);
@@ -74,11 +105,7 @@ export function CatalogueReader({ set, spots, title }: { set: ScanSet; spots: Re
   const prev = idx > 0 ? set.pages[idx - 1].n : null;
   const next = idx < set.pages.length - 1 ? set.pages[idx + 1].n : null;
   const onPage = useMemo(() => spots.filter((s) => s.page === page), [spots, page]);
-  const perPage = useMemo(() => {
-    const m = new Map<number, number>();
-    for (const s of spots) m.set(s.page, (m.get(s.page) ?? 0) + 1);
-    return m;
-  }, [spots]);
+  const perPage = useMemo(() => countPerPage(spots), [spots]);
   const selected = watch ? onPage.find((s) => s.slug === watch) ?? null : null;
   const section = onPage.find((s) => s.section)?.section;
   const pageName = isNumberLabel(pg.label) ? `Page ${pg.label}` : pg.label;
@@ -361,28 +388,26 @@ export function CatalogueReader({ set, spots, title }: { set: ScanSet; spots: Re
                 backgroundSize: "100% 100%",
               }}
             >
-              {hydrated && (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img
-                  key={page}
-                  src={pageImageUrl(set, page)}
-                  alt={`${title} — ${pageName.toLowerCase()}${section ? `, ${section.toLowerCase()}` : ""}`}
-                  width={pg.w}
-                  height={pg.h}
-                  draggable={false}
-                  decoding="async"
-                  fetchPriority="high"
-                  onLoad={() => {
-                    setLoaded(page);
-                    preload(next);
-                    preload(prev);
-                  }}
-                  className={cn(
-                    "absolute inset-0 h-full w-full transition-opacity duration-300 motion-reduce:transition-none",
-                    loaded === page ? "opacity-100" : "opacity-0",
-                  )}
-                />
-              )}
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                key={page}
+                src={pageImageUrl(set, page)}
+                alt={`${title} — ${pageName.toLowerCase()}${section ? `, ${section.toLowerCase()}` : ""}`}
+                width={pg.w}
+                height={pg.h}
+                draggable={false}
+                decoding="async"
+                fetchPriority="high"
+                onLoad={() => {
+                  setLoaded(page);
+                  preload(next);
+                  preload(prev);
+                }}
+                className={cn(
+                  "absolute inset-0 h-full w-full transition-opacity duration-300 motion-reduce:transition-none",
+                  loaded === page ? "opacity-100" : "opacity-0",
+                )}
+              />
 
               {onPage.map((s) => {
                 const isSel = selected === s;
@@ -435,7 +460,7 @@ export function CatalogueReader({ set, spots, title }: { set: ScanSet; spots: Re
               })}
             </div>
 
-            {hydrated && loaded !== page && (
+            {loaded !== page && (
               <span className="pointer-events-none absolute bottom-3 left-3 bg-[rgba(250,247,242,.92)] px-2.5 py-1 text-[11px] uppercase tracking-[0.14em] text-[var(--ink-muted)]">
                 Loading page…
               </span>
@@ -524,59 +549,79 @@ export function CatalogueReader({ set, spots, title }: { set: ScanSet; spots: Re
         </aside>
       </div>
 
-      {/* All pages — wraps, never scrolls sideways */}
-      <nav aria-label="All pages" className="mt-12 border-t border-[var(--line)] pt-8">
-        <p className="label">All pages</p>
-        <ol className="mt-4 grid grid-cols-5 gap-x-2 gap-y-4 min-[420px]:grid-cols-6 sm:grid-cols-8 md:grid-cols-10 lg:grid-cols-15">
-          {set.pages.map((p) => {
-            const current = p.n === page;
-            const n = perPage.get(p.n) ?? 0;
-            return (
-              <li key={p.n}>
-                <a
-                  href={readerHref(set.id, p.n)}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    go(p.n, { scroll: true });
-                  }}
-                  aria-current={current ? "page" : undefined}
-                  aria-label={`${optionLabel(p.label)}${n ? `, ${n} watches` : ""}`}
-                  className="group block"
-                >
-                  <span
-                    className={cn(
-                      "block overflow-hidden border bg-[var(--stone)] transition-colors",
-                      current ? "border-2 border-[var(--maroon)]" : "border-[var(--line)] group-hover:border-[var(--maroon)]",
-                    )}
-                    style={{ aspectRatio: `${p.w} / ${p.h}` }}
-                  >
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src={pageThumbUrl(set, p.n)}
-                      alt=""
-                      width={set.thumbWidth}
-                      height={Math.round((set.thumbWidth * p.h) / p.w)}
-                      loading="lazy"
-                      decoding="async"
-                      className="h-full w-full object-cover"
-                    />
-                  </span>
-                  <span
-                    className={cn(
-                      "mt-1 flex items-center justify-between gap-1 text-[10px] uppercase tracking-[0.1em]",
-                      current ? "text-[var(--maroon)]" : "text-[var(--ink-soft)] group-hover:text-[var(--maroon)]",
-                    )}
-                  >
-                    <span className="truncate">{isNumberLabel(p.label) ? p.label : p.label.replace(" cover", "")}</span>
-                    {n > 0 && <span className="font-mono normal-case tracking-normal">{n}</span>}
-                  </span>
-                </a>
-              </li>
-            );
-          })}
-        </ol>
-      </nav>
+      <PageGrid set={set} perPage={perPage} current={page} onSelect={(n) => go(n, { scroll: true })} />
     </div>
+  );
+}
+
+/** Every page as a thumbnail link — wraps, never scrolls sideways. */
+function PageGrid({
+  set,
+  perPage,
+  current,
+  onSelect,
+}: {
+  set: ScanSet;
+  perPage: Map<number, number>;
+  current: number | null;
+  onSelect?: (n: number) => void;
+}) {
+  return (
+    <nav aria-label="All pages" className="mt-12 border-t border-[var(--line)] pt-8">
+      <p className="label">All pages</p>
+      <ol className="mt-4 grid grid-cols-5 gap-x-2 gap-y-4 min-[420px]:grid-cols-6 sm:grid-cols-8 md:grid-cols-10 lg:grid-cols-15">
+        {set.pages.map((p) => {
+          const isCurrent = p.n === current;
+          const n = perPage.get(p.n) ?? 0;
+          return (
+            <li key={p.n}>
+              <a
+                href={readerHref(set.id, p.n)}
+                onClick={
+                  onSelect
+                    ? (e) => {
+                        e.preventDefault();
+                        onSelect(p.n);
+                      }
+                    : undefined
+                }
+                aria-current={isCurrent ? "page" : undefined}
+                aria-label={`${optionLabel(p.label)}${n ? `, ${n} watches` : ""}`}
+                className="group block"
+              >
+                <span
+                  className={cn(
+                    "block overflow-hidden border bg-[var(--stone)] transition-colors",
+                    isCurrent ? "border-2 border-[var(--maroon)]" : "border-[var(--line)] group-hover:border-[var(--maroon)]",
+                  )}
+                  style={{ aspectRatio: `${p.w} / ${p.h}` }}
+                >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={pageThumbUrl(set, p.n)}
+                    alt=""
+                    width={set.thumbWidth}
+                    height={Math.round((set.thumbWidth * p.h) / p.w)}
+                    loading="lazy"
+                    decoding="async"
+                    className="h-full w-full object-cover"
+                  />
+                </span>
+                <span
+                  className={cn(
+                    "mt-1 flex items-center justify-between gap-1 text-[10px] uppercase tracking-[0.1em]",
+                    isCurrent ? "text-[var(--maroon)]" : "text-[var(--ink-soft)] group-hover:text-[var(--maroon)]",
+                  )}
+                >
+                  <span className="truncate">{isNumberLabel(p.label) ? p.label : p.label.replace(" cover", "")}</span>
+                  {n > 0 && <span className="font-mono normal-case tracking-normal">{n}</span>}
+                </span>
+              </a>
+            </li>
+          );
+        })}
+      </ol>
+    </nav>
   );
 }
 
