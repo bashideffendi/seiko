@@ -36,7 +36,9 @@ describe("decoder with a caseback number", () => {
 describe("catalogue evidence", () => {
   it("finds movements printed in the digitised catalogues", () => {
     const s = caliberSightings();
-    expect(s.get("6159")).toMatchObject({ first: 1968, last: 1977 });
+    // Grows as more catalogues are digitised: printed from 1968 and still listed in 1977 or later.
+    expect(s.get("6159")?.first).toBe(1968);
+    expect(s.get("6159")!.last).toBeGreaterThanOrEqual(1977);
     expect(s.get("2220")?.first).toBeLessThanOrEqual(1974);
   });
 

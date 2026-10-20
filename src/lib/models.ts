@@ -1,4 +1,5 @@
 import cat1975 from "@/data/models-1975-seiko-catalog.json";
+import cat1975v2 from "@/data/models-1975-1975-seiko-v22.json";
 import cat1932 from "@/data/models-1932-1932-seiko.json";
 import cat1956 from "@/data/models-1956-1956-seiko.json";
 import cat1960 from "@/data/models-1960-1960-seiko.json";
@@ -107,6 +108,7 @@ export interface CatalogModelSet {
 // Grows one catalog at a time as more are extracted.
 export const MODEL_SETS: Record<string, CatalogModelSet> = {
   "1975-1975-seiko-catalog": cat1975 as CatalogModelSet,
+  "1975-1975-seiko-v22": cat1975v2 as CatalogModelSet,
   "1932-1932-seiko": cat1932 as CatalogModelSet,
   "1956-1956-seiko": cat1956 as CatalogModelSet,
   "1960-1960-seiko": cat1960 as CatalogModelSet,
