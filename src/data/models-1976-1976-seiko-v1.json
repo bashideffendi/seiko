@@ -3,7 +3,7 @@
     "id": "1976-1976-seiko-v1",
     "title": "1976 Seiko Catalog Vol.1",
     "year": 1976,
-    "edition": "JDM (Japanese domestic)",
+    "edition": "Japanese domestic edition",
     "note": "JDM annual. Each caption prints the ref (●QNF010) and list price (円), then the movement code with jewels (石) and case material (SS, SGP, WGP, TSGP, ASGP/AWGP/APDP/ACRP A-grade plated, PDP palladium, GC gold cap, SILV silver, 14K/18K, ALM light alloy), a crystal/feature line, the case code printed as CCCC<case-dial> (the bracketed part is kept as caseDialCode, the full line in `code`) and a box with either the bracelet/chain/cord code (X…) or the strap width in mm. `caliber` is the printed movement number, or the four-digit prefix of the case code where the movement is printed as a family code (48KQW → 4823, 56LMW → 5606, 22MLW → 2206); family codes with a shorter prefix (11S, 17QS, 43…, 87ST) leave it blank, and the full CCCC-NNNN case–movement ref is not printed. The scan skips printed pages 19, 28, 54, 62, 66, 71, 73, 82 and 96. On the stopwatch pages (printed 102–109) the printed price is struck through and a new one written in by hand; both are kept in `price`.",
     "method": "vision extraction in-harness (no paid API): pages rendered, read by Claude subagents writing batch JSON. Oct 2026 re-verification: all 101 pages re-rendered at 250 DPI and every pictured watch given its own record and cropped photo (664, up from 476 records that had missed whole pages and carried invented CCCC-NNNN refs), with ref, price, movement, jewels, case, case code, bracelet/strap box, dial, features, water resistance and section re-read from 300–1200 DPI caption crops of the PDF.",
     "pages": 101,

@@ -3,7 +3,7 @@
     "id": "1974-1974-seiko-v2",
     "title": "1974 Seiko Catalog Vol.2",
     "year": 1974,
-    "edition": "JDM (Japanese domestic)",
+    "edition": "Japanese domestic edition",
     "note": "JDM catalog. Each caption prints model + jewels (石) + number, e.g. '56KWM 25石 062' → ref 56KWM-062 (the full printed line is kept in `code`), then the material·WR line (SS·WR, SGP, TSGP, WGP, ASGP, 18K …) and the price (円). Where the model is a 4-digit number (2220, 6810, 2411, 6117 …) it is the movement and is stored as `caliber`; the 56KWM/52LWL/61SPM/11S-style codes are caliber-group + line letters, so caliber is left blank there (not printed). Movement and features are translated from the Japanese description lines into `notes`; the small <NNN-NNN> number under each price is kept as 'catalogue code' in notes (it is not a bracelet code; no bracelet/strap codes are printed). Ladies, bracelet, ring/pendant/pocket and stopwatch pages are all covered; pages 1–8 are photo spreads with a numbered price list.",
     "method": "vision extraction in-harness (no paid API): 81 pages rendered at 210 DPI, read by 9 Claude subagents. In Oct 2026 the catalogue was fully digitised: all 81 pages re-rendered at 250 DPI, every pictured watch (728) given its own record and cropped photo (boxes from a panel-aware detector plus hand-set boxes, all checked on per-page check sheets) and every caption transcribed and then proof-read against full-resolution caption crops; the original 56 records were replaced, correcting 12 misread refs (p1 V.F.A. refs, 56KCM-035, 61SPN-012, 2415-400, Bell-Fina 2431/2435/6810 numbers) and one wrong page (70AD-656).",
     "pages": 81,

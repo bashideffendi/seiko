@@ -3,7 +3,7 @@
     "id": "1972-1972-seiko-luxury",
     "title": "1972 Seiko Luxury",
     "year": 1972,
-    "edition": "JDM luxury (KS/GS/Credor)",
+    "edition": "Japanese domestic luxury edition",
     "note": "JDM luxury catalogue (special high-grade watches). Captions print the model number, jewel count (石, mechanical models only), case material and list price in yen; no caliber or case-ref codes beyond the model number (the 4-digit prefix of 2220-/6800-/6185-/6186- refs is the caliber). Ring and bracelet pieces name their stones and dial stones in the page text.",
     "method": "vision extraction in-harness (no paid API): pages rendered, read by Claude subagents writing batch JSON. Oct 2026: every record re-read against 250 DPI page renders (caption crops + photos) — 31 refs, 27 prices, page numbers (all had been lost as 0), jewels, case material, dials and sections corrected, 3 missed watches added and 1 duplicate dropped (73 -> 75 records); all 75 photo boxes set by hand because the dark overlapping studio shots defeat the auto-detector.",
     "pages": 59,
