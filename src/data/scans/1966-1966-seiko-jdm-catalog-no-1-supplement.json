@@ -1,0 +1,24 @@
+{
+ "id": "1966-1966-seiko-jdm-catalog-no-1-supplement",
+ "year": 1966,
+ "title": "Seiko JDM Catalog No.1 Supplement",
+ "source": "1966 Seiko JDM Catalog No.1 Supplement.pdf",
+ "dir": "1966/1966-1966-seiko-jdm-catalog-no-1-supplement",
+ "thumbWidth": 240,
+ "pages": [
+  {"n":0,"label":"Cover","w":1600,"h":2277},
+  {"n":1,"label":"3","w":1600,"h":2277},
+  {"n":2,"label":"4","w":1600,"h":2277},
+  {"n":3,"label":"5","w":1600,"h":2277},
+  {"n":4,"label":"6","w":1600,"h":2277},
+  {"n":5,"label":"7","w":1600,"h":2277},
+  {"n":6,"label":"8","w":1600,"h":2277},
+  {"n":7,"label":"9","w":1600,"h":2277},
+  {"n":8,"label":"10","w":1600,"h":2277},
+  {"n":9,"label":"11","w":1600,"h":2277},
+  {"n":10,"label":"12","w":1600,"h":2277},
+  {"n":11,"label":"13","w":1600,"h":2277},
+  {"n":12,"label":"14","w":1600,"h":2277},
+  {"n":13,"label":"Back cover","w":1600,"h":2277}
+ ]
+}

@@ -4,6 +4,9 @@ import cat1977v1 from "@/data/models-1977-1977-seiko-v1.json";
 import cat1976v1 from "@/data/models-1976-1976-seiko-v1.json";
 import cat1968jdm2 from "@/data/models-1968-1968-seiko-jdm-catalog-no-2.json";
 import cat1968jdm1 from "@/data/models-1968-1968-seiko-jdm-catalog-no-1.json";
+import cat1968jdm2s from "@/data/models-1968-1968-seiko-jdm-catalog-no-2-supplement.json";
+import cat1967jdm2 from "@/data/models-1967-1967-seiko-jdm-catalog-no-2.json";
+import cat1966jdm1s from "@/data/models-1966-1966-seiko-jdm-catalog-no-1-supplement.json";
 import cat1969jdm2 from "@/data/models-1969-1969-seiko-jdm-catalog-no-2.json";
 import cat1969jdm1 from "@/data/models-1969-1969-seiko-jdm-catalog-no-1.json";
 import cat1972lux from "@/data/models-1972-1972-seiko-luxury.json";
@@ -94,6 +97,9 @@ export const MODEL_SETS: Record<string, CatalogModelSet> = {
   "1976-1976-seiko-v1": cat1976v1 as CatalogModelSet,
   "1968-1968-seiko-jdm-catalog-no-2": cat1968jdm2 as CatalogModelSet,
   "1968-1968-seiko-jdm-catalog-no-1": cat1968jdm1 as CatalogModelSet,
+  "1968-1968-seiko-jdm-catalog-no-2-supplement": cat1968jdm2s as CatalogModelSet,
+  "1967-1967-seiko-jdm-catalog-no-2": cat1967jdm2 as CatalogModelSet,
+  "1966-1966-seiko-jdm-catalog-no-1-supplement": cat1966jdm1s as CatalogModelSet,
   "1969-1969-seiko-jdm-catalog-no-2": cat1969jdm2 as CatalogModelSet,
   "1969-1969-seiko-jdm-catalog-no-1": cat1969jdm1 as CatalogModelSet,
   "1972-1972-seiko-luxury": cat1972lux as CatalogModelSet,
