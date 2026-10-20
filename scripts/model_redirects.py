@@ -1,9 +1,9 @@
 """
 Old model URLs → where they live now, after a catalogue's refs were re-read.
 
-  python scripts/model_redirects.py [--base main]
+  python scripts/model_redirects.py [--base katalog-asli]
 
-Compares every model slug in `--base` (git ref, default main) with the working tree. A slug
+Compares every model slug in `--base` (git ref, default tag katalog-asli = the data before digitisation) with the working tree. A slug
 that disappeared is redirected to its replacement's model page when a re-verification map
 says which ref replaced it (and that ref has a page), otherwise to the model search for the
 old ref — never to a guess. Writes src/data/model-redirects.json ({old slug: path}), read by
@@ -37,12 +37,16 @@ def refs_of(data):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--base", default="main")
+    ap.add_argument("--base", default="katalog-asli")
     a = ap.parse_args()
 
+    # Only catalogues the site actually loads (imported in src/lib/models.ts) — files still being
+    # digitised may sit in src/data/ unregistered.
+    models_ts = open(os.path.join(HERE, "src", "lib", "models.ts"), encoding="utf-8").read()
+    registered = re.findall(r'from "@/data/(models-[^"]+\.json)"', models_ts)
     new_refs = {}
-    for f in glob.glob(os.path.join(DATA, "models-*.json")):
-        for ref in refs_of(json.load(open(f, encoding="utf-8"))):
+    for name in registered:
+        for ref in refs_of(json.load(open(os.path.join(DATA, name), encoding="utf-8"))):
             new_refs.setdefault(slugify(ref), ref)
 
     names = subprocess.run(["git", "ls-tree", "--name-only", a.base, "src/data/"], cwd=HERE,

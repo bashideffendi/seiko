@@ -11,6 +11,7 @@ import scan1972lux from "@/data/scans/1972-1972-seiko-luxury.json";
 import scan1974v2 from "@/data/scans/1974-1974-seiko-v2.json";
 import scan1975 from "@/data/scans/1975-1975-seiko-catalog.json";
 import scan1976v1 from "@/data/scans/1976-1976-seiko-v1.json";
+import scan1977v1 from "@/data/scans/1977-1977-seiko-v1.json";
 
 /** Where catalogue assets live: /catalogue in /public today, a CDN origin tomorrow. */
 export const CATALOGUE_ASSET_BASE = trimSlash(process.env.NEXT_PUBLIC_CATALOGUE_ASSET_BASE || "/catalogue");
@@ -47,6 +48,7 @@ export const SCAN_SETS: Record<string, ScanSet> = {
   "1974-1974-seiko-v2": scan1974v2 as ScanSet,
   "1975-1975-seiko-catalog": scan1975 as ScanSet,
   "1976-1976-seiko-v1": scan1976v1 as ScanSet,
+  "1977-1977-seiko-v1": scan1977v1 as ScanSet,
 };
 
 export function scanFor(catalogId: string): ScanSet | null {
