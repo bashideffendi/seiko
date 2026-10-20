@@ -61,6 +61,12 @@ describe("catalogue evidence", () => {
     expect(r.confidence).toBe("medium");
   });
 
+  it("treats the 6159 hi-beat diver as a Seiko, not a Grand Seiko (catalogued as a diver)", () => {
+    const r = decode("7N0001", "6159-7000");
+    expect(r.notes.some((n) => n.code === "GRAND_SEIKO_DIFFERENT")).toBe(false);
+    expect(CALIBERS.find((c) => c.caliber === "6159")?.endYear).toBe(1977);
+  });
+
   it("does not add an evidence-only record for a caliber the reference already has", () => {
     expect(data.filter((c) => c.caliber === "6309")).toHaveLength(1);
     expect(data.find((c) => c.caliber === "6309")?.attestedOnly).toBeUndefined();

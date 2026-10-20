@@ -369,17 +369,16 @@
       "6159A"
     ],
     "startYear": 1967,
-    "endYear": 1976,
+    "endYear": 1977,
     "movementType": "automatic",
     "jewels": 25,
-    "family": "Grand Seiko 61GS hi-beat",
+    "family": "Diver (hi-beat)",
     "notableRefs": [
       "6159-7000 hi-beat diver",
       "6159-7001",
       "6159-7010"
     ],
-    "notes": "Grand Seiko 36000 vph hi-beat caliber originally for the GS line; the 6159-7001 is Seiko's first 300m professional hi-beat diver.",
-    "grandSeiko": true,
+    "notes": "36,000 vph hi-beat automatic derived from the Grand Seiko 61GS line, but catalogued by Seiko as a diver, not a Grand Seiko: the 1969 JDM Catalog No.2 lists the 6159-010/011 300 m divers in its Special Watch group (p.36). Dates with the standard Seiko serial convention. Still listed in the 1977 catalogue.",
     "rangeConfidence": "established"
   },
   {
@@ -612,7 +611,7 @@
   {
     "caliber": "6186",
     "startYear": 1968,
-    "endYear": 1973,
+    "endYear": 1974,
     "movementType": "automatic",
     "jewels": 25,
     "family": "Grand Seiko 61GS V.F.A.",
@@ -620,7 +619,7 @@
       "6186-8000",
       "6186-8010"
     ],
-    "notes": "Day-date Grand Seiko V.F.A. hi-beat caliber; the day-date sibling of the 6185 high-accuracy movement.",
+    "notes": "Day-date Grand Seiko V.F.A. hi-beat caliber; the day-date sibling of the 6185 high-accuracy movement. Still listed (6186-010, 6186-024) in the 1974 catalogue.",
     "grandSeiko": true,
     "rangeConfidence": "approximate"
   },

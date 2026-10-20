@@ -20,7 +20,7 @@ const COMMUNITY = [
 const CALIBERS_CORE: CaliberDataset = [
   { caliber: "6602", startYear: 1963, endYear: 1973, movementType: "automatic", jewels: 17, family: "Sportmatic / 5", rangeConfidence: "approximate", notes: "Early Seiko 5 / Sportmatic workhorse.", sources: COMMUNITY },
   { caliber: "5606", startYear: 1968, endYear: 1978, movementType: "automatic", jewels: 21, family: "Lord Matic", notes: "Lord Matic dress automatic.", sources: COMMUNITY },
-  { caliber: "5626", startYear: 1970, endYear: 1980, movementType: "automatic", jewels: 23, family: "Lord Matic Special", rangeConfidence: "approximate", sources: COMMUNITY },
+  { caliber: "5626", startYear: 1969, endYear: 1980, movementType: "automatic", jewels: 25, family: "King Seiko / Lord Matic", rangeConfidence: "approximate", notes: "Original catalogues: King Seiko 56KAW in the 1969 JDM Catalog No.2, Lord Matic Deluxe (25 jewels) in the 1976 catalogue.", sources: COMMUNITY },
   { caliber: "6105", startYear: 1968, endYear: 1977, movementType: "automatic", jewels: 17, family: "Diver", notes: "6105-8110 'Captain Willard' diver.", sources: COMMUNITY },
   { caliber: "6119", startYear: 1969, endYear: 1979, movementType: "automatic", jewels: 17, family: "5 / Sports", sources: COMMUNITY },
   { caliber: "6139", startYear: 1969, endYear: 1979, movementType: "automatic", jewels: 17, family: "Chronograph", notes: "6139 'Pogue' automatic chronograph.", sources: COMMUNITY },
