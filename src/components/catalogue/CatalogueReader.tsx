@@ -317,9 +317,6 @@ function Reader({ set, spots, title, initialPage, initialWatch }: ReaderProps & 
           <IconButton label="Next page" onClick={() => go(next)} disabled={next === null}>
             <ChevronRight size={18} strokeWidth={1.5} aria-hidden="true" />
           </IconButton>
-          <span className="ml-1 hidden text-[12px] uppercase tracking-[0.14em] text-[var(--ink-soft)] sm:inline">
-            {idx + 1} / {set.pages.length}
-          </span>
         </div>
 
         <div className="flex items-center gap-1.5">

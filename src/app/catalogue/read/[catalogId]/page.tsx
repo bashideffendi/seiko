@@ -61,8 +61,8 @@ export default async function ReadPage({ params }: { params: Promise<{ catalogId
             <Eyebrow>Read the catalogue</Eyebrow>
             <h1 className="mt-2 font-serif text-[38px] leading-[1.08] text-[var(--ink)] sm:text-[52px]">{d.title}</h1>
             <p className="mt-3 max-w-2xl text-[16px] leading-[1.6] text-[var(--ink-muted)]">
-              {d.set.pages.length} pages from the original{d.edition ? ` (${d.edition})` : ""}.{" "}
-              {d.spots.length} watches are pictured — each outline opens that model’s page.
+              All {d.set.pages.length} pages, scanned from the original{d.edition ? <> — {d.edition}</> : null}.{" "}
+              {d.spots.length} watches are pictured, and each outline opens that model’s page.
             </p>
           </div>
         </Container>
