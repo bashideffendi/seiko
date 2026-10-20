@@ -9,6 +9,14 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "**.tinyhourtales.com" },
     ],
   },
+  async rewrites() {
+    // Scan assets not shipped in /public come from the private bucket via /scan (signed redirect).
+    return {
+      beforeFiles: [],
+      afterFiles: [],
+      fallback: [{ source: "/catalogue/:year(\\d{4})/:path*", destination: "/scan/:year/:path*" }],
+    };
+  },
   async redirects() {
     // Friendly aliases for the serial decoder; the query string (?serial=&caliber=) is carried over.
     return [

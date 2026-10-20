@@ -42,3 +42,7 @@ yarn-error.log*
 
 # tucked reference assets (folder reorg 2026-06-21)
 _reference/
+
+# catalogue scans live in the Railway bucket (scripts/upload_scans.py); only the 1975 pilot ships in /public
+/public/catalogue/[12][0-9][0-9][0-9]/*/
+!/public/catalogue/1975/1975-1975-seiko-catalog/
