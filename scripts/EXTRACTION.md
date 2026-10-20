@@ -60,3 +60,24 @@ import catXXXX from "@/data/models-<id>.json";
 The archive card then shows an "N models" badge and the modal lists them; refs
 and calibers become searchable. `.pilot/` is gitignored (render artifacts).
 ```
+
+## Step 5 — digitise (every watch photo becomes its own record photo)
+
+```
+python scripts/digitize_catalog.py detect --id <catalogue-id> --pdf "<abs path to PDF>"   # render 250 DPI + find photos
+python scripts/digitize_catalog.py apply  --id <catalogue-id>                              # bbox + photo onto each record
+python scripts/digitize_catalog.py export --id <catalogue-id> --source "<file.pdf>" [--labels '{"28":"Index"}']
+```
+`detect` finds each watch photo on a page (paper → ink mask → tall structures only, so type,
+captions and pen marks drop out → rows of photos → columns), pairs the boxes with that page's
+records **in reading order**, and draws a check sheet per page in `.pilot/<id>/check/`
+(box + assigned ref over the page). Read every check sheet: the label must match the printed
+"Ref." under the photo. Fix a box by hand in `scripts/bbox-overrides/<id>.json`
+(`"<page>:<k>": [x, y, w, h]`, k = 1-based reading-order position; `null` = no photo).
+The catalogue's own index page, when it has one, is the best cross-check for refs.
+
+`export` writes `public/catalogue/<year>/<id>/{pages,thumbs,watches,watches/sm}/` (WebP) and
+the page manifest `src/data/scans/<id>.json`; register it in `SCAN_SETS` (`src/lib/scans.ts`).
+All URLs go through `catalogueAssetUrl()` — to serve from Cloudflare R2 instead of /public,
+upload the same `<year>/<id>/…` tree and set `NEXT_PUBLIC_CATALOGUE_ASSET_BASE`.
+Pilot (1975 Seiko Catalog, 30 pages): 150/150 photos found automatically, 0 hand fixes, 9.5 MB.

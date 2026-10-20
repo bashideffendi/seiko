@@ -3,6 +3,7 @@ import { MODEL_SETS } from "@/lib/models";
 import { slugForRef } from "@/lib/modelIndex";
 import { findCaliber } from "@/data/calibers";
 import { caliberSlug } from "@/lib/seiko/caliberKey";
+import { readerHref, scanFor } from "@/lib/scans";
 
 // Server-side shaping of the catalogue archive for its client grid: only what the grid,
 // the search box and the detail panel need — not the raw catalogue + every model record.
@@ -29,6 +30,10 @@ export interface ArchiveItem {
   refCount: number;
   calibers: { code: string; slug: string | null }[];
   modelCount: number;
+  /** Watches with their own photo cut from the digitised scan (0 if not digitised). */
+  photoCount: number;
+  /** In-site reader for the digitised scan, when there is one. */
+  readerHref: string | null;
   /** A taste of the extracted models; the rest are one click away on /catalogue/models. */
   models: ArchiveModel[];
   /** Uppercase haystack for search: title, year, refs, calibers and model refs. */
@@ -49,6 +54,7 @@ export function archiveItems(): ArchiveItem[] {
       return { ref: m.ref, slug: m.ref ? slugForRef(m.ref) : null, conf: m.conf, ...(sub ? { sub } : {}) };
     });
     const modelBlob = records.map((m) => `${m.ref} ${m.caliber ?? ""}`).join(" ");
+    const scan = scanFor(c.id);
     return {
       id: c.id,
       year: c.year,
@@ -66,6 +72,8 @@ export function archiveItems(): ArchiveItem[] {
         return { code, slug: rec ? caliberSlug(rec.caliber) : null };
       }),
       modelCount: records.length,
+      photoCount: scan ? records.filter((m) => m.photo).length : 0,
+      readerHref: scan ? readerHref(c.id, scan.pages[0]?.n ?? 0) : null,
       models,
       search: [c.title, c.yearLabel, c.caseRefs.join(" "), c.calibers.join(" "), modelBlob].join(" ").toUpperCase(),
     };

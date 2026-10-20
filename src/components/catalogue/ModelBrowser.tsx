@@ -8,8 +8,8 @@ import { decadeOf, modelHaystack, type CompactModel } from "@/lib/modelCompact";
 const CAP = 150;
 const noopSubscribe = () => () => {};
 
-type Filters = { q: string; decade: string; withCaliber: boolean; catalog: string };
-const EMPTY: Filters = { q: "", decade: "all", withCaliber: false, catalog: "" };
+type Filters = { q: string; decade: string; withCaliber: boolean; withPhoto: boolean; catalog: string };
+const EMPTY: Filters = { q: "", decade: "all", withCaliber: false, withPhoto: false, catalog: "" };
 
 /**
  * Server renders the first CAP models (props); the full compact index is fetched from
@@ -31,7 +31,7 @@ export function ModelBrowser({
   const [all, setAll] = useState<CompactModel[] | null>(null);
   const [failed, setFailed] = useState(false);
 
-  const filtering = f.q.trim() !== "" || f.decade !== "all" || f.withCaliber || f.catalog !== "";
+  const filtering = f.q.trim() !== "" || f.decade !== "all" || f.withCaliber || f.withPhoto || f.catalog !== "";
 
   // Deep links (?q=, ?caliber=, ?catalog=): read the query string after hydration and fold it
   // into the filters once — React's "adjust state while rendering" pattern, no effect needed.
@@ -64,6 +64,7 @@ export function ModelBrowser({
     const key = f.q.trim().toUpperCase();
     return source.filter((m) => {
       if (f.withCaliber && !m.c) return false;
+      if (f.withPhoto && !m.i) return false;
       if (f.catalog && !m.g.includes(f.catalog)) return false;
       if (f.decade !== "all" && !m.y.some((y) => decadeOf(y) === f.decade)) return false;
       return !key || modelHaystack(m).includes(key);
@@ -95,6 +96,7 @@ export function ModelBrowser({
             <Chip key={d} active={f.decade === d} onClick={() => setF({ ...f, decade: d })}>{d}</Chip>
           ))}
           <Chip active={f.withCaliber} onClick={() => setF({ ...f, withCaliber: !f.withCaliber })}>Has caliber</Chip>
+          <Chip active={f.withPhoto} onClick={() => setF({ ...f, withPhoto: !f.withPhoto })}>Has photo</Chip>
         </div>
       </div>
 
@@ -133,18 +135,26 @@ export function ModelBrowser({
 function ModelCard({ m }: { m: CompactModel }) {
   const sub = [m.c ? `Cal. ${m.c}` : null, m.d].filter(Boolean).join(" · ") || m.x?.toLowerCase() || "—";
   return (
-    <Link href={`/catalogue/model/${m.s}`} className="group flex flex-col bg-[var(--surface)] p-4 transition-colors hover:bg-[var(--sand)]">
-      <span className="flex items-center justify-between gap-2">
-        <span className="font-mono text-[15px] text-[var(--ink)] group-hover:text-[var(--maroon)]">{m.r}</span>
-        <span className="flex items-center gap-2 text-[12px] text-[var(--ink-soft)]">
-          {m.y[0] ? decadeOf(m.y[0]) : null}
-          <span
-            title={`${m.k === "h" ? "high" : m.k === "m" ? "medium" : "low"} confidence`}
-            className={cn("h-1.5 w-1.5 rounded-full", m.k === "h" ? "bg-[var(--maroon)]" : m.k === "m" ? "bg-[var(--gold-500)]" : "bg-[var(--line-2)]")}
-          />
+    <Link href={`/catalogue/model/${m.s}`} className="group flex items-center gap-4 bg-[var(--surface)] p-4 transition-colors hover:bg-[var(--sand)]">
+      {m.i && (
+        <span className="grid h-16 w-11 shrink-0 place-items-center overflow-hidden bg-[var(--ivory)]">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={m.i} alt="" loading="lazy" decoding="async" width={44} height={64} className="h-full w-full object-contain" />
         </span>
+      )}
+      <span className="flex min-w-0 flex-1 flex-col">
+        <span className="flex items-center justify-between gap-2">
+          <span className="font-mono text-[15px] text-[var(--ink)] group-hover:text-[var(--maroon)]">{m.r}</span>
+          <span className="flex items-center gap-2 text-[12px] text-[var(--ink-soft)]">
+            {m.y[0] ? decadeOf(m.y[0]) : null}
+            <span
+              title={`${m.k === "h" ? "high" : m.k === "m" ? "medium" : "low"} confidence`}
+              className={cn("h-1.5 w-1.5 rounded-full", m.k === "h" ? "bg-[var(--maroon)]" : m.k === "m" ? "bg-[var(--gold-500)]" : "bg-[var(--line-2)]")}
+            />
+          </span>
+        </span>
+        <span className="mt-1 line-clamp-1 text-[13px] text-[var(--ink-muted)]">{sub}</span>
       </span>
-      <span className="mt-1 line-clamp-1 text-[13px] text-[var(--ink-muted)]">{sub}</span>
     </Link>
   );
 }

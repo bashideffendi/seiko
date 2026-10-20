@@ -31,6 +31,13 @@ export interface CatalogModel {
   caseDialCode?: string;
   /** Region/strap suffix variants seen for this ref, e.g. ["J1","K1","P"]. */
   regionVariants?: string[];
+  // === Digitised scan (scripts/digitize_catalog.py; see src/lib/scans.ts) ===
+  /** Where the watch's photo sits on its page: normalised [x, y, w, h], margin included. */
+  bbox?: [number, number, number, number];
+  /** The cropped photo, relative to the catalogue's asset dir, e.g. "watches/p008-01-yp037.webp". */
+  photo?: string;
+  /** Pixel size of the cropped photo [w, h]. */
+  photoSize?: [number, number];
 }
 
 /** The structured identifiers for one model, derived from whatever fields exist. */
@@ -70,6 +77,8 @@ export interface CatalogModelSet {
     method?: string;
     pages: number;
     records: number;
+    /** Records with their own cropped photo. */
+    photos?: number;
   };
   records: CatalogModel[];
 }

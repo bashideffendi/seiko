@@ -14,6 +14,11 @@ const nextConfig: NextConfig = {
     return [
       { source: "/year-finder", destination: "/tools/serial-decoder", permanent: false },
       { source: "/decoder", destination: "/tools/serial-decoder", permanent: false },
+      // 1975 catalogue refs misread by the first extraction, corrected against the
+      // catalogue's own index (Oct 2026) — keep the old model URLs working.
+      { source: "/catalogue/model/yp001c", destination: "/catalogue/model/yp001", permanent: true },
+      { source: "/catalogue/model/bw0xx", destination: "/catalogue/model/bw090", permanent: true },
+      { source: "/catalogue/model/9z024", destination: "/catalogue/model/bz024", permanent: true },
     ];
   },
 };

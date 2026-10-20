@@ -14,6 +14,7 @@ export interface CompactModel {
   /** first section */ x?: string;
   /** confidence */ k: "h" | "m" | "l";
   /** catalogue ids it appears in */ g: string[];
+  /** small catalogue photo URL, when a digitised scan pictures it */ i?: string;
 }
 
 export function compactModel(e: ModelEntry): CompactModel {
@@ -28,6 +29,7 @@ export function compactModel(e: ModelEntry): CompactModel {
   if (e.caliber) out.c = e.caliber;
   if (d) out.d = d;
   if (e.sections[0]) out.x = e.sections[0];
+  if (e.photo) out.i = e.photo.sm;
   return out;
 }
 

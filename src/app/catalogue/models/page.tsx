@@ -27,7 +27,7 @@ export default function ModelsPage() {
       <PageHeader
         eyebrow="The Archive · by model"
         title={<>Every model, <em>by reference</em></>}
-        lead={`${s.unique.toLocaleString("en-US")} unique references read from original Seiko catalogues — ${s.withCaliber.toLocaleString("en-US")} with an identified caliber. Search a reference, a movement or a dial.`}
+        lead={`${s.unique.toLocaleString("en-US")} unique references read from original Seiko catalogues — ${s.withCaliber.toLocaleString("en-US")} with an identified caliber${s.withPhoto ? `, ${s.withPhoto.toLocaleString("en-US")} with their own catalogue photo` : ""}. Search a reference, a movement or a dial.`}
       />
       <Container className="py-12">
         <ModelBrowser initial={FIRST_PAGE} total={s.unique} decades={DECADES} catalogs={CATALOGS} />

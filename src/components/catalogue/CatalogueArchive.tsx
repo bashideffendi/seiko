@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import type { ArchiveItem } from "@/lib/archive";
-import { Badge } from "@/components/ui";
+import { Badge, ButtonLink } from "@/components/ui";
 import { cn } from "@/lib/cn";
 
 const LANG_LABEL: Record<ArchiveItem["lang"], string> = { jp: "Japanese", en: "English", scan: "Scan" };
@@ -73,25 +73,37 @@ export function CatalogueArchive({ items }: { items: ArchiveItem[] }) {
             </div>
             <div className="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 lg:gap-x-6">
               {list.map((c) => (
-                <button key={c.id} type="button" onClick={() => setActive(c)} className="group text-left" aria-haspopup="dialog">
-                  <span className="block overflow-hidden border border-[var(--line)] bg-[var(--stone)]">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src={c.cover}
-                      alt={`${c.yearLabel} ${c.title} cover`}
-                      width={480}
-                      height={640}
-                      loading="lazy"
-                      decoding="async"
-                      className="aspect-[3/4] w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.03]"
-                    />
-                  </span>
-                  <span className="mt-3 block text-[10px] font-medium uppercase tracking-[0.2em] text-[var(--muted)]">{c.yearLabel}</span>
-                  <span className="mt-1 line-clamp-2 block font-serif text-[16px] leading-[21px] text-[var(--ink)] group-hover:text-[var(--maroon)]">{c.title}</span>
-                  {c.modelCount > 0 && (
-                    <span className="mt-1 block text-[12px] text-[var(--maroon)]">{c.modelCount} models read</span>
+                <div key={c.id}>
+                  <button type="button" onClick={() => setActive(c)} className="group block w-full text-left" aria-haspopup="dialog">
+                    <span className="block overflow-hidden border border-[var(--line)] bg-[var(--stone)]">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={c.cover}
+                        alt={`${c.yearLabel} ${c.title} cover`}
+                        width={480}
+                        height={640}
+                        loading="lazy"
+                        decoding="async"
+                        className="aspect-[3/4] w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                      />
+                    </span>
+                    <span className="mt-3 block text-[10px] font-medium uppercase tracking-[0.2em] text-[var(--muted)]">{c.yearLabel}</span>
+                    <span className="mt-1 line-clamp-2 block font-serif text-[16px] leading-[21px] text-[var(--ink)] group-hover:text-[var(--maroon)]">{c.title}</span>
+                    {c.photoCount > 0 ? (
+                      <span className="mt-1 block text-[12px] text-[var(--maroon)]">{c.photoCount} watch photos</span>
+                    ) : c.modelCount > 0 ? (
+                      <span className="mt-1 block text-[12px] text-[var(--maroon)]">{c.modelCount} models read</span>
+                    ) : null}
+                  </button>
+                  {c.readerHref && (
+                    <Link
+                      href={c.readerHref}
+                      className="mt-2.5 inline-flex h-9 items-center border border-[var(--maroon)] px-3 text-[10px] font-medium uppercase tracking-[0.14em] text-[var(--maroon)] transition-colors hover:bg-[var(--maroon)] hover:text-[var(--ivory)]"
+                    >
+                      Read Catalogue
+                    </Link>
                   )}
-                </button>
+                </div>
               ))}
             </div>
           </section>
@@ -173,6 +185,11 @@ function DetailModal({ item, onClose }: { item: ArchiveItem; onClose: () => void
           <div>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={item.cover} alt={`${item.title} cover`} width={480} height={640} className="w-full border border-[var(--line)]" />
+            {item.readerHref && (
+              <ButtonLink href={item.readerHref} size="sm" className="mt-4 w-full">
+                Read Catalogue
+              </ButtonLink>
+            )}
             <div className="mt-3 flex flex-wrap gap-1.5">
               {item.lang !== "scan" && <Badge>{LANG_LABEL[item.lang]}</Badge>}
               <Badge variant={item.hasText ? "gold" : "default"}>{item.hasText ? "Text-searchable" : "Scan only"}</Badge>
@@ -246,9 +263,11 @@ function DetailModal({ item, onClose }: { item: ArchiveItem; onClose: () => void
             )}
 
             <p className="mt-6 border-l-2 border-[var(--line-2)] pl-4 text-[13px] leading-relaxed text-[var(--ink-muted)]">
-              {item.modelCount > 0
-                ? `${item.modelCount} models were read from the original scan. The full ${item.pages}-page scan goes online once archive storage is set up.`
-                : `The full ${item.pages}-page scan goes online once archive storage is set up. For now: the cover, its details and the references found in it — straight from the original.`}
+              {item.readerHref
+                ? `All ${item.pages} pages are online to read. ${item.photoCount} watches were cut from the scan as their own photos, each linked to its model page.`
+                : item.modelCount > 0
+                  ? `${item.modelCount} models were read from the original scan. The full ${item.pages}-page scan goes online once archive storage is set up.`
+                  : `The full ${item.pages}-page scan goes online once archive storage is set up. For now: the cover, its details and the references found in it — straight from the original.`}
             </p>
           </div>
         </div>

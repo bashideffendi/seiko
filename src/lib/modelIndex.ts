@@ -9,12 +9,31 @@
 import { MODEL_SETS, seikoIds, type CatalogModel, type SeikoIds } from "@/lib/models";
 import { normalizeRef } from "@/lib/seiko/refs";
 import { canonicalCaliberKey } from "@/lib/seiko/caliberKey";
+import { isValidBbox, pagePhrase, scanFor, scanPage, watchPhotoUrl, type BBox } from "@/lib/scans";
 
 export interface ModelAppearance {
   catalogId: string;
   catalogTitle: string;
   year: number;
   record: CatalogModel;
+}
+
+/** The watch as photographed in a digitised catalogue, cut from its page. */
+export interface ModelPhoto {
+  catalogId: string;
+  catalogTitle: string;
+  year: number;
+  /** Scan index of the page, and how the page is labelled ("8", "Cover"). */
+  page: number;
+  pageLabel: string;
+  /** "page 8" / "the cover". */
+  pagePhrase: string;
+  url: string;
+  /** Small copy for grids. */
+  sm: string;
+  w: number;
+  h: number;
+  bbox: BBox;
 }
 
 export interface ModelEntry {
@@ -39,6 +58,31 @@ export interface ModelEntry {
   wr?: string;
   notes?: string;
   conf: "high" | "medium" | "low";
+  /** First catalogue photo of this reference, if any catalogue it appears in is digitised. */
+  photo?: ModelPhoto;
+}
+
+/** The record's own photo, resolved to URLs — or null if its catalogue isn't digitised. */
+export function photoOf(a: ModelAppearance): ModelPhoto | null {
+  const r = a.record;
+  const set = scanFor(a.catalogId);
+  if (!set || !r.photo || !isValidBbox(r.bbox)) return null;
+  const page = scanPage(set, r.page);
+  if (!page) return null;
+  const [w, h] = r.photoSize ?? [600, 800];
+  return {
+    catalogId: a.catalogId,
+    catalogTitle: a.catalogTitle,
+    year: a.year,
+    page: r.page,
+    pageLabel: page.label,
+    pagePhrase: pagePhrase(page),
+    url: watchPhotoUrl(set, r.photo),
+    sm: watchPhotoUrl(set, r.photo, "sm"),
+    w,
+    h,
+    bbox: r.bbox,
+  };
 }
 
 const CONF_RANK: Record<string, number> = { high: 3, medium: 2, low: 1 };
@@ -99,6 +143,13 @@ function buildIndex(): ModelEntry[] {
     entry.wr = pick(entry, "wr");
     entry.notes = pick(entry, "notes");
     entry.jewels = best.jewels ?? null;
+    for (const a of [...entry.appearances].sort((x, y) => x.year - y.year)) {
+      const p = photoOf(a);
+      if (p) {
+        entry.photo = p;
+        break;
+      }
+    }
     if (!entry.caliber && best.caliber) {
       entry.caliber = best.caliber.toUpperCase();
       entry.ids = { ...entry.ids, caliber: entry.caliber };
@@ -199,6 +250,7 @@ export function similarModels(entry: ModelEntry, limit = 8): ModelEntry[] {
 
 export const MODEL_STATS = {
   unique: ALL_MODEL_ENTRIES.length,
+  withPhoto: ALL_MODEL_ENTRIES.filter((e) => e.photo).length,
   withCaliber: ALL_MODEL_ENTRIES.filter((e) => e.caliber).length,
   pages: PAGE_ENTRIES.length,
   catalogues: Object.keys(MODEL_SETS).length,

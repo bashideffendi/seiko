@@ -8,6 +8,7 @@ import { findCaliber } from "@/data/calibers";
 import { caliberSlug } from "@/lib/seiko/caliberKey";
 import { ALL_MODEL_ENTRIES, findModelBySlug, isPageWorthy, similarModels } from "@/lib/modelIndex";
 import { pageMeta } from "@/lib/meta";
+import { readerHref, scanFor, scanPage } from "@/lib/scans";
 import { SITE_URL } from "@/lib/site";
 
 export const dynamicParams = false;
@@ -69,6 +70,7 @@ export default async function ModelPage({ params }: { params: Promise<{ slug: st
   ].filter(Boolean) as { k: string; v: string }[];
 
   const similar = similarModels(entry);
+  const photo = entry.photo;
 
   const crumbs = {
     "@context": "https://schema.org",
@@ -90,22 +92,51 @@ export default async function ModelPage({ params }: { params: Promise<{ slug: st
             <span aria-hidden="true" className="mx-2">/</span>
             <span aria-current="page">{entry.ref}</span>
           </nav>
-          <div className="mt-8 flex flex-wrap items-center gap-3">
-            <Eyebrow>Model reference</Eyebrow>
-            {entry.caliber && <Badge variant="gold">Cal. {entry.caliber}</Badge>}
-            {entry.conf !== "high" && <Badge>{entry.conf} confidence</Badge>}
-          </div>
-          <h1 className="mt-3 font-serif text-[48px] leading-[1.04] text-[var(--ink)] sm:text-[72px]">
-            <span className="sr-only">Seiko </span>{entry.ref}
-          </h1>
-          <p className="mt-4 max-w-2xl text-[17px] leading-[1.65] text-[var(--ink-muted)]">
-            {entry.sections[0] ? <span className="capitalize">{entry.sections[0].toLowerCase()}</span> : "Seiko"}
-            {entry.years.length > 0 && (
-              <> · catalogued {entry.years.length === 1 ? "in" : "across"}{" "}
-                <span className="font-mono text-[var(--maroon)]">{entry.years.join(" · ")}</span>
-              </>
+          <div className={photo ? "lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(0,440px)] lg:items-end lg:gap-16" : undefined}>
+            <div>
+              <div className="mt-8 flex flex-wrap items-center gap-3">
+                <Eyebrow>Model reference</Eyebrow>
+                {entry.caliber && <Badge variant="gold">Cal. {entry.caliber}</Badge>}
+                {entry.conf !== "high" && <Badge>{entry.conf} confidence</Badge>}
+              </div>
+              <h1 className="mt-3 font-serif text-[48px] leading-[1.04] text-[var(--ink)] sm:text-[72px]">
+                <span className="sr-only">Seiko </span>{entry.ref}
+              </h1>
+              <p className="mt-4 max-w-2xl text-[17px] leading-[1.65] text-[var(--ink-muted)]">
+                {entry.sections[0] ? <span className="capitalize">{entry.sections[0].toLowerCase()}</span> : "Seiko"}
+                {entry.years.length > 0 && (
+                  <> · catalogued {entry.years.length === 1 ? "in" : "across"}{" "}
+                    <span className="font-mono text-[var(--maroon)]">{entry.years.join(" · ")}</span>
+                  </>
+                )}
+              </p>
+            </div>
+
+            {photo && (
+              <figure className="mt-10 lg:mt-8">
+                <div className="flex justify-center border border-[var(--line)] bg-[var(--surface)] p-5 sm:p-8">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={photo.url}
+                    width={photo.w}
+                    height={photo.h}
+                    alt={`Seiko ${entry.ref} as pictured in the ${photo.catalogTitle}, ${photo.pagePhrase}`}
+                    fetchPriority="high"
+                    decoding="async"
+                    className="h-auto max-h-[380px] w-auto max-w-full sm:max-h-[480px]"
+                  />
+                </div>
+                <figcaption className="mt-3 flex flex-wrap items-center justify-between gap-x-4 gap-y-3">
+                  <span className="text-[13px] leading-5 text-[var(--ink-muted)]">
+                    From the {photo.year} Seiko catalogue, {photo.pagePhrase}
+                  </span>
+                  <ButtonLink href={readerHref(photo.catalogId, photo.page, entry.slug)} variant="outline" size="sm">
+                    View Page
+                  </ButtonLink>
+                </figcaption>
+              </figure>
             )}
-          </p>
+          </div>
         </Container>
       </header>
 
@@ -146,12 +177,25 @@ export default async function ModelPage({ params }: { params: Promise<{ slug: st
 
             <h2 className="mt-12 font-serif text-[28px] leading-9 text-[var(--ink)]">Appears in</h2>
             <ul className="mt-4 divide-y divide-[var(--line)] border border-[var(--line)] bg-[var(--surface)]">
-              {entry.appearances.map((a, i) => (
-                <li key={a.catalogId + i} className="flex items-center justify-between gap-3 px-4 py-3.5">
-                  <span className="text-[15px] text-[var(--ink)]">{a.catalogTitle}</span>
-                  <span className="font-mono text-[12px] text-[var(--ink-soft)]">p.{a.record.page}</span>
-                </li>
-              ))}
+              {entry.appearances.map((a, i) => {
+                const set = scanFor(a.catalogId);
+                const pg = set ? scanPage(set, a.record.page) : null;
+                return (
+                  <li key={a.catalogId + i} className="flex items-center justify-between gap-3 px-4 py-3.5">
+                    <span className="text-[15px] text-[var(--ink)]">{a.catalogTitle}</span>
+                    {pg ? (
+                      <Link
+                        href={readerHref(a.catalogId, pg.n, a.record.photo ? entry.slug : null)}
+                        className="shrink-0 font-mono text-[12px] text-[var(--maroon)] underline decoration-[var(--line-2)] underline-offset-4 hover:decoration-[var(--maroon)]"
+                      >
+                        p.{pg.label} · view page
+                      </Link>
+                    ) : (
+                      <span className="font-mono text-[12px] text-[var(--ink-soft)]">p.{a.record.page}</span>
+                    )}
+                  </li>
+                );
+              })}
             </ul>
           </div>
 

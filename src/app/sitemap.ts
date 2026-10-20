@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { CALIBERS } from "@/data/calibers";
 import { caliberSlug } from "@/lib/seiko/caliberKey";
 import { PAGE_ENTRIES } from "@/lib/modelIndex";
+import { SCAN_SETS } from "@/lib/scans";
 import { SITE_URL } from "@/lib/site";
 
 const STATIC = [
@@ -24,6 +25,7 @@ const STATIC = [
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     ...STATIC.map((s) => ({ url: `${SITE_URL}${s.path === "/" ? "" : s.path}`, priority: s.priority })),
+    ...Object.keys(SCAN_SETS).map((id) => ({ url: `${SITE_URL}/catalogue/read/${id}`, priority: 0.6 })),
     ...CALIBERS.map((c) => ({ url: `${SITE_URL}/caliber/${caliberSlug(c.caliber)}`, priority: 0.5 })),
     ...PAGE_ENTRIES.map((e) => ({ url: `${SITE_URL}/catalogue/model/${e.slug}`, priority: 0.4 })),
   ];
