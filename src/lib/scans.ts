@@ -6,6 +6,7 @@
 // "https://scans.tinyhourtales.com" — with the same key layout, `<year>/<catalogue-id>/…`.
 
 import scan1968jdm2 from "@/data/scans/1968-1968-seiko-jdm-catalog-no-2.json";
+import scan1969jdm1 from "@/data/scans/1969-1969-seiko-jdm-catalog-no-1.json";
 import scan1969jdm2 from "@/data/scans/1969-1969-seiko-jdm-catalog-no-2.json";
 import scan1972lux from "@/data/scans/1972-1972-seiko-luxury.json";
 import scan1974v2 from "@/data/scans/1974-1974-seiko-v2.json";
@@ -43,6 +44,7 @@ export type BBox = [number, number, number, number];
 // Catalogues whose scans have been digitised, keyed by catalogue id.
 export const SCAN_SETS: Record<string, ScanSet> = {
   "1968-1968-seiko-jdm-catalog-no-2": scan1968jdm2 as ScanSet,
+  "1969-1969-seiko-jdm-catalog-no-1": scan1969jdm1 as ScanSet,
   "1969-1969-seiko-jdm-catalog-no-2": scan1969jdm2 as ScanSet,
   "1972-1972-seiko-luxury": scan1972lux as ScanSet,
   "1974-1974-seiko-v2": scan1974v2 as ScanSet,
