@@ -14,6 +14,7 @@ import scan1969jdm1 from "@/data/scans/1969-1969-seiko-jdm-catalog-no-1.json";
 import scan1969jdm2 from "@/data/scans/1969-1969-seiko-jdm-catalog-no-2.json";
 import scan1972cat from "@/data/scans/1972-1972-seiko-catalogue.json";
 import scan1972lux from "@/data/scans/1972-1972-seiko-luxury.json";
+import scan1972v1 from "@/data/scans/1972-1972-seiko-v1.json";
 import scan1973lux from "@/data/scans/1973-1973-seiko-luxury.json";
 import scan1973v2 from "@/data/scans/1973-1973-seiko-v2.json";
 import scan1974v1 from "@/data/scans/1974-1974-seiko-v1.json";
@@ -60,6 +61,7 @@ export const SCAN_SETS: Record<string, ScanSet> = {
   "1969-1969-seiko-jdm-catalog-no-2": scan1969jdm2 as ScanSet,
   "1972-1972-seiko-catalogue": scan1972cat as ScanSet,
   "1972-1972-seiko-luxury": scan1972lux as ScanSet,
+  "1972-1972-seiko-v1": scan1972v1 as ScanSet,
   "1973-1973-seiko-luxury": scan1973lux as ScanSet,
   "1973-1973-seiko-v2": scan1973v2 as ScanSet,
   "1974-1974-seiko-v1": scan1974v1 as ScanSet,

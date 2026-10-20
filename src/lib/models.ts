@@ -12,6 +12,7 @@ import cat1969jdm2 from "@/data/models-1969-1969-seiko-jdm-catalog-no-2.json";
 import cat1969jdm1 from "@/data/models-1969-1969-seiko-jdm-catalog-no-1.json";
 import cat1972lux from "@/data/models-1972-1972-seiko-luxury.json";
 import cat1972cat from "@/data/models-1972-1972-seiko-catalogue.json";
+import cat1972v1 from "@/data/models-1972-1972-seiko-v1.json";
 import cat1973v2 from "@/data/models-1973-1973-seiko-v2.json";
 import cat1973lux from "@/data/models-1973-1973-seiko-luxury.json";
 import { caliberFromRef, parseCaseRef } from "@/lib/seiko/refs";
@@ -109,6 +110,7 @@ export const MODEL_SETS: Record<string, CatalogModelSet> = {
   "1969-1969-seiko-jdm-catalog-no-1": cat1969jdm1 as CatalogModelSet,
   "1972-1972-seiko-luxury": cat1972lux as CatalogModelSet,
   "1972-1972-seiko-catalogue": cat1972cat as CatalogModelSet,
+  "1972-1972-seiko-v1": cat1972v1 as CatalogModelSet,
   "1973-1973-seiko-v2": cat1973v2 as CatalogModelSet,
   "1973-1973-seiko-luxury": cat1973lux as CatalogModelSet,
 };
