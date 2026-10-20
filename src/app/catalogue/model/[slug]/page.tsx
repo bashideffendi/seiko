@@ -35,6 +35,10 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   });
 }
 
+function capitalize(s: string) {
+  return s ? s.charAt(0).toUpperCase() + s.slice(1) : s;
+}
+
 function decadeOf(year: number) {
   return `${Math.floor(year / 10) * 10}s`;
 }
@@ -63,7 +67,9 @@ export default async function ModelPage({ params }: { params: Promise<{ slug: st
   const specRows = [
     entry.dial && { k: "Dial", v: entry.dial },
     entry.case && { k: "Case", v: entry.case },
-    entry.bracelet && { k: /strap/i.test(entry.bracelet) ? "Strap" : "Bracelet", v: entry.bracelet },
+    entry.bracelet && (/\bstrap$/i.test(entry.bracelet)
+      ? { k: "Strap", v: capitalize(entry.bracelet.replace(/\s*\bstrap$/i, "")) || "Strap" }
+      : { k: "Bracelet", v: entry.bracelet }),
     entry.jewels != null && { k: "Jewels", v: `${entry.jewels}` },
     wr && { k: "Water resist.", v: wr },
     entry.price && { k: "List price", v: entry.price },
@@ -77,7 +83,7 @@ export default async function ModelPage({ params }: { params: Promise<{ slug: st
     entry.dial && { k: "Dial", v: entry.dial },
     entry.price && { k: "List price", v: entry.price },
   ].filter(Boolean) as { k: string; v: string }[];
-  const notes = entry.notes ? entry.notes.charAt(0).toUpperCase() + entry.notes.slice(1) : "";
+  const notes = capitalize(entry.notes ?? "");
 
   const similar = similarModels(entry);
   const photo = entry.photo;
