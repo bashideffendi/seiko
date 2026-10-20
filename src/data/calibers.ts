@@ -94,6 +94,7 @@ export function findCaliber(raw: string, data: CaliberDataset = CALIBERS): Calib
 export type SlimCaliber = Pick<
   CaliberRecord,
   "caliber" | "aliases" | "startYear" | "endYear" | "movementType" | "longRun" | "grandSeiko" | "rangeConfidence"
+  | "seenFrom" | "seenTo" | "widenedByCatalogue" | "attestedOnly"
 >;
 
 export function slimCalibers(data: CaliberDataset = CALIBERS): SlimCaliber[] {

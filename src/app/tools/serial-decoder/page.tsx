@@ -1,8 +1,8 @@
 import { Container } from "@/components/ui";
+import { decoderCalibers } from "@/lib/seiko/attestation";
 import { PageHeader } from "@/components/page";
 import { SerialDecoder } from "@/components/decoder/SerialDecoder";
 import { JsonLd } from "@/components/JsonLd";
-import { slimCalibers } from "@/data/calibers";
 import { pageMeta } from "@/lib/meta";
 import { SITE_URL } from "@/lib/site";
 
@@ -12,7 +12,7 @@ import { SITE_URL } from "@/lib/site";
 export const metadata = pageMeta({
   title: "Seiko Serial Number Decoder — Find the Year",
   description:
-    "Find the month and year a Seiko was made from the serial number on its caseback. Add the caliber to narrow the decade. Free, private — runs entirely in your browser.",
+    "Find the month and year a Seiko was made from the serial number on its caseback. Add the caseback number (e.g. 6309-7040) to narrow the decade and see the matching watches in original Seiko catalogues.",
   path: "/tools/serial-decoder",
 });
 
@@ -50,11 +50,11 @@ export default async function SerialDecoderPage({
       <PageHeader
         eyebrow="Year Finder · Serial Decoder"
         title={<>When was your Seiko <em>made?</em></>}
-        lead="Enter the serial engraved on the caseback. Add the movement caliber and we’ll narrow which decade it came from."
+        lead="Enter the serial engraved on the caseback. Add the caseback number — like 6309-7040 — and we’ll narrow the decade and show the matching watches from original Seiko catalogues."
       />
       <Container className="py-12">
         <SerialDecoder
-          calibers={slimCalibers()}
+          calibers={decoderCalibers()}
           autoFocus={!initialSerial}
           initialSerial={initialSerial}
           initialCaliber={initialCaliber}

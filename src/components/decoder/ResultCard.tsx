@@ -59,8 +59,9 @@ export function ResultCard({ result, currentYear }: { result: DecodeResult; curr
   const banner = result.notes.find((x) => x.code === "CALIBER_CONTRADICTION");
   const gs = result.notes.find((x) => x.code === "GRAND_SEIKO_DIFFERENT");
   const unknown = result.notes.find((x) => x.code === "CALIBER_UNKNOWN");
+  const attested = result.notes.find((x) => x.code === "CATALOGUE_ATTESTED_ONLY");
   const finePrint = result.notes.filter(
-    (x) => !["CALIBER_CONTRADICTION", "GRAND_SEIKO_DIFFERENT", "CALIBER_UNKNOWN"].includes(x.code),
+    (x) => !["CALIBER_CONTRADICTION", "GRAND_SEIKO_DIFFERENT", "CALIBER_UNKNOWN", "CATALOGUE_ATTESTED_ONLY"].includes(x.code),
   );
 
   const matched = n?.caliberMatched;
@@ -76,12 +77,13 @@ export function ResultCard({ result, currentYear }: { result: DecodeResult; curr
       {sub}
 
       {/* spec grid */}
-      <dl className="mt-6 grid grid-cols-2 gap-px border border-[var(--line)] bg-[var(--line)] sm:grid-cols-4">
+      <dl className={`mt-6 grid grid-cols-2 gap-px border border-[var(--line)] bg-[var(--line)] ${n?.caseCode ? "sm:grid-cols-5" : "sm:grid-cols-4"}`}>
         {[
           { k: "Month", v: `${d.month.name} (${String(d.month.number).padStart(2, "0")})` },
           { k: "Year digit", v: String(d.yearDigit) },
           { k: "Production no.", v: `#${d.sequence}` },
           { k: "Caliber", v: matched ? matched.caliber : n?.caliberQueried ? n.caliberQueried.toUpperCase() : "—" },
+          ...(n?.caseCode ? [{ k: "Case code", v: n.caseCode }] : []),
         ].map((cell) => (
           <div key={cell.k} className="bg-[var(--ivory)] px-4 py-3">
             <dt className="label !text-[10px]">{cell.k}</dt>
@@ -90,13 +92,15 @@ export function ResultCard({ result, currentYear }: { result: DecodeResult; curr
         ))}
       </dl>
 
-      {matched && (
+      {matched && !matched.attestedOnly && (
         <p className="mt-4 text-[14px]">
           <Link href={`/caliber/${caliberSlug(matched.caliber)}`} className={linkCls}>
             The {matched.caliber}: production window, specs &amp; catalogued models
           </Link>
         </p>
       )}
+
+      {attested && <p className="mt-4 text-[14px] leading-relaxed text-[var(--ink-muted)]">{attested.message}</p>}
 
       {banner && (
         <div className="mt-5 border-l-2 border-[var(--danger)] bg-[var(--danger-bg)] px-4 py-3">

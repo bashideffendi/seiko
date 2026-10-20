@@ -11,7 +11,9 @@ export type MovementType =
   | "digital-quartz"
   | "spring-drive"
   | "solar"
-  | "kinetic";
+  | "kinetic"
+  /** Only known from catalogue sightings; the movement type isn't recorded yet. */
+  | "unknown";
 
 /** One movement (caliber) record. The canonical join key across the whole product. */
 export interface CaliberRecord {
@@ -36,6 +38,14 @@ export interface CaliberRecord {
   /** Grand Seiko families use their own dating conventions. */
   grandSeiko?: boolean;
   sources?: string[];
+  // === Evidence from the digitised original catalogues (src/lib/seiko/attestation.ts) ===
+  /** First / last catalogue year in which this movement is printed. */
+  seenFrom?: number;
+  seenTo?: number;
+  /** The window was widened to cover catalogue years the reference data had left out. */
+  widenedByCatalogue?: boolean;
+  /** Not in the reference data at all: the window is only the catalogue years (production may be longer). */
+  attestedOnly?: boolean;
 }
 
 export type CaliberDataset = CaliberRecord[];
@@ -73,7 +83,10 @@ export type DecodeNoteCode =
   | "STILL_IN_PRODUCTION"
   | "LONG_RUN_WEAK_NARROWING"
   | "SCHEME_IS_CONVENTION"
-  | "GRAND_SEIKO_DIFFERENT";
+  | "GRAND_SEIKO_DIFFERENT"
+  | "CASE_CODE_READ"
+  | "CATALOGUE_WIDENED"
+  | "CATALOGUE_ATTESTED_ONLY";
 
 export interface DecodeNote {
   code: DecodeNoteCode;
@@ -82,6 +95,8 @@ export interface DecodeNote {
 
 export interface CaliberNarrowing {
   caliberQueried: string;
+  /** Case code from a caseback number like 6309-7040 (null when only a caliber was given). */
+  caseCode: string | null;
   caliberMatched: CaliberRecord | null;
   /** candidateYears ∩ caliber range. */
   likelyYears: number[];

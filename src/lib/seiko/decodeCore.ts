@@ -45,11 +45,36 @@ const NOTE_TEXT: Record<DecodeNoteCode, string> = {
     "Grand Seiko uses its own dating conventions. Treat this estimate with extra caution.",
   FUTURE_MONTH_EXCLUDED:
     "This month hasn’t happened yet this year, so the current year was ruled out.",
+  CASE_CODE_READ:
+    "The caseback number was split into the caliber (first half) and the case code (second half). The case code doesn’t change the date — it identifies the model.",
+  CATALOGUE_WIDENED:
+    "The production window was widened to cover the years this movement is printed in original Seiko catalogues.",
+  CATALOGUE_ATTESTED_ONLY:
+    "This movement isn’t in our caliber reference yet, so the decade was chosen from the years it appears in original Seiko catalogues. Production may have run longer.",
 };
 
-function note(code: DecodeNoteCode): DecodeNote {
-  return { code, message: NOTE_TEXT[code] };
+function note(code: DecodeNoteCode, message?: string): DecodeNote {
+  return { code, message: message ?? NOTE_TEXT[code] };
 }
+
+/** A caliber is four characters, a digit first and two digits last (6309, 7S26, 4R36, 1E20). */
+const CASEBACK_RE = /^([0-9][0-9A-Z][0-9]{2}[A-Z]?)[\s-]?([0-9A-Z]{3,4})$/;
+
+/**
+ * Split what the user typed into caliber + case code: "6309-7040" → 6309 / 7040,
+ * "6309 7040" and "63097040" too. A bare caliber ("7S26", "7S26A") passes through.
+ */
+export function splitCaseback(raw: string): { caliber: string; caseCode: string | null } {
+  const s = (raw ?? "").trim().toUpperCase().replace(/[‐-―−]/g, "-");
+  const m = s.match(CASEBACK_RE);
+  if (m && (s.includes("-") || s.includes(" ") || m[1].length + m[2].length === 8)) {
+    return { caliber: m[1], caseCode: m[2] };
+  }
+  return { caliber: s, caseCode: null };
+}
+
+/** Distance in years from `y` to the closed interval [from, to] (0 inside). */
+const distance = (y: number, from: number, to: number) => (y < from ? from - y : y > to ? y - to : 0);
 
 /** Normalize raw input: trim, uppercase, strip spaces/dashes, fix look-alike O. */
 export function normalizeSerial(raw: string): string {
@@ -170,30 +195,57 @@ export function decodeSerial(
   let confidence: DecodeResult["confidence"] = isSeven ? "low" : "medium";
 
   let narrowing: CaliberNarrowing | undefined;
-  const caliberQuery = opts.caliber?.trim();
+  const split = opts.caliber?.trim() ? splitCaseback(opts.caliber) : null;
+  const caliberQuery = split?.caliber;
+  const caseCode = split?.caseCode ?? null;
+  if (caseCode) notes.push(note("CASE_CODE_READ"));
   if (caliberQuery) {
     const matched = findCaliberIn(caliberQuery, data);
     if (!matched) {
       notes.push(note("CALIBER_UNKNOWN"));
       narrowing = {
         caliberQueried: caliberQuery,
+        caseCode,
         caliberMatched: null,
         likelyYears: candidates,
         singleYear: null,
         contradiction: false,
       };
+    } else if (matched.attestedOnly) {
+      // Only catalogue evidence: prefer the decade nearest the catalogue years, never call it a contradiction.
+      const from = matched.seenFrom ?? matched.startYear;
+      const to = matched.seenTo ?? matched.endYear ?? currentYear;
+      const best = Math.min(...candidates.map((y) => distance(y, from, to)));
+      const likely = candidates.filter((y) => distance(y, from, to) <= Math.max(best, 4));
+      const years = from === to ? `${from}` : `${from}–${to}`;
+      notes.push(note("CATALOGUE_ATTESTED_ONLY", `${NOTE_TEXT.CATALOGUE_ATTESTED_ONLY.replace("the years it appears", `the years it appears (${years})`)}`));
+      narrowing = {
+        caliberQueried: caliberQuery,
+        caseCode,
+        caliberMatched: matched,
+        likelyYears: likely,
+        singleYear: likely.length === 1 ? likely[0] : null,
+        contradiction: false,
+      };
+      confidence = likely.length === 1 ? "medium" : confidence;
+      if (likely.length > 1) notes.push(note("CALIBER_NARROWED_MULTI"));
     } else {
       const end = matched.endYear ?? currentYear;
       const likely = candidates.filter((y) => y >= matched.startYear && y <= end);
       const contradiction = likely.length === 0;
       narrowing = {
         caliberQueried: caliberQuery,
+        caseCode,
         caliberMatched: matched,
         likelyYears: likely,
         singleYear: likely.length === 1 ? likely[0] : null,
         contradiction,
       };
 
+      if (matched.widenedByCatalogue && matched.seenFrom != null) {
+        const years = matched.seenFrom === matched.seenTo ? `${matched.seenFrom}` : `${matched.seenFrom}–${matched.seenTo}`;
+        notes.push(note("CATALOGUE_WIDENED", `${NOTE_TEXT.CATALOGUE_WIDENED} (${years})`));
+      }
       if (matched.grandSeiko) notes.push(note("GRAND_SEIKO_DIFFERENT"));
       if (matched.endYear === null) notes.push(note("STILL_IN_PRODUCTION"));
 

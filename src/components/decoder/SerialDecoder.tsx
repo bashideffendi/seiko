@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import { decodeSerial } from "@/lib/seiko/decodeCore";
 import type { SlimCaliber } from "@/data/calibers";
 import { ResultCard } from "./ResultCard";
+import { CatalogueMatches } from "./CatalogueMatches";
 import { DECODER_EXAMPLES } from "./examples";
 import { cn } from "@/lib/cn";
 
@@ -81,7 +82,7 @@ export function SerialDecoder({
 
           <div>
             <label htmlFor={caliberId} className="label">
-              Caliber <span className="normal-case tracking-normal text-[var(--ink-soft)]">— optional, narrows the decade</span>
+              Caseback Number <span className="normal-case tracking-normal text-[var(--ink-soft)]">— optional, narrows the decade</span>
             </label>
             <input
               id={caliberId}
@@ -89,7 +90,7 @@ export function SerialDecoder({
               list={listId}
               value={caliber}
               onChange={(e) => setCaliber(cleanCaliber(e.target.value))}
-              placeholder="e.g. 6309"
+              placeholder="e.g. 6309-7040"
               spellCheck={false}
               autoComplete="off"
               autoCapitalize="characters"
@@ -135,17 +136,28 @@ export function SerialDecoder({
             <span className="border-b border-[var(--line-2)] pb-0.5">Where do I find these numbers?</span>
           </summary>
           <p className="mt-3 text-[14px] leading-relaxed text-[var(--ink-muted)]">
-            The <strong className="font-medium text-[var(--ink)]">serial</strong> is engraved on the outside of the caseback — the
-            metal back of the watch — usually six characters. The <strong className="font-medium text-[var(--ink)]">caliber</strong> is
-            the four-character movement code: the first half of the case reference, e.g. <span className="font-mono">6309</span>-7040,
-            also stamped on the movement itself.
+            Both are engraved on the outside of the caseback — the metal back of the watch. The{" "}
+            <strong className="font-medium text-[var(--ink)]">serial</strong> is usually six characters. The{" "}
+            <strong className="font-medium text-[var(--ink)]">caseback number</strong> is the caliber and the case code joined by a
+            hyphen, e.g. <span className="font-mono">6309-7040</span>: the first half (<span className="font-mono">6309</span>) is the
+            movement and narrows the decade; the second half (<span className="font-mono">7040</span>) is the case and identifies the
+            model, so we list the matching watches from the original catalogues. The caliber alone works too.
           </p>
         </details>
       </div>
 
       <div className="mt-4" aria-live="polite">
         {showResult ? (
-          <ResultCard result={result} currentYear={currentYear} />
+          <>
+            <ResultCard result={result} currentYear={currentYear} />
+            {result.ok && result.decoded?.narrowing?.caliberMatched && (
+              <CatalogueMatches
+                caliber={result.decoded.narrowing.caliberMatched.caliber}
+                caseCode={result.decoded.narrowing.caseCode}
+                hasCaliberPage={!result.decoded.narrowing.caliberMatched.attestedOnly}
+              />
+            )}
+          </>
         ) : (
           <p className="border border-dashed border-[var(--line-2)] px-6 py-7 text-[15px] text-[var(--ink-soft)]">
             Type a serial above — the reading appears here instantly, entirely in your browser.

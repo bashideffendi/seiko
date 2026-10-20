@@ -1,9 +1,10 @@
 import Link from "next/link";
+import { decoderCalibers } from "@/lib/seiko/attestation";
 import { Container, ButtonLink, SectionHead, TextLink } from "@/components/ui";
 import { SerialDecoder } from "@/components/decoder/SerialDecoder";
 import { ShopShelf } from "@/components/shop/ShopShelf";
 import { JsonLd } from "@/components/JsonLd";
-import { CALIBERS, slimCalibers } from "@/data/calibers";
+import { CALIBERS } from "@/data/calibers";
 import { CATALOGUES, CATALOGUE_STATS } from "@/lib/catalogue";
 import { MODEL_STATS } from "@/lib/modelIndex";
 import { CONTACT, SHOP, SITE_NAME, SITE_URL } from "@/lib/site";
@@ -143,7 +144,7 @@ export default function HomePage() {
                 <TextLink href="/tools/serial-decoder">Open the full decoder</TextLink>
               </div>
             </div>
-            <SerialDecoder calibers={slimCalibers()} idPrefix="home" />
+            <SerialDecoder calibers={decoderCalibers()} idPrefix="home" />
           </div>
         </Container>
       </section>
