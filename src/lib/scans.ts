@@ -34,6 +34,7 @@ import scan1977v1 from "@/data/scans/1977-1977-seiko-v1.json";
 import scan1977v2 from "@/data/scans/1977-1977-seiko-v2.json";
 import scan1978cr1 from "@/data/scans/1978-1978-credor-v1.json";
 import scan1978cr2 from "@/data/scans/1978-1978-credor-v2.json";
+import scan1978v1 from "@/data/scans/1978-1978-seiko-v1.json";
 import scan1978v2 from "@/data/scans/1978-1978-seiko-v2.json";
 import scan1979v1 from "@/data/scans/1979-1979-seiko-v1.json";
 import scan1979v2 from "@/data/scans/1979-1979-seiko-v2.json";
@@ -96,6 +97,7 @@ export const SCAN_SETS: Record<string, ScanSet> = {
   "1977-1977-seiko-v2": scan1977v2 as ScanSet,
   "1978-1978-credor-v1": scan1978cr1 as ScanSet,
   "1978-1978-credor-v2": scan1978cr2 as ScanSet,
+  "1978-1978-seiko-v1": scan1978v1 as ScanSet,
   "1978-1978-seiko-v2": scan1978v2 as ScanSet,
   "1979-1979-seiko-v1": scan1979v1 as ScanSet,
   "1979-1979-seiko-v2": scan1979v2 as ScanSet,
