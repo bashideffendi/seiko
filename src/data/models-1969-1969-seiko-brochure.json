@@ -1,0 +1,19 @@
+{
+  "catalog": {
+    "id": "1969-1969-seiko-brochure",
+    "title": "Seiko Brochure",
+    "year": 1969,
+    "edition": "export edition (USA, Seiko Time Corporation, New York)",
+    "note": "Dealer-recruitment brochure of Seiko Time Corporation, 640 Fifth Avenue, New York ('It's not just a watch.... It's a Seiko — The New Breed of Timepiece!'), 12 scan pages: the company story and six numbered sales points (Modern Manufacture, Product, Sales Turnover, Servicing, Sales Aids, Advertising). It is not a model catalogue: it prints no stock numbers, case-movement (CCCC-NNNN) refs, calibers, jewel counts, bracelet codes or prices for any watch. The only watch photos with records are the four uncaptioned illustrations on scan 2 (two men's, two ladies'), recorded with blank ref/code/price and conf low; dial colour and features come from the photos. The cover hero watch (a square-case automatic, dial 'SEIKO DX AUTOMATIC 17 JEWELS') is a cover image and, like the back-cover logo strip of small watch drawings, is not recorded. Dating: the text says Seiko is 'in its 88th consecutive year' since 1881 and first came to the US 'about five years ago', which fits 1969.",
+    "method": "vision transcription of 250 DPI renders, Oct 2026, verified against caption crops.",
+    "pages": 12,
+    "records": 4,
+    "photos": 4
+  },
+  "records": [
+    {"page":2,"section":"The Company — illustrations (no captions)","ref":"","code":"","jewels":null,"price":"","dial":"black","wr":"","specs":"","notes":"diver-style watch: rotating elapsed-time bezel, day-date at 3, steel link bracelet (from the photo); illustration in the company text; the brochure prints no caption, model number, price or jewel count for it","conf":"low","bbox":[0.1289,0.077,0.2018,0.1835],"photo":"watches/p002-01-x.webp","photoSize":[429,504]},
+    {"page":2,"section":"The Company — illustrations (no captions)","ref":"","code":"","jewels":null,"price":"","dial":"silver","wr":"","specs":"","notes":"men's cushion-case watch: day-date at 3, expanding bracelet (from the photo); illustration in the company text; the brochure prints no caption, model number, price or jewel count for it","conf":"low","bbox":[0.3336,0.077,0.201,0.1835],"photo":"watches/p002-02-x.webp","photoSize":[427,504]},
+    {"page":2,"section":"The Company — illustrations (no captions)","ref":"","code":"","jewels":null,"price":"","dial":"silver","wr":"","specs":"","notes":"ladies' square-case watch on an open bangle-style bracelet (from the photo); illustration in the company text; the brochure prints no caption, model number, price or jewel count for it","conf":"low","bbox":[0.6248,0.3583,0.1549,0.1635],"photo":"watches/p002-03-x.webp","photoSize":[329,450]},
+    {"page":2,"section":"The Company — illustrations (no captions)","ref":"","code":"","jewels":null,"price":"","dial":"silver","wr":"","specs":"","notes":"ladies' small rectangular-dial watch on a wide textured link bracelet (from the photo); illustration in the company text; the brochure prints no caption, model number, price or jewel count for it","conf":"low","bbox":[0.7834,0.3583,0.184,0.1635],"photo":"watches/p002-04-x.webp","photoSize":[391,450]}
+  ]
+}

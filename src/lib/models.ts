@@ -7,6 +7,7 @@ import cat1978cr1 from "@/data/models-1978-1978-credor-v1.json";
 import cat1978cr2 from "@/data/models-1978-1978-credor-v2.json";
 import cat1978v2 from "@/data/models-1978-1978-seiko-v2.json";
 import cat1979v1 from "@/data/models-1979-1979-seiko-v1.json";
+import cat1979v2 from "@/data/models-1979-1979-seiko-v2.json";
 import cat1973v1 from "@/data/models-1973-1973-seiko-v1.json";
 import cat1974 from "@/data/models-1974-seiko-v2.json";
 import cat1974v1 from "@/data/models-1974-1974-seiko-v1.json";
@@ -23,6 +24,7 @@ import cat1969jdm1 from "@/data/models-1969-1969-seiko-jdm-catalog-no-1.json";
 import cat1969sd from "@/data/models-1969-1969-seiko-sport-diver.json";
 import cat1969v1 from "@/data/models-1969-1969-seiko-v1.json";
 import cat1969v2 from "@/data/models-1969-1969-seiko-v2.json";
+import cat1969br from "@/data/models-1969-1969-seiko-brochure.json";
 import cat1972lux from "@/data/models-1972-1972-seiko-luxury.json";
 import cat1972cat from "@/data/models-1972-1972-seiko-catalogue.json";
 import cat1972v1 from "@/data/models-1972-1972-seiko-v1.json";
@@ -118,6 +120,7 @@ export const MODEL_SETS: Record<string, CatalogModelSet> = {
   "1978-1978-credor-v2": cat1978cr2 as CatalogModelSet,
   "1978-1978-seiko-v2": cat1978v2 as CatalogModelSet,
   "1979-1979-seiko-v1": cat1979v1 as CatalogModelSet,
+  "1979-1979-seiko-v2": cat1979v2 as CatalogModelSet,
   "1973-1973-seiko-v1": cat1973v1 as CatalogModelSet,
   "1974-1974-seiko-v2": cat1974 as CatalogModelSet,
   "1974-1974-seiko-v1": cat1974v1 as CatalogModelSet,
@@ -134,6 +137,7 @@ export const MODEL_SETS: Record<string, CatalogModelSet> = {
   "1969-1969-seiko-sport-diver": cat1969sd as CatalogModelSet,
   "1969-1969-seiko-v1": cat1969v1 as CatalogModelSet,
   "1969-1969-seiko-v2": cat1969v2 as CatalogModelSet,
+  "1969-1969-seiko-brochure": cat1969br as CatalogModelSet,
   "1972-1972-seiko-luxury": cat1972lux as CatalogModelSet,
   "1972-1972-seiko-catalogue": cat1972cat as CatalogModelSet,
   "1972-1972-seiko-v1": cat1972v1 as CatalogModelSet,
