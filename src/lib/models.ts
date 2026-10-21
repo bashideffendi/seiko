@@ -6,6 +6,7 @@ import cat1960 from "@/data/models-1960-1960-seiko.json";
 import cat1978cr1 from "@/data/models-1978-1978-credor-v1.json";
 import cat1978cr2 from "@/data/models-1978-1978-credor-v2.json";
 import cat1979v1 from "@/data/models-1979-1979-seiko-v1.json";
+import cat1973v1 from "@/data/models-1973-1973-seiko-v1.json";
 import cat1974 from "@/data/models-1974-seiko-v2.json";
 import cat1974v1 from "@/data/models-1974-1974-seiko-v1.json";
 import cat1977v1 from "@/data/models-1977-1977-seiko-v1.json";
@@ -115,6 +116,7 @@ export const MODEL_SETS: Record<string, CatalogModelSet> = {
   "1978-1978-credor-v1": cat1978cr1 as CatalogModelSet,
   "1978-1978-credor-v2": cat1978cr2 as CatalogModelSet,
   "1979-1979-seiko-v1": cat1979v1 as CatalogModelSet,
+  "1973-1973-seiko-v1": cat1973v1 as CatalogModelSet,
   "1974-1974-seiko-v2": cat1974 as CatalogModelSet,
   "1974-1974-seiko-v1": cat1974v1 as CatalogModelSet,
   "1977-1977-seiko-v1": cat1977v1 as CatalogModelSet,
